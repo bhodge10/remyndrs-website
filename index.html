@@ -230,6 +230,73 @@
             font-weight: 500;
         }
 
+        /* ─── MOBILE CONVERSATION PREVIEW (above-the-fold) ─── */
+        .hero-convo-preview {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+            margin: 0 auto 12px;
+            animation: convoFadeIn 0.6s ease 0.2s both;
+        }
+
+        @keyframes convoFadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .convo-label {
+            font-size: 11px;
+            color: #8a9baa;
+            text-align: center;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .convo-bubble {
+            padding: 6px 10px;
+            border-radius: 14px;
+            font-size: 13px;
+            line-height: 1.3;
+            margin-bottom: 4px;
+            max-width: 85%;
+        }
+
+        .convo-bubble:last-child { margin-bottom: 0; }
+
+        .convo-bubble.sent {
+            background: #34C759;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .convo-bubble.received {
+            background: #e9e9eb;
+            color: #000;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        /* ─── SOCIAL PROOF ─── */
+        .social-proof {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* ─── CTA PULSE ANIMATION ─── */
+        @keyframes ctaPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+
+        .cta-button {
+            animation: ctaPulse 0.8s ease 0.5s 1;
+        }
+
         /* ─── SECONDARY PHONE DISPLAY (desktop only) ─── */
         .phone-display-secondary {
             font-size: 14px;
@@ -1251,9 +1318,19 @@
         .desktop-only-inline-block { display: none; }
         .desktop-only-flex { display: none; }
 
+        /* ─── MOBILE HERO TIGHTENING ─── */
+        @media (max-width: 768px) {
+            .hero { padding: 30px 20px 24px; }
+            .hero-logo { width: 70px; margin-bottom: 10px; }
+            .hero h1 { font-size: 30px; margin-bottom: 4px; }
+            .hero .subtitle { font-size: 16px; margin-bottom: 10px; }
+            .hero-trust { margin-top: 10px; }
+        }
+
         /* ─── RESPONSIVE: DESKTOP ─── */
         @media (min-width: 769px) {
             .mobile-only { display: none !important; }
+            .hero-convo-preview { display: none !important; }
             .desktop-only-block { display: block !important; }
             .desktop-only-inline { display: inline !important; }
             .desktop-only-inline-block { display: inline-block !important; }
@@ -1334,6 +1411,18 @@
 
         @media (min-width: 769px) {
             .case-hint { display: none; }
+        }
+
+        /* ─── ABOVE THE FOLD SQUEEZE for smaller phones (375px) ─── */
+        @media (max-width: 430px) {
+            .hero { padding: 20px 16px 20px; }
+            .hero-logo { width: 60px; margin-bottom: 8px; }
+            .hero h1 { font-size: 28px; margin-bottom: 4px; }
+            .hero .subtitle { font-size: 15px; margin-bottom: 8px; }
+            .hero-convo-preview { margin-bottom: 8px; }
+            .convo-bubble { font-size: 12px; padding: 5px 9px; }
+            .social-proof { font-size: 12px; margin-top: 6px; }
+            .hero-trust { font-size: 11px; gap: 12px; }
         }
 
         /* Android mobile: use tap-to-text SMS links (same experience as iOS).
@@ -1420,6 +1509,15 @@
                 <h1>Never Forget Anything Again</h1>
                 <p class="subtitle">Your personal memory assistant via text.<br>Just text it. We'll remember it.</p>
 
+                <!-- Mobile conversation preview -->
+                <div class="hero-convo-preview mobile-only">
+                    <span class="convo-label">See how it works:</span>
+                    <div class="convo-bubble sent">Remind me at 3pm to pick up dry cleaning</div>
+                    <div class="convo-bubble received">✓ Got it! I'll remind you at 3:00 PM.</div>
+                    <div class="convo-bubble sent">What's my WiFi password?</div>
+                    <div class="convo-bubble received">Your WiFi password is BlueSky42</div>
+                </div>
+
                 <!-- Mobile: keep Text Hello + CTA as primary -->
                 <p class="phone-display mobile-only">
                     Text <strong>Hello</strong> to
@@ -1429,7 +1527,7 @@
                 <!-- Mobile CTA -->
                 <div class="mobile-cta-container mobile-only">
                     <a href="sms:+18555521950?body=Hello" class="cta-button" aria-label="Start free trial by texting hello" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index'})">
-                        📱 Tap to Text Us — It's Free!
+                        📱 Tap to Text Us — It's Free! →
                     </a>
                     <p class="sms-disclaimer">By texting, you agree to receive automated SMS messages. Msg & data rates may apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
                 </div>
@@ -1455,6 +1553,8 @@
                 <p class="phone-display-secondary desktop-only-block">
                     Or text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_hero_secondary',location:'hero',page:'index'})">+1 (855) 552-1950</a> from your phone
                 </p>
+
+                <p class="social-proof">✓ Trusted by 50+ people to remember what matters</p>
 
                 <div class="hero-trust">
                     <span>🔒 Bank-level encryption</span>
