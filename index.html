@@ -286,6 +286,11 @@
             margin-top: 10px;
         }
 
+        .mobile-social-proof {
+            margin-top: 6px;
+            margin-bottom: 0;
+        }
+
         /* ─── CTA PULSE ANIMATION ─── */
         @keyframes ctaPulse {
             0% { transform: scale(1); }
@@ -402,7 +407,7 @@
 
         /* Mobile CTA container */
         .mobile-cta-container {
-            margin-top: 8px;
+            margin-top: 4px;
         }
 
         .sms-disclaimer {
@@ -1320,11 +1325,19 @@
 
         /* ─── MOBILE HERO TIGHTENING ─── */
         @media (max-width: 768px) {
-            .hero { padding: 30px 20px 24px; }
-            .hero-logo { width: 70px; margin-bottom: 10px; }
-            .hero h1 { font-size: 30px; margin-bottom: 4px; }
-            .hero .subtitle { font-size: 16px; margin-bottom: 10px; }
-            .hero-trust { margin-top: 10px; }
+            header { padding: 10px 16px; }
+            .header-phone { display: none !important; }
+            .header-inner { gap: 0; }
+            .hero { padding: 18px 16px 16px; }
+            .hero-logo { width: 56px; margin-bottom: 6px; }
+            .hero h1 { font-size: 28px; margin-bottom: 2px; }
+            .hero .subtitle { font-size: 15px; margin-bottom: 6px; }
+            .hero .phone-display { font-size: 17px; margin-bottom: 8px; }
+            .hero-convo-preview { margin-bottom: 6px; }
+            .cta-button { padding: 12px 36px; font-size: 17px; }
+            .sms-disclaimer { font-size: 10px; line-height: 1.3; margin-top: 4px; }
+            .social-proof { font-size: 13px; margin-top: 6px; }
+            .hero-trust { margin-top: 6px; font-size: 12px; gap: 14px; }
         }
 
         /* ─── RESPONSIVE: DESKTOP ─── */
@@ -1415,14 +1428,18 @@
 
         /* ─── ABOVE THE FOLD SQUEEZE for smaller phones (375px) ─── */
         @media (max-width: 430px) {
-            .hero { padding: 20px 16px 20px; }
-            .hero-logo { width: 60px; margin-bottom: 8px; }
-            .hero h1 { font-size: 28px; margin-bottom: 4px; }
-            .hero .subtitle { font-size: 15px; margin-bottom: 8px; }
-            .hero-convo-preview { margin-bottom: 8px; }
-            .convo-bubble { font-size: 12px; padding: 5px 9px; }
-            .social-proof { font-size: 12px; margin-top: 6px; }
-            .hero-trust { font-size: 11px; gap: 12px; }
+            .hero { padding: 14px 14px 14px; }
+            .hero-logo { width: 50px; margin-bottom: 4px; }
+            .hero h1 { font-size: 26px; margin-bottom: 2px; }
+            .hero .subtitle { font-size: 14px; margin-bottom: 4px; }
+            .hero .phone-display { font-size: 15px; margin-bottom: 6px; }
+            .hero-convo-preview { margin-bottom: 4px; }
+            .convo-bubble { font-size: 11px; padding: 4px 8px; margin-bottom: 3px; border-radius: 12px; }
+            .convo-label { font-size: 10px; margin-bottom: 4px; }
+            .cta-button { padding: 11px 28px; font-size: 16px; }
+            .social-proof { font-size: 11px; margin-top: 4px; }
+            .hero-trust { font-size: 11px; gap: 10px; margin-top: 4px; }
+            .sms-disclaimer { font-size: 9px; line-height: 1.25; margin-top: 3px; }
         }
 
         /* Android mobile: use tap-to-text SMS links (same experience as iOS).
@@ -1529,6 +1546,7 @@
                     <a href="sms:+18555521950?body=Hello" class="cta-button" aria-label="Start free trial by texting hello" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index'})">
                         📱 Tap to Text Us — It's Free! →
                     </a>
+                    <p class="social-proof mobile-social-proof">✓ Trusted by 50+ people to remember what matters</p>
                     <p class="sms-disclaimer">By texting, you agree to receive automated SMS messages. Msg & data rates may apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
                 </div>
 
@@ -1554,7 +1572,7 @@
                     Or text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_hero_secondary',location:'hero',page:'index'})">+1 (855) 552-1950</a> from your phone
                 </p>
 
-                <p class="social-proof">✓ Trusted by 50+ people to remember what matters</p>
+                <p class="social-proof desktop-only-block">✓ Trusted by 50+ people to remember what matters</p>
 
                 <div class="hero-trust">
                     <span>🔒 Bank-level encryption</span>
