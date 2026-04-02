@@ -182,16 +182,14 @@
             margin-right: auto;
         }
 
-        .hero .phone-display,
-        .mobile-demos .phone-display {
+        .hero .phone-display {
             font-size: 20px;
             font-weight: 700;
             color: var(--primary-blue);
             margin-bottom: 20px;
         }
 
-        .hero .phone-display a,
-        .mobile-demos .phone-display a {
+        .hero .phone-display a {
             color: var(--primary-blue);
             text-decoration: none;
         }
@@ -1224,16 +1222,15 @@
             .demo-home-bar { width: 40px; }
         }
 
-        /* ─── MOBILE CONVERSATION PREVIEWS (mobile only) ─── */
-        .mobile-demos {
-            display: block;
-            padding: 28px 20px 20px;
+/* ─── INTERACTIVE DEMO ─── */
+        .try-demo {
+            padding: 32px 20px 28px;
             background: linear-gradient(180deg, #EEF3F6 0%, #f4f7f9 100%);
             border-top: 1px solid #e4e9ec;
+            text-align: center;
         }
 
-        .mobile-demos-label {
-            text-align: center;
+        .try-demo-label {
             font-size: 11px;
             font-weight: 600;
             color: #a0adb8;
@@ -1242,68 +1239,216 @@
             margin-bottom: 16px;
         }
 
-        .mobile-demo-block {
-            max-width: 320px;
-            margin: 0 auto 20px;
+        .try-demo-phone {
+            max-width: 360px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
         }
 
-        .mobile-demo-block:last-child { margin-bottom: 0; }
+        .try-demo-topbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: #f8f8f8;
+            border-bottom: 1px solid #e8e8e8;
+        }
 
-        .mobile-demo-title {
-            font-size: 14px;
+        .try-demo-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 13px;
             font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .mobile-demo-convo {
-            background: white;
-            border-radius: 16px;
-            padding: 14px 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        .try-demo-contact {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .try-demo-messages {
+            min-height: 180px;
+            max-height: 320px;
+            overflow-y: auto;
+            padding: 12px;
             display: flex;
             flex-direction: column;
+            gap: 6px;
+            scroll-behavior: smooth;
         }
 
-        .m-msg {
-            margin-bottom: 6px;
+        .try-demo-bubble {
             padding: 8px 12px;
             border-radius: 16px;
-            max-width: 82%;
-            font-size: 13px;
+            font-size: 14px;
             line-height: 1.4;
+            max-width: 82%;
+            width: fit-content;
+            animation: demoMsgIn 0.3s ease both;
             white-space: pre-line;
         }
 
-        .m-msg:last-child { margin-bottom: 0; }
-
-        .m-msg.user {
+        .try-demo-bubble.user {
             background: #34C759;
             color: white;
             align-self: flex-end;
             border-bottom-right-radius: 4px;
         }
 
-        .m-msg.bot {
-            background: #e5e5ea;
+        .try-demo-bubble.bot {
+            background: #e9e9eb;
             color: #000;
             align-self: flex-start;
             border-bottom-left-radius: 4px;
-            text-align: left;
         }
 
-        .mobile-demo-divider {
-            width: 40px;
-            height: 2px;
-            background: #d8dee3;
-            border-radius: 1px;
-            margin: 8px auto 20px;
+        .try-demo-bubble.time-skip {
+            background: transparent;
+            color: #999;
+            font-size: 12px;
+            font-weight: 600;
+            align-self: center;
+            text-align: center;
+            padding: 8px 16px;
+            letter-spacing: 0.3px;
         }
 
-        /* Hide on desktop — desktop has flanking phones instead */
-        @media (min-width: 1024px) {
-            .mobile-demos { display: none !important; }
+        .try-demo-typing {
+            align-self: flex-start;
+            background: #e9e9eb;
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            padding: 10px 16px;
+            display: flex;
+            gap: 4px;
+            width: fit-content;
+        }
+
+        .try-demo-typing span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #999;
+            animation: typingDot 1.2s infinite;
+        }
+
+        .try-demo-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .try-demo-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingDot {
+            0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+            30% { opacity: 1; transform: translateY(-3px); }
+        }
+
+        @keyframes demoMsgIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .try-demo-suggestions {
+            display: flex;
+            gap: 6px;
+            padding: 8px 12px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .try-demo-suggestions::-webkit-scrollbar { display: none; }
+
+        .try-demo-chip {
+            flex-shrink: 0;
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1.5px solid var(--primary-blue);
+            background: white;
+            color: var(--primary-blue);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            white-space: nowrap;
+        }
+
+        .try-demo-chip:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .try-demo-inputbar {
+            display: flex;
+            gap: 8px;
+            padding: 10px 12px;
+            border-top: 1px solid #e8e8e8;
+            background: #f8f8f8;
+        }
+
+        .try-demo-input {
+            flex: 1;
+            padding: 10px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 20px;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s;
+            background: white;
+        }
+
+        .try-demo-input:focus { border-color: var(--primary-blue); }
+
+        .try-demo-send {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.15s;
+            flex-shrink: 0;
+        }
+
+        .try-demo-send:hover { background: #3D7A8C; transform: scale(1.05); }
+
+        .try-demo-cta {
+            margin-top: 20px;
+            animation: demoMsgIn 0.5s ease both;
+        }
+
+        .try-demo-cta-text {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .try-demo { padding: 24px 16px 20px; }
+            .try-demo-phone { border-radius: 16px; }
+            .try-demo-messages { min-height: 160px; }
+            .try-demo-chip { font-size: 11px; padding: 7px 12px; }
+        }
+
+        @media (min-width: 769px) {
+            .try-demo-phone { max-width: 420px; }
         }
 
         /* ─── FOOTER ─── */
@@ -1645,49 +1790,33 @@
         </div>
     </section>
 
-    <!-- ═══ MOBILE CONVERSATION PREVIEWS (hidden on desktop) ═══ -->
-    <div class="mobile-demos">
-        <p class="mobile-demos-label">See how it works</p>
-
-        <!-- Lists example -->
-        <div class="mobile-demo-block">
-            <p class="mobile-demo-title">📝 Lists</p>
-            <div class="mobile-demo-convo">
-                <div class="m-msg user">Add milk and eggs to my grocery list</div>
-                <div class="m-msg bot">✓ Added milk and eggs to your grocery list</div>
-                <div class="m-msg user">What's on my grocery list?</div>
-                <div class="m-msg bot">Your grocery list:
-• Milk
-• Eggs
-• Bread
-• Butter</div>
+    <!-- ═══ INTERACTIVE DEMO ═══ -->
+    <section class="try-demo" id="try-demo">
+        <p class="try-demo-label">Try it yourself — no account needed</p>
+        <div class="try-demo-phone">
+            <div class="try-demo-topbar">
+                <span class="try-demo-avatar">R</span>
+                <span class="try-demo-contact">Remyndrs</span>
+            </div>
+            <div class="try-demo-messages" id="tryDemoMessages">
+                <div class="try-demo-bubble bot">Hi! I'm Remyndrs. Try sending me something below, or tap a suggestion.</div>
+            </div>
+            <div class="try-demo-suggestions" id="tryDemoSuggestions">
+                <button class="try-demo-chip" data-msg="Remind me to take my medicine at 8pm">⏰ Remind me to take my medicine at 8pm</button>
+                <button class="try-demo-chip" data-msg="Add eggs and milk to my grocery list">📝 Add eggs and milk to my grocery list</button>
+                <button class="try-demo-chip" data-msg="Remember my WiFi password is Sunny42">🔑 Remember my WiFi password is Sunny42</button>
+            </div>
+            <div class="try-demo-inputbar">
+                <input type="text" id="tryDemoInput" class="try-demo-input" placeholder="Type a message..." autocomplete="off">
+                <button id="tryDemoSend" class="try-demo-send" aria-label="Send">&#9650;</button>
             </div>
         </div>
-
-        <div class="mobile-demo-divider"></div>
-
-        <!-- Reminders example -->
-        <div class="mobile-demo-block">
-            <p class="mobile-demo-title">⏰ Reminders</p>
-            <div class="mobile-demo-convo">
-                <div class="m-msg user">Remind me to pick up the kids at 3pm</div>
-                <div class="m-msg bot">✓ I'll remind you today at 3:00 PM to pick up the kids</div>
-                <div class="m-msg bot">⏰ Reminder: Pick up the kids! (3:00 PM)</div>
-            </div>
+        <div class="try-demo-cta" id="tryDemoCta" style="display:none;">
+            <p class="try-demo-cta-text">That's it. No app. No account. Just text.</p>
+            <a href="sms:+18555521950?body=Hello" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'interactive_demo',page:'index'})">📱 Try It For Real — Text Us Free!</a>
+            <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'interactive_demo',page:'index'})">Try It For Real — Get Started Free!</a>
         </div>
-
-        <!-- CTA after conversations -->
-        <div style="text-align: center; margin-top: 24px;">
-            <p class="phone-display" style="margin-bottom: 12px;">
-                Text <strong>Hello</strong> to
-                <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_post_demos',location:'post_demos',page:'index'})">+1 (855) 552-1950</a>
-            </p>
-            <a href="sms:+18555521950?body=Hello" class="cta-button" style="margin: 0 auto;" onclick="gtag('event','mobile_sms_click',{action:'start',location:'post_demos',page:'index'})">
-                📱 Tap to Text Us — It's Free!
-            </a>
-            <p style="font-size: 13px; color: #999; margin-top: 8px;">No app needed · Free forever · Cancel anytime</p>
-        </div>
-    </div>
+    </section>
 
     <!-- ═══ PRICING ONE-LINER ═══ -->
     <div class="pricing-strip" id="pricing-strip">
@@ -2156,6 +2285,195 @@
                 e.target.value = value;
             });
         }
+
+        // ── Interactive Try-It Demo ──
+        (function() {
+            var messagesEl = document.getElementById('tryDemoMessages');
+            var suggestionsEl = document.getElementById('tryDemoSuggestions');
+            var inputEl = document.getElementById('tryDemoInput');
+            var sendBtn = document.getElementById('tryDemoSend');
+            var ctaEl = document.getElementById('tryDemoCta');
+            if (!messagesEl || !inputEl) return;
+
+            var demoUsed = false;
+
+            var SCENARIOS = {
+                reminder: {
+                    match: /remind|alarm|alert|wake|don.t forget|notify/i,
+                    parse: function(msg) {
+                        var timeMatch = msg.match(/(\d{1,2})\s*(am|pm|AM|PM)|(\d{1,2}):(\d{2})/);
+                        var time = timeMatch ? timeMatch[0].toUpperCase() : '8:00 PM';
+                        if (timeMatch && !time.includes(':') && !time.includes('AM') && !time.includes('PM')) time += ' PM';
+                        var taskMatch = msg.replace(/remind me (to )?/i, '').replace(/at \d{1,2}(:\d{2})?\s*(am|pm)?/i, '').replace(/tonight|today|tomorrow|in \d+ (min|hour|minute|hr)s?/i, '').trim();
+                        if (taskMatch.length < 3) taskMatch = 'take your medicine';
+                        // Clean up leading/trailing junk
+                        taskMatch = taskMatch.replace(/^(to |that )/i, '').replace(/\s+/g, ' ').trim();
+                        if (!taskMatch) taskMatch = 'take your medicine';
+                        return { time: time, task: taskMatch };
+                    },
+                    respond: function(parsed) {
+                        return [
+                            { type: 'bot', text: "Got it! I'll remind you to " + parsed.task + " at " + parsed.time + " today. \u2713", delay: 1500 },
+                            { type: 'time-skip', text: "\u23E9  Fast forward to " + parsed.time + "...", delay: 3000 },
+                            { type: 'bot', text: "\u23F0 Hey! Reminder: " + parsed.task.charAt(0).toUpperCase() + parsed.task.slice(1) + "!", delay: 4500 }
+                        ];
+                    }
+                },
+                list: {
+                    match: /add .* (to|on) .* list|grocery|shopping|list/i,
+                    parse: function(msg) {
+                        var itemsMatch = msg.match(/add (.+?) (to|on)/i);
+                        var items = itemsMatch ? itemsMatch[1].split(/,| and /).map(function(s) { return s.trim(); }).filter(Boolean) : ['eggs', 'milk'];
+                        var listMatch = msg.match(/(to|on) (?:my )?(.+?)(?:\s+list)?$/i);
+                        var listName = listMatch ? listMatch[2].replace(/\s*list\s*/i, '').trim() : 'grocery';
+                        return { items: items, listName: listName };
+                    },
+                    respond: function(parsed) {
+                        var itemStr = parsed.items.join(' and ');
+                        var existing = ['Bread', 'Butter'];
+                        var allItems = existing.concat(parsed.items.map(function(s) { return s.charAt(0).toUpperCase() + s.slice(1); }));
+                        return [
+                            { type: 'bot', text: "\u2713 Added " + itemStr + " to your " + parsed.listName + " list! (" + allItems.length + " items)", delay: 1500 },
+                            { type: 'time-skip', text: "\u23E9  Later, at the store...", delay: 3000 },
+                            { type: 'user', text: "What's on my " + parsed.listName + " list?", delay: 4200 },
+                            { type: 'bot', text: "Your " + parsed.listName + " list:\n\u2022 " + allItems.join("\n\u2022 "), delay: 5800 }
+                        ];
+                    }
+                },
+                memory: {
+                    match: /remember|save|store|my .+ is|password|code|gate|wifi|locker/i,
+                    parse: function(msg) {
+                        var cleaned = msg.replace(/^(remember|save|store) (that )?(my )?/i, '').trim();
+                        // Try to extract "X is Y" pattern
+                        var isMatch = cleaned.match(/(.+?)\s+is\s+(.+)/i);
+                        if (isMatch) return { label: isMatch[1].trim(), value: isMatch[2].trim() };
+                        return { label: 'info', value: cleaned };
+                    },
+                    respond: function(parsed) {
+                        var emoji = /password|wifi|code/i.test(parsed.label) ? '\uD83D\uDD11' : /locker/i.test(parsed.label) ? '\uD83D\uDD12' : '\uD83D\uDCBE';
+                        return [
+                            { type: 'bot', text: "Saved! I'll remember your " + parsed.label + ". " + emoji + " \u2713", delay: 1500 },
+                            { type: 'time-skip', text: "\u23E9  2 weeks later...", delay: 3000 },
+                            { type: 'user', text: "What's my " + parsed.label + "?", delay: 4200 },
+                            { type: 'bot', text: emoji + " Your " + parsed.label + " is " + parsed.value, delay: 5800 }
+                        ];
+                    }
+                }
+            };
+
+            function addBubble(type, text) {
+                var div = document.createElement('div');
+                div.className = 'try-demo-bubble ' + type;
+                div.textContent = text;
+                messagesEl.appendChild(div);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+                return div;
+            }
+
+            function addTyping() {
+                var div = document.createElement('div');
+                div.className = 'try-demo-typing';
+                div.innerHTML = '<span></span><span></span><span></span>';
+                messagesEl.appendChild(div);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+                return div;
+            }
+
+            function detectScenario(msg) {
+                if (SCENARIOS.reminder.match.test(msg)) return 'reminder';
+                if (SCENARIOS.list.match.test(msg)) return 'list';
+                if (SCENARIOS.memory.match.test(msg)) return 'memory';
+                // Default: pick based on keywords
+                if (/\d{1,2}\s*(am|pm)/i.test(msg)) return 'reminder';
+                return 'reminder'; // fallback
+            }
+
+            function runDemo(userMsg) {
+                if (demoUsed) return;
+                demoUsed = true;
+
+                // Hide suggestions
+                suggestionsEl.style.display = 'none';
+                inputEl.disabled = true;
+                sendBtn.disabled = true;
+
+                // Add user message
+                addBubble('user', userMsg);
+
+                var scenarioKey = detectScenario(userMsg);
+                var scenario = SCENARIOS[scenarioKey];
+                var parsed = scenario.parse(userMsg);
+                var steps = scenario.respond(parsed);
+
+                // Show typing indicator first
+                var typingEl = null;
+                setTimeout(function() {
+                    typingEl = addTyping();
+                }, 500);
+
+                steps.forEach(function(step) {
+                    setTimeout(function() {
+                        if (typingEl) { typingEl.remove(); typingEl = null; }
+                        addBubble(step.type, step.text);
+                        // Add typing before next bot message
+                        var nextBotStep = steps.find(function(s) { return s.delay > step.delay && s.type === 'bot'; });
+                        if (nextBotStep) {
+                            setTimeout(function() {
+                                typingEl = addTyping();
+                            }, 300);
+                        }
+                    }, step.delay);
+                });
+
+                // Show CTA after last step
+                var lastDelay = steps[steps.length - 1].delay;
+                setTimeout(function() {
+                    ctaEl.style.display = 'block';
+                    if (typeof gtag === 'function') gtag('event', 'demo_completed', { scenario: scenarioKey, page: 'index' });
+                }, lastDelay + 1200);
+
+                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, input_type: 'custom', page: 'index' });
+            }
+
+            // Chip clicks
+            suggestionsEl.addEventListener('click', function(e) {
+                var chip = e.target.closest('.try-demo-chip');
+                if (!chip) return;
+                var msg = chip.getAttribute('data-msg');
+                inputEl.value = '';
+                runDemo(msg);
+            });
+
+            // Send button / Enter key
+            function handleSend() {
+                var msg = inputEl.value.trim();
+                if (!msg) return;
+                inputEl.value = '';
+                runDemo(msg);
+            }
+
+            sendBtn.addEventListener('click', handleSend);
+            inputEl.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') { e.preventDefault(); handleSend(); }
+            });
+
+            // Allow reset after demo completes
+            function resetDemo() {
+                demoUsed = false;
+                messagesEl.innerHTML = '<div class="try-demo-bubble bot">Try another one! Tap a suggestion or type your own.</div>';
+                suggestionsEl.style.display = 'flex';
+                inputEl.disabled = false;
+                sendBtn.disabled = false;
+                ctaEl.style.display = 'none';
+            }
+
+            // Add "Try another" to CTA area
+            var tryAnother = document.createElement('button');
+            tryAnother.textContent = 'Try another demo';
+            tryAnother.style.cssText = 'display:block;margin:12px auto 0;background:none;border:none;color:var(--primary-blue);font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline;font-family:inherit;';
+            tryAnother.addEventListener('click', resetDemo);
+            ctaEl.appendChild(tryAnother);
+        })();
 
         // ── Auto-playing demo phone animations (desktop only) ──
         // Right phone starts with full conversation visible on page load.
