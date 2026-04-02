@@ -1349,6 +1349,7 @@
             color: #000;
             align-self: flex-start;
             border-bottom-left-radius: 4px;
+            text-align: left;
         }
 
         .try-demo-bubble.time-skip {
@@ -2381,14 +2382,17 @@
 
             function cleanTask(msg) {
                 // Strip common prefixes and time/date references to get the core task
-                return msg
+                var s = msg
                     .replace(/^(hey|hi|hello|please|can you|could you|i need to|i need you to|i want to)\s+/i, '')
                     .replace(/^(remind me|reminder|don'?t let me forget|don'?t forget)\s*(to|about|that i need to|that)?\s*/i, '')
-                    .replace(/^(set a reminder|set an alarm|set reminder)\s*(to|for|about)?\s*/i, '')
-                    .replace(/\b(at|by|before|around)\s+\d{1,2}(:\d{2})?\s*(am|pm|a\.m\.|p\.m\.)?\b/gi, '')
-                    .replace(/\b(today|tonight|tomorrow|this evening|this morning|next\s+\w+|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/gi, '')
-                    .replace(/\s+/g, ' ')
-                    .trim();
+                    .replace(/^(set a reminder|set an alarm|set reminder)\s*(to|for|about)?\s*/i, '');
+                // Remove time references (at 8pm, by 3:00, etc.)
+                s = s.replace(/(^|\s)(at|by|before|around)\s+\d{1,2}(:\d{2})?\s*(am|pm|a\.m\.|p\.m\.)?/gi, '');
+                // Remove day/date words only as whole words
+                s = s.replace(/(^|\s)(today|tonight|tomorrow|this evening|this morning|next\s+\w+|monday|tuesday|wednesday|thursday|friday|saturday|sunday)(\s|$)/gi, ' ');
+                // Clean up leading prepositions left behind
+                s = s.replace(/^\s*(to|that|about)\s+/i, '');
+                return s.replace(/\s+/g, ' ').trim();
             }
 
             function detectScenario(msg) {
@@ -2430,8 +2434,7 @@
                         listName = 'grocery';
                     }
                     var itemStr = items.join(' and ');
-                    var existing = ['Bread', 'Butter'];
-                    var allItems = existing.concat(items.map(cap));
+                    var allItems = items.map(cap);
                     return {
                         scenario: 'list',
                         steps: [
@@ -2520,13 +2523,18 @@
                     typingEl = addTyping();
                 }, 500);
 
-                steps.forEach(function(step) {
+                steps.forEach(function(step, idx) {
                     setTimeout(function() {
                         if (typingEl) { typingEl.remove(); typingEl = null; }
                         var bubbleType = step.type === 'time-skip' ? 'time-skip' : (step.type === 'user' ? 'user' : 'bot');
                         addBubble(bubbleType, step.text);
-                        var nextBotStep = steps.find(function(s) { return s.delay > step.delay && (s.type === 'bot' || (!s.type && s.text)); });
-                        if (nextBotStep) {
+                        // Only show typing if there's a LATER step that is a bot/default reply
+                        var hasMoreBotSteps = false;
+                        for (var j = idx + 1; j < steps.length; j++) {
+                            var t = steps[j].type;
+                            if (!t || t === 'bot') { hasMoreBotSteps = true; break; }
+                        }
+                        if (hasMoreBotSteps) {
                             setTimeout(function() {
                                 typingEl = addTyping();
                             }, 300);
@@ -2536,6 +2544,8 @@
 
                 var lastDelay = steps[steps.length - 1].delay;
                 setTimeout(function() {
+                    // Clean up any stray typing indicator
+                    if (typingEl) { typingEl.remove(); typingEl = null; }
                     demoRunning = false;
                     ctaEl.style.display = 'block';
                     suggestionsEl.style.display = 'flex';
