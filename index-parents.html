@@ -1689,7 +1689,8 @@
             var ctaEl = document.getElementById('tryDemoCta');
             if (!messagesEl || !inputEl) return;
 
-            var demoUsed = false;
+            var demoRunning = false;
+            var demoCount = 0;
 
             var SCENARIOS = {
                 reminder: {
@@ -1782,12 +1783,21 @@
             }
 
             function runDemo(userMsg) {
-                if (demoUsed) return;
-                demoUsed = true;
+                if (demoRunning) return;
+                demoRunning = true;
+                demoCount++;
 
+                // Hide suggestions and disable input while animating
                 suggestionsEl.style.display = 'none';
                 inputEl.disabled = true;
                 sendBtn.disabled = true;
+
+                // Add a divider if this isn't the first demo
+                if (demoCount > 1) {
+                    var divider = document.createElement('div');
+                    divider.style.cssText = 'width:40px;height:2px;background:#d8dee3;border-radius:1px;margin:12px auto;';
+                    messagesEl.appendChild(divider);
+                }
 
                 addBubble('user', userMsg);
 
@@ -1814,13 +1824,22 @@
                     }, step.delay);
                 });
 
+                // After demo finishes: show CTA + re-enable input for another try
                 var lastDelay = steps[steps.length - 1].delay;
                 setTimeout(function() {
+                    demoRunning = false;
                     ctaEl.style.display = 'block';
-                    if (typeof gtag === 'function') gtag('event', 'demo_completed', { scenario: scenarioKey, page: 'index-parents' });
+
+                    // Re-enable suggestions and input so they can try again
+                    suggestionsEl.style.display = 'flex';
+                    inputEl.disabled = false;
+                    sendBtn.disabled = false;
+                    inputEl.placeholder = 'Try another message...';
+
+                    if (typeof gtag === 'function') gtag('event', 'demo_completed', { scenario: scenarioKey, demo_number: demoCount, page: 'index-parents' });
                 }, lastDelay + 1200);
 
-                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, input_type: 'custom', page: 'index-parents' });
+                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, demo_number: demoCount, page: 'index-parents' });
             }
 
             suggestionsEl.addEventListener('click', function(e) {
@@ -1842,21 +1861,6 @@
             inputEl.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') { e.preventDefault(); handleSend(); }
             });
-
-            function resetDemo() {
-                demoUsed = false;
-                messagesEl.innerHTML = '<div class="try-demo-bubble bot">Try another one! Tap a suggestion or type your own.</div>';
-                suggestionsEl.style.display = 'flex';
-                inputEl.disabled = false;
-                sendBtn.disabled = false;
-                ctaEl.style.display = 'none';
-            }
-
-            var tryAnother = document.createElement('button');
-            tryAnother.textContent = 'Try another demo';
-            tryAnother.style.cssText = 'display:block;margin:12px auto 0;background:none;border:none;color:var(--primary-blue);font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline;font-family:inherit;';
-            tryAnother.addEventListener('click', resetDemo);
-            ctaEl.appendChild(tryAnother);
         })();
 
         // ── Auto-playing demo phone animations (desktop only) ──
