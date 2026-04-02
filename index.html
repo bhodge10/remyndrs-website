@@ -2359,69 +2359,140 @@
             var demoRunning = false;
             var demoCount = 0;
 
-            var SCENARIOS = {
-                reminder: {
-                    match: /remind|alarm|alert|wake|don.t forget|notify/i,
-                    parse: function(msg) {
-                        var timeMatch = msg.match(/(\d{1,2})\s*(am|pm|AM|PM)|(\d{1,2}):(\d{2})/);
-                        var time = timeMatch ? timeMatch[0].toUpperCase() : '8:00 PM';
-                        if (timeMatch && !time.includes(':') && !time.includes('AM') && !time.includes('PM')) time += ' PM';
-                        var taskMatch = msg.replace(/remind me (to )?/i, '').replace(/at \d{1,2}(:\d{2})?\s*(am|pm)?/i, '').replace(/tonight|today|tomorrow|in \d+ (min|hour|minute|hr)s?/i, '').trim();
-                        if (taskMatch.length < 3) taskMatch = 'take your medicine';
-                        // Clean up leading/trailing junk
-                        taskMatch = taskMatch.replace(/^(to |that )/i, '').replace(/\s+/g, ' ').trim();
-                        if (!taskMatch) taskMatch = 'take your medicine';
-                        return { time: time, task: taskMatch };
-                    },
-                    respond: function(parsed) {
-                        return [
-                            { type: 'bot', text: "Got it! I'll remind you to " + parsed.task + " at " + parsed.time + " today. \u2713", delay: 1500 },
-                            { type: 'time-skip', text: "\u23E9  Fast forward to " + parsed.time + "...", delay: 3000 },
-                            { type: 'bot', text: "\u23F0 Hey! Reminder: " + parsed.task.charAt(0).toUpperCase() + parsed.task.slice(1) + "!", delay: 4500 }
-                        ];
+            // ── Smart response engine ──
+            // Instead of brittle regex parsing, we echo back the user's own words
+            // in a natural-sounding response. This handles ANY free-text input.
+
+            function extractTime(msg) {
+                // Match patterns like "8pm", "8:00 PM", "8 pm", "at 3", "at noon"
+                var m = msg.match(/\b(\d{1,2}(?::\d{2})?)\s*(am|pm|a\.m\.|p\.m\.)\b/i);
+                if (m) return m[1] + ' ' + m[2].replace(/\./g, '').toUpperCase();
+                m = msg.match(/\bat\s+(\d{1,2}(?::\d{2})?)\b/i);
+                if (m) return m[1] + (parseInt(m[1]) <= 7 ? ' PM' : (parseInt(m[1]) <= 12 ? ' PM' : ''));
+                if (/\bnoon\b/i.test(msg)) return '12:00 PM';
+                if (/\bmidnight\b/i.test(msg)) return '12:00 AM';
+                return null;
+            }
+
+            function extractWhen(msg) {
+                var m = msg.match(/\b(today|tonight|tomorrow|this evening|this morning|next\s+\w+|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/i);
+                return m ? m[1].toLowerCase() : null;
+            }
+
+            function cleanTask(msg) {
+                // Strip common prefixes and time/date references to get the core task
+                return msg
+                    .replace(/^(hey|hi|hello|please|can you|could you|i need to|i need you to|i want to)\s+/i, '')
+                    .replace(/^(remind me|reminder|don'?t let me forget|don'?t forget)\s*(to|about|that i need to|that)?\s*/i, '')
+                    .replace(/^(set a reminder|set an alarm|set reminder)\s*(to|for|about)?\s*/i, '')
+                    .replace(/\b(at|by|before|around)\s+\d{1,2}(:\d{2})?\s*(am|pm|a\.m\.|p\.m\.)?\b/gi, '')
+                    .replace(/\b(today|tonight|tomorrow|this evening|this morning|next\s+\w+|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/gi, '')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+            }
+
+            function detectScenario(msg) {
+                var lower = msg.toLowerCase();
+                // List detection — most specific first
+                if (/\badd\b.+\b(to|on)\b.+\blist\b/i.test(msg)) return 'list';
+                if (/\b(grocery|shopping|todo|to-do|to do)\s*(list)?\b/i.test(msg) && /\badd\b/i.test(msg)) return 'list';
+                if (/\blist\b/i.test(msg) && /\badd\b/i.test(msg)) return 'list';
+                // Memory detection
+                if (/\b(remember|save|store)\b.+\b(is|are|was)\b/i.test(msg)) return 'memory';
+                if (/\b(password|wifi|gate code|locker|combo|pin|address|birthday|anniversary)\b/i.test(msg) && /\b(remember|save|store|my)\b/i.test(msg)) return 'memory';
+                // Reminder detection — broad
+                if (/\b(remind|reminder|alarm|alert|wake|don'?t forget|notify|don'?t let me)\b/i.test(msg)) return 'reminder';
+                if (extractTime(msg)) return 'reminder';
+                // Fallback: if it sounds like an action/task, treat as reminder
+                if (/\b(pick up|call|take|go to|get|buy|send|pay|check|schedule|book|make|finish|submit|do)\b/i.test(msg)) return 'reminder';
+                // Last resort
+                return 'general';
+            }
+
+            function buildResponse(msg) {
+                var scenario = detectScenario(msg);
+                var time = extractTime(msg);
+                var when = extractWhen(msg);
+                var task = cleanTask(msg);
+
+                // Capitalize first letter of task
+                function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+
+                if (scenario === 'list') {
+                    // Parse: "add X to Y list"
+                    var addMatch = msg.match(/\badd\s+(.+?)\s+(to|on)\s+(?:my\s+)?(.+?)(?:\s+list)?\s*$/i);
+                    var items, listName;
+                    if (addMatch) {
+                        items = addMatch[1].split(/\s*(?:,|&|\band\b)\s*/i).map(function(s) { return s.trim(); }).filter(Boolean);
+                        listName = addMatch[3].replace(/\s*list\s*/i, '').trim() || 'grocery';
+                    } else {
+                        items = ['item'];
+                        listName = 'grocery';
                     }
-                },
-                list: {
-                    match: /add .* (to|on) .* list|grocery|shopping|list/i,
-                    parse: function(msg) {
-                        var itemsMatch = msg.match(/add (.+?) (to|on)/i);
-                        var items = itemsMatch ? itemsMatch[1].split(/,| and /).map(function(s) { return s.trim(); }).filter(Boolean) : ['eggs', 'milk'];
-                        var listMatch = msg.match(/(to|on) (?:my )?(.+?)(?:\s+list)?$/i);
-                        var listName = listMatch ? listMatch[2].replace(/\s*list\s*/i, '').trim() : 'grocery';
-                        return { items: items, listName: listName };
-                    },
-                    respond: function(parsed) {
-                        var itemStr = parsed.items.join(' and ');
-                        var existing = ['Bread', 'Butter'];
-                        var allItems = existing.concat(parsed.items.map(function(s) { return s.charAt(0).toUpperCase() + s.slice(1); }));
-                        return [
-                            { type: 'bot', text: "\u2713 Added " + itemStr + " to your " + parsed.listName + " list! (" + allItems.length + " items)", delay: 1500 },
-                            { type: 'time-skip', text: "\u23E9  Later, at the store...", delay: 3000 },
-                            { type: 'user', text: "What's on my " + parsed.listName + " list?", delay: 4200 },
-                            { type: 'bot', text: "Your " + parsed.listName + " list:\n\u2022 " + allItems.join("\n\u2022 "), delay: 5800 }
-                        ];
-                    }
-                },
-                memory: {
-                    match: /remember|save|store|my .+ is|password|code|gate|wifi|locker/i,
-                    parse: function(msg) {
-                        var cleaned = msg.replace(/^(remember|save|store) (that )?(my )?/i, '').trim();
-                        // Try to extract "X is Y" pattern
-                        var isMatch = cleaned.match(/(.+?)\s+is\s+(.+)/i);
-                        if (isMatch) return { label: isMatch[1].trim(), value: isMatch[2].trim() };
-                        return { label: 'info', value: cleaned };
-                    },
-                    respond: function(parsed) {
-                        var emoji = /password|wifi|code/i.test(parsed.label) ? '\uD83D\uDD11' : /locker/i.test(parsed.label) ? '\uD83D\uDD12' : '\uD83D\uDCBE';
-                        return [
-                            { type: 'bot', text: "Saved! I'll remember your " + parsed.label + ". " + emoji + " \u2713", delay: 1500 },
-                            { type: 'time-skip', text: "\u23E9  2 weeks later...", delay: 3000 },
-                            { type: 'user', text: "What's my " + parsed.label + "?", delay: 4200 },
-                            { type: 'bot', text: emoji + " Your " + parsed.label + " is " + parsed.value, delay: 5800 }
-                        ];
-                    }
+                    var itemStr = items.join(' and ');
+                    var existing = ['Bread', 'Butter'];
+                    var allItems = existing.concat(items.map(cap));
+                    return {
+                        scenario: 'list',
+                        steps: [
+                            { type: 'bot', text: '\u2713 Added ' + itemStr + ' to your ' + listName + ' list! (' + allItems.length + ' items)', delay: 1500 },
+                            { type: 'time-skip', text: '\u23E9  Later, at the store...', delay: 3000 },
+                            { type: 'user', text: "What's on my " + listName + ' list?', delay: 4200 },
+                            { type: 'bot', text: 'Your ' + listName + ' list:\n\u2022 ' + allItems.join('\n\u2022 '), delay: 5800 }
+                        ]
+                    };
                 }
-            };
+
+                if (scenario === 'memory') {
+                    // Try to extract "X is Y"
+                    var cleaned = msg.replace(/^(hey |please )?(remember|save|store)\s*(that\s+)?(my\s+)?/i, '').trim();
+                    var isMatch = cleaned.match(/^(.+?)\s+(?:is|are|was)\s+(.+)$/i);
+                    var label, value;
+                    if (isMatch) {
+                        label = isMatch[1].trim();
+                        value = isMatch[2].trim();
+                    } else {
+                        label = 'that info';
+                        value = cleaned || msg;
+                    }
+                    var emoji = /password|wifi|pin/i.test(label) ? '\uD83D\uDD11' : /locker|combo|code|gate/i.test(label) ? '\uD83D\uDD12' : /birthday|anniversary/i.test(label) ? '\uD83C\uDF82' : /address/i.test(label) ? '\uD83C\uDFE0' : '\uD83D\uDCBE';
+                    return {
+                        scenario: 'memory',
+                        steps: [
+                            { type: 'bot', text: "Saved! I'll remember your " + label + '. ' + emoji + ' \u2713', delay: 1500 },
+                            { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
+                            { type: 'user', text: "What's my " + label + '?', delay: 4200 },
+                            { type: 'bot', text: emoji + ' Your ' + label + ' is ' + value, delay: 5800 }
+                        ]
+                    };
+                }
+
+                if (scenario === 'reminder') {
+                    if (!task || task.length < 2) task = msg.replace(/^(remind me|reminder)\s*/i, '').trim() || 'do that';
+                    var timeDisplay = time || '3:00 PM';
+                    var whenDisplay = when || 'today';
+                    return {
+                        scenario: 'reminder',
+                        steps: [
+                            { type: 'bot', text: "Got it! I'll remind you to " + task + ' at ' + timeDisplay + ' ' + whenDisplay + '. \u2713', delay: 1500 },
+                            { type: 'time-skip', text: '\u23E9  Fast forward to ' + timeDisplay + '...', delay: 3000 },
+                            { type: 'bot', text: '\u23F0 Hey! Reminder: ' + cap(task) + '!', delay: 4500 }
+                        ]
+                    };
+                }
+
+                // General fallback — echo the message back naturally
+                var fallbackTask = task || msg;
+                return {
+                    scenario: 'general',
+                    steps: [
+                        { type: 'bot', text: "Got it! I've noted that down for you. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Later, when you need it...', delay: 3000 },
+                        { type: 'user', text: 'What did I save earlier?', delay: 4200 },
+                        { type: 'bot', text: '\uD83D\uDCCB Here it is: "' + cap(fallbackTask) + '"', delay: 5800 }
+                    ]
+                };
+            }
 
             function addBubble(type, text) {
                 var div = document.createElement('div');
@@ -2439,15 +2510,6 @@
                 messagesEl.appendChild(div);
                 messagesEl.scrollTop = messagesEl.scrollHeight;
                 return div;
-            }
-
-            function detectScenario(msg) {
-                if (SCENARIOS.reminder.match.test(msg)) return 'reminder';
-                if (SCENARIOS.list.match.test(msg)) return 'list';
-                if (SCENARIOS.memory.match.test(msg)) return 'memory';
-                // Default: pick based on keywords
-                if (/\d{1,2}\s*(am|pm)/i.test(msg)) return 'reminder';
-                return 'reminder'; // fallback
             }
 
             function runDemo(userMsg) {
@@ -2470,10 +2532,9 @@
                 // Add user message
                 addBubble('user', userMsg);
 
-                var scenarioKey = detectScenario(userMsg);
-                var scenario = SCENARIOS[scenarioKey];
-                var parsed = scenario.parse(userMsg);
-                var steps = scenario.respond(parsed);
+                var result = buildResponse(userMsg);
+                var scenarioKey = result.scenario;
+                var steps = result.steps;
 
                 // Show typing indicator first
                 var typingEl = null;
