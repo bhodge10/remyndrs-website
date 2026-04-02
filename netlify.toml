@@ -37,6 +37,12 @@
   force = true
 
 [[redirects]]
+  from = "/api/demo"
+  to = "https://sms-reminders-api-1gmm.onrender.com/api/demo"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/updates"
   to = "https://sms-reminders-api-1gmm.onrender.com/updates"
   status = 200
