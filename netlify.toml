@@ -3,9 +3,21 @@
   publish = "."
   command = "bash build.sh"
 
-# Redirect www to non-www
+# Redirect www to non-www (all protocols)
 [[redirects]]
   from = "https://www.remyndrs.com/*"
+  to = "https://remyndrs.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.remyndrs.com/*"
+  to = "https://remyndrs.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://remyndrs.com/*"
   to = "https://remyndrs.com/:splat"
   status = 301
   force = true
