@@ -64,66 +64,79 @@
         
         /* Header */
         header {
-            background: linear-gradient(135deg, #F0F7FB 0%, #F0FAF7 100%);
-            padding: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            background: white;
+            padding: 14px 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        
-        .header-content {
+
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            text-decoration: none;
-        }
-        
+
         .logo img {
-            height: 60px;
+            height: 44px;
             width: auto;
             display: block;
         }
 
         .header-phone {
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--primary-blue);
             text-decoration: none;
             white-space: nowrap;
         }
 
-        .header-phone:hover {
-            text-decoration: underline;
-        }
+        .header-phone:hover { text-decoration: underline; }
 
-        nav a {
-            margin-left: 30px;
+        .header-phone-btn {
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            background: var(--primary-blue);
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--primary-blue);
+            white-space: nowrap;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.2s, transform 0.15s;
         }
 
-        /* Hamburger Menu */
+        .header-phone-btn:hover {
+            background: #3D7A8C;
+            transform: translateY(-1px);
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover { color: var(--primary-blue); }
+
         .hamburger-btn {
             display: none;
             background: transparent;
             border: none;
-            color: #4A90A4;
-            font-size: 28px;
+            color: var(--primary-blue);
+            font-size: 26px;
             cursor: pointer;
-            padding: 10px 12px;
+            padding: 8px;
             min-width: 44px;
             min-height: 44px;
             line-height: 1;
@@ -131,20 +144,23 @@
 
         /* Hero */
         .page-hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #6BA8BC 100%);
-            color: white;
-            padding: 60px 0;
+            background: linear-gradient(180deg, #f4f7f9 0%, #fff 100%);
+            padding: 50px 0 40px;
             text-align: center;
+            border-bottom: 1px solid #e8ecef;
         }
-        
+
         .page-hero h1 {
-            font-size: 48px;
-            margin-bottom: 15px;
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
         }
-        
+
         .page-hero p {
-            font-size: 20px;
-            opacity: 0.95;
+            font-size: 17px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
         }
         
         /* Content Section */
@@ -289,69 +305,40 @@
         footer {
             background: var(--text-dark);
             color: white;
-            padding: 40px 0;
+            padding: 30px 20px;
             text-align: center;
-            margin-top: 0;
-        }
-        
-        footer p {
-            opacity: 0.8;
-        }
-
-        .footer-phone {
-            font-size: 18px;
-            font-weight: 600;
-            color: white;
-            opacity: 1;
-            margin-bottom: 20px;
-        }
-
-        .footer-phone a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .footer-phone a:hover {
-            text-decoration: underline;
-        }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            opacity: 0.8;
-        }
-
-        footer a:hover {
-            opacity: 1;
-        }
-
-        /* Footer contact buttons */
-        .footer-contact-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .footer-contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
             font-size: 14px;
-            transition: all 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .footer-contact-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        footer .footer-phone {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        footer .footer-phone a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer .footer-phone a:hover { text-decoration: underline; }
+
+        footer .footer-links {
+            margin-bottom: 12px;
+        }
+
+        footer .footer-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 13px;
+        }
+
+        footer .footer-links a:hover { color: white; }
+
+        footer .footer-copy {
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
         }
 
         /* Mobile/Desktop visibility utilities */
@@ -395,58 +382,39 @@
         html.platform-android .desktop-only-inline-flex { display: inline-flex !important; }
         html.platform-android .desktop-only-flex { display: flex !important; }
 
-        /* Reset button styles for share copy buttons */
-        .share-copy-btn {
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: inherit;
-            font-weight: inherit;
-            line-height: inherit;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-
-            .page-hero h1 {
-                font-size: 36px;
-            }
-
             .hamburger-btn {
                 display: block;
             }
 
-            .header-phone {
-                font-size: 13px;
-                order: 3;
-                width: 100%;
-                text-align: center;
-                padding-top: 8px;
-                border-top: 1px solid rgba(0,0,0,0.06);
-            }
-
-            nav {
+            .header-nav {
                 display: none;
                 flex-direction: column;
                 width: 100%;
                 text-align: center;
                 gap: 0;
                 padding-top: 10px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                z-index: 99;
             }
 
-            nav.open {
+            .header-nav.open {
                 display: flex;
             }
 
-            nav a {
-                margin-left: 0;
-                font-size: 16px;
+            .header-nav a {
                 padding: 12px 20px;
                 border-top: 1px solid rgba(0,0,0,0.06);
+                font-size: 16px;
+            }
+
+            .page-hero h1 {
+                font-size: 36px;
             }
 
             .command-category {
@@ -458,22 +426,21 @@
 <body>
     <!-- Header -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="index.html" class="logo">
-                    <img src="remyndrs-logo.png" alt="Remyndrs">
-                </a>
-                <a href="sms:+18555521950?body=Hello" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'commands'})">Text Hello to +1 (855) 552-1950</a>
-                <a href="sms:+18555521950?body=Hello" class="header-phone desktop-only-inline" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header'})">Text Hello to +1 (855) 552-1950</a>
-                <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
-                <nav>
-                    <a href="index.html">Home</a>
-                    <a href="index.html#how-it-works">How It Works</a>
-                    <a href="index.html#pricing">Pricing</a>
-                    <a href="faq.html">FAQ</a>
-                    <a href="commands.html">Commands</a>
-                </nav>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="remyndrs-logo.png" alt="Remyndrs" width="180" height="44">
             </div>
+            <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
+            <nav class="header-nav" id="main-nav">
+                <a href="index.html#try-demo">Try Live Demo</a>
+                <a href="index.html#how-it-works-section">How It Works</a>
+                <a href="commands.html">Commands</a>
+                <a href="index.html#pricing-strip">Pricing</a>
+                <a href="faq.html">FAQ</a>
+                <a href="mailto:support@remyndrs.com">Contact</a>
+            </nav>
+            <a href="sms:+18555521950?body=Hello" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'commands'})">Text Hello &rarr; (855) 552-1950</a>
+            <a href="index.html#hero" class="header-phone-btn desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header',page:'commands'})">Get Started Free &rarr;</a>
         </div>
     </header>
 
@@ -681,43 +648,16 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p class="footer-phone">Text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer'})">+1 (855) 552-1950</a></p>
-
-            <!-- Quick Contact Buttons in Footer -->
-            <div class="footer-contact-buttons">
-                <a href="sms:+18555521950?body=SUPPORT" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'support',location:'footer',page:'commands'})">
-                    📞 Support
-                </a>
-                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
-                    📞 Support
-                </a>
-                <a href="sms:+18555521950?body=FEEDBACK" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'feedback',location:'footer',page:'commands'})">
-                    💬 Feedback
-                </a>
-                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
-                    💬 Feedback
-                </a>
-                <a href="sms:+18555521950?body=QUESTION" class="footer-contact-btn mobile-only" onclick="gtag('event','mobile_sms_click',{action:'question',location:'footer',page:'commands'})">
-                    ❓ Question
-                </a>
-                <a href="index.html#contact" class="footer-contact-btn desktop-only-inline-flex">
-                    ❓ Question
-                </a>
-                <a href="mailto:support@remyndrs.com" class="footer-contact-btn">
-                    ✉️ Email
-                </a>
-                <a href="sms:?body=Hey! I started using this thing called Remyndrs — you just text it reminders and it texts you back when it's time. No app needed. I think you'd love it! Check it out: remyndrs.com" class="footer-contact-btn mobile-only" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green);" onclick="gtag('event','mobile_sms_click',{action:'share',location:'footer',page:'commands'})">
-                    📤 Share
-                </a>
-                <button class="footer-contact-btn desktop-only-inline-flex share-copy-btn" style="background: rgba(80, 182, 136, 0.2); border-color: var(--success-green); color: white;">
-                    📤 Share
-                </button>
-            </div>
-
-            <p>&copy; 2026 Remyndrs. All rights reserved.</p>
-            <p style="margin-top: 10px;"><a href="index.html">Home</a> • <a href="privacy.html">Privacy Policy</a> • <a href="terms.html">Terms of Service</a></p>
+        <p class="footer-phone">Text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer',page:'commands'})">+1 (855) 552-1950</a></p>
+        <div class="footer-links">
+            <a href="index.html#pricing-strip">Pricing</a>
+            <a href="faq.html">FAQ</a>
+            <a href="commands.html">Commands</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="mailto:support@remyndrs.com">Contact</a>
         </div>
+        <p class="footer-copy">&copy; 2026 Remyndrs. All rights reserved. Built with &#10084;&#65039; to help you remember what matters.</p>
     </footer>
 
     <script src="platform-detect.js"></script>
@@ -725,7 +665,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Hamburger menu toggle
             var hamburgerBtn = document.querySelector('.hamburger-btn');
-            var navMenu = document.querySelector('header nav');
+            var navMenu = document.querySelector('.header-nav');
             if (hamburgerBtn && navMenu) {
                 hamburgerBtn.addEventListener('click', function() {
                     var isOpen = navMenu.classList.toggle('open');
@@ -738,42 +678,6 @@
                     });
                 });
             }
-
-            // Desktop: Clipboard copy handler for share buttons
-            document.querySelectorAll('.share-copy-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var shareMessage = "I've been using Remyndrs and it's a game-changer \u2014 just text your reminders and it handles the rest. No app to download, no notifications to manage. Try it free: remyndrs.com";
-                    var button = this;
-
-                    if (navigator.clipboard && navigator.clipboard.writeText) {
-                        navigator.clipboard.writeText(shareMessage).then(function() {
-                            showCopiedFeedback(button);
-                            gtag('event', 'share_click', {method: 'copy_clipboard', location: 'footer', page: 'commands'});
-                        });
-                    } else {
-                        var textarea = document.createElement('textarea');
-                        textarea.value = shareMessage;
-                        textarea.style.position = 'fixed';
-                        textarea.style.opacity = '0';
-                        document.body.appendChild(textarea);
-                        textarea.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(textarea);
-                        showCopiedFeedback(button);
-                        gtag('event', 'share_click', {method: 'copy_clipboard', location: 'footer', page: 'commands'});
-                    }
-                });
-            });
-
-            function showCopiedFeedback(button) {
-                var originalText = button.innerHTML;
-                button.textContent = 'Copied!';
-                setTimeout(function() {
-                    button.innerHTML = originalText;
-                }, 2000);
-            }
-
         });
     </script>
 </body>

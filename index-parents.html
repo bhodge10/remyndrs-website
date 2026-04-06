@@ -969,12 +969,17 @@
         }
 
         .try-demo-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: #a0adb8;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: 0;
+            margin-bottom: 6px;
+        }
+
+        .try-demo-sublabel {
+            font-size: 14px;
+            color: #6b7c8a;
+            margin-bottom: 20px;
         }
 
         .try-demo-phone {
@@ -1051,8 +1056,8 @@
         }
 
         .try-demo-messages {
-            min-height: 200px;
-            max-height: 300px;
+            min-height: 320px;
+            max-height: 420px;
             overflow-y: auto;
             padding: 10px;
             display: flex;
@@ -1131,46 +1136,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .try-demo-inputbar {
-            display: flex;
-            gap: 6px;
-            padding: 8px 10px;
-            border-top: 1px solid #ddd;
-            background: #f5f5f5;
-        }
-
-        .try-demo-input {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1.5px solid #ddd;
-            border-radius: 18px;
-            font-size: 13px;
-            font-family: inherit;
-            outline: none;
-            transition: border-color 0.2s;
-            background: white;
-        }
-
-        .try-demo-input:focus { border-color: var(--primary-blue); }
-
-        .try-demo-send {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s, transform 0.15s;
-            flex-shrink: 0;
-        }
-
-        .try-demo-send:hover { background: #3D7A8C; transform: scale(1.05); }
-
         .try-demo-homebar {
             width: 50px;
             height: 3px;
@@ -1224,7 +1189,7 @@
         @media (max-width: 768px) {
             .try-demo { padding: 24px 16px 20px; }
             .try-demo-phone { max-width: 280px; border-radius: 32px; }
-            .try-demo-messages { min-height: 180px; max-height: 260px; }
+            .try-demo-messages { min-height: 260px; max-height: 360px; }
             .try-demo-chip { font-size: 12px; padding: 9px 14px; }
             .try-demo-notch { width: 70px; height: 18px; border-radius: 0 0 12px 12px; }
             .try-demo-statusbar { height: 28px; font-size: 10px; padding: 4px 14px 0; }
@@ -1505,7 +1470,8 @@
 
     <!-- ═══ INTERACTIVE DEMO ═══ -->
     <section class="try-demo" id="try-demo">
-        <p class="try-demo-label">Try it yourself — no account needed</p>
+        <p class="try-demo-label">Try It Yourself — No Account Needed</p>
+        <p class="try-demo-sublabel">See how easy it is to text Remyndrs</p>
         <div class="try-demo-phone">
             <div class="try-demo-notch"></div>
             <div class="try-demo-statusbar">
@@ -1520,14 +1486,11 @@
                 <span class="try-demo-contact">Remyndrs</span>
             </div>
             <div class="try-demo-messages" id="tryDemoMessages">
-                <div class="try-demo-bubble bot">Hi! I'm Remyndrs. Tap a suggestion below or type your own message.</div>
-            </div>
-            <div class="try-demo-inputbar">
-                <input type="text" id="tryDemoInput" class="try-demo-input" placeholder="Type a message..." autocomplete="off">
-                <button id="tryDemoSend" class="try-demo-send" aria-label="Send">&#9650;</button>
+                <div class="try-demo-bubble bot">Hi! I'm Remyndrs. Tap a suggestion below to see how it works.</div>
             </div>
             <div class="try-demo-homebar"></div>
         </div>
+        <p class="try-demo-sublabel" style="margin-top:16px; margin-bottom:12px;">&#11015;&#65039; Tap a message below to see Remyndrs in action</p>
         <div class="try-demo-suggestions" id="tryDemoSuggestions">
             <button class="try-demo-chip" data-msg="Remind me about picture day next Tuesday">🎒 Remind me about picture day</button>
             <button class="try-demo-chip" data-msg="Add goldfish crackers and juice boxes to my grocery list">🛒 Add snacks to grocery list</button>
@@ -1742,133 +1705,67 @@
         (function() {
             var messagesEl = document.getElementById('tryDemoMessages');
             var suggestionsEl = document.getElementById('tryDemoSuggestions');
-            var inputEl = document.getElementById('tryDemoInput');
-            var sendBtn = document.getElementById('tryDemoSend');
             var ctaEl = document.getElementById('tryDemoCta');
-            if (!messagesEl || !inputEl) return;
+            if (!messagesEl) return;
 
             var demoRunning = false;
             var demoCount = 0;
 
-            // ── Smart response engine ──
-            function extractTime(msg) {
-                var m = msg.match(/\b(\d{1,2}(?::\d{2})?)\s*(am|pm|a\.m\.|p\.m\.)\b/i);
-                if (m) return m[1] + ' ' + m[2].replace(/\./g, '').toUpperCase();
-                m = msg.match(/\bat\s+(\d{1,2}(?::\d{2})?)\b/i);
-                if (m) return m[1] + (parseInt(m[1]) <= 7 ? ' PM' : (parseInt(m[1]) <= 12 ? ' PM' : ''));
-                if (/\bnoon\b/i.test(msg)) return '12:00 PM';
-                if (/\bmidnight\b/i.test(msg)) return '12:00 AM';
-                return null;
-            }
-
-            function extractWhen(msg) {
-                var m = msg.match(/\b(today|tonight|tomorrow|this evening|this morning|next\s+\w+|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/i);
-                return m ? m[1].toLowerCase() : null;
-            }
-
-            function cleanTask(msg) {
-                var s = msg
-                    .replace(/^(hey|hi|hello|please|can you|could you|i need to|i need you to|i want to)\s+/i, '')
-                    .replace(/^(remind me|reminder|don'?t let me forget|don'?t forget)\s*(to|about|that i need to|that)?\s*/i, '')
-                    .replace(/^(set a reminder|set an alarm|set reminder)\s*(to|for|about)?\s*/i, '');
-                s = s.replace(/(^|\s)(at|by|before|around)\s+\d{1,2}(:\d{2})?\s*(am|pm|a\.m\.|p\.m\.)?/gi, '');
-                s = s.replace(/(^|\s)(today|tonight|tomorrow|this evening|this morning|next\s+\w+|monday|tuesday|wednesday|thursday|friday|saturday|sunday)(\s|$)/gi, ' ');
-                s = s.replace(/^\s*(to|that|about)\s+/i, '');
-                return s.replace(/\s+/g, ' ').trim();
-            }
-
-            function detectScenario(msg) {
-                var lower = msg.toLowerCase();
-                if (/\badd\b.+\b(to|on)\b.+\blist\b/i.test(msg)) return 'list';
-                if (/\b(grocery|shopping|todo|to-do|to do)\s*(list)?\b/i.test(msg) && /\badd\b/i.test(msg)) return 'list';
-                if (/\blist\b/i.test(msg) && /\badd\b/i.test(msg)) return 'list';
-                if (/\b(remember|save|store)\b.+\b(is|are|was)\b/i.test(msg)) return 'memory';
-                if (/\b(password|wifi|gate code|locker|combo|pin|address|birthday|anniversary)\b/i.test(msg) && /\b(remember|save|store|my)\b/i.test(msg)) return 'memory';
-                if (/\b(remind|reminder|alarm|alert|wake|don'?t forget|notify|don'?t let me)\b/i.test(msg)) return 'reminder';
-                if (extractTime(msg)) return 'reminder';
-                if (/\b(pick up|call|take|go to|get|buy|send|pay|check|schedule|book|make|finish|submit|do|refill)\b/i.test(msg)) return 'reminder';
-                return 'general';
-            }
-
-            function buildResponse(msg) {
-                var scenario = detectScenario(msg);
-                var time = extractTime(msg);
-                var when = extractWhen(msg);
-                var task = cleanTask(msg);
-
-                function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
-
-                if (scenario === 'list') {
-                    var addMatch = msg.match(/\badd\s+(.+?)\s+(to|on)\s+(?:my\s+)?(.+?)(?:\s+list)?\s*$/i);
-                    var items, listName;
-                    if (addMatch) {
-                        items = addMatch[1].split(/\s*(?:,|&|\band\b)\s*/i).map(function(s) { return s.trim(); }).filter(Boolean);
-                        listName = addMatch[3].replace(/\s*list\s*/i, '').trim() || 'grocery';
-                    } else {
-                        items = ['item'];
-                        listName = 'grocery';
-                    }
-                    var itemStr = items.join(' and ');
-                    var allItems = items.map(cap);
-                    return {
-                        scenario: 'list',
-                        steps: [
-                            { type: 'bot', text: '\u2713 Added ' + itemStr + ' to your ' + listName + ' list! (' + allItems.length + ' items)', delay: 1500 },
-                            { type: 'time-skip', text: '\u23E9  Later, at the store...', delay: 3000 },
-                            { type: 'user', text: "What's on my " + listName + ' list?', delay: 4200 },
-                            { type: 'bot', text: 'Your ' + listName + ' list:\n\u2022 ' + allItems.join('\n\u2022 '), delay: 5800 }
-                        ]
-                    };
-                }
-
-                if (scenario === 'memory') {
-                    var cleaned = msg.replace(/^(hey |please )?(remember|save|store)\s*(that\s+)?(my\s+)?/i, '').trim();
-                    var isMatch = cleaned.match(/^(.+?)\s+(?:is|are|was)\s+(.+)$/i);
-                    var label, value;
-                    if (isMatch) {
-                        label = isMatch[1].trim();
-                        value = isMatch[2].trim();
-                    } else {
-                        label = 'that info';
-                        value = cleaned || msg;
-                    }
-                    var emoji = /practice|soccer/i.test(label) ? '\u26BD' : /password|wifi|pin/i.test(label) ? '\uD83D\uDD11' : /locker|combo|code|gate/i.test(label) ? '\uD83D\uDD12' : /birthday|anniversary/i.test(label) ? '\uD83C\uDF82' : /address|school/i.test(label) ? '\uD83C\uDFE0' : '\uD83D\uDCBE';
-                    return {
-                        scenario: 'memory',
-                        steps: [
-                            { type: 'bot', text: "Saved! I'll remember your " + label + '. ' + emoji + ' \u2713', delay: 1500 },
-                            { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
-                            { type: 'user', text: "What's my " + label + '?', delay: 4200 },
-                            { type: 'bot', text: emoji + ' Your ' + label + ' is ' + value, delay: 5800 }
-                        ]
-                    };
-                }
-
-                if (scenario === 'reminder') {
-                    if (!task || task.length < 2) task = msg.replace(/^(remind me|reminder)\s*/i, '').trim() || 'do that';
-                    var timeDisplay = time || '3:00 PM';
-                    var whenDisplay = when || 'tomorrow';
-                    return {
-                        scenario: 'reminder',
-                        steps: [
-                            { type: 'bot', text: "Got it! I'll remind you to " + task + ' at ' + timeDisplay + ' ' + whenDisplay + '. \u2713', delay: 1500 },
-                            { type: 'time-skip', text: '\u23E9  Fast forward to ' + timeDisplay + '...', delay: 3000 },
-                            { type: 'bot', text: '\u23F0 Hey! Reminder: ' + cap(task) + '!', delay: 4500 }
-                        ]
-                    };
-                }
-
-                var fallbackTask = task || msg;
-                return {
-                    scenario: 'general',
+            // ── Precanned responses for each chip message ──
+            var cannedResponses = {
+                'Remind me about picture day next Tuesday': {
+                    scenario: 'reminder',
                     steps: [
-                        { type: 'bot', text: "Got it! I've noted that down for you. \u2713", delay: 1500 },
-                        { type: 'time-skip', text: '\u23E9  Later, when you need it...', delay: 3000 },
-                        { type: 'user', text: 'What did I save earlier?', delay: 4200 },
-                        { type: 'bot', text: '\uD83D\uDCCB Here it is: "' + cap(fallbackTask) + '"', delay: 5800 }
+                        { type: 'bot', text: "Got it! I'll remind you about picture day next Tuesday. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Fast forward to Tuesday morning...', delay: 3000 },
+                        { type: 'bot', text: "\u23F0 Hey! Reminder: Picture day is today! Don't forget!", delay: 4500 }
                     ]
-                };
-            }
+                },
+                'Add goldfish crackers and juice boxes to my grocery list': {
+                    scenario: 'list',
+                    steps: [
+                        { type: 'bot', text: '\u2713 Added goldfish crackers and juice boxes to your grocery list! (2 items)', delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Later, at the store...', delay: 3000 },
+                        { type: 'user', text: "What's on my grocery list?", delay: 4200 },
+                        { type: 'bot', text: 'Your grocery list:\n\u2022 Goldfish crackers\n\u2022 Juice boxes', delay: 5800 }
+                    ]
+                },
+                'Remember that soccer practice is at 4pm on Thursdays': {
+                    scenario: 'memory',
+                    steps: [
+                        { type: 'bot', text: "Saved! I'll remember that soccer practice is at 4pm on Thursdays. \u26BD \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
+                        { type: 'user', text: "When's soccer practice?", delay: 4200 },
+                        { type: 'bot', text: '\u26BD Soccer practice is at 4pm on Thursdays', delay: 5800 }
+                    ]
+                },
+                "Remind me to refill Tyler's prescription Friday": {
+                    scenario: 'reminder',
+                    steps: [
+                        { type: 'bot', text: "Got it! I'll remind you to refill Tyler's prescription on Friday. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Fast forward to Friday...', delay: 3000 },
+                        { type: 'bot', text: "\u23F0 Hey! Reminder: Refill Tyler's prescription!", delay: 4500 }
+                    ]
+                },
+                'Add sunscreen and bug spray to my camping list': {
+                    scenario: 'list',
+                    steps: [
+                        { type: 'bot', text: '\u2713 Added sunscreen and bug spray to your camping list! (2 items)', delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Later, packing for the trip...', delay: 3000 },
+                        { type: 'user', text: "What's on my camping list?", delay: 4200 },
+                        { type: 'bot', text: 'Your camping list:\n\u2022 Sunscreen\n\u2022 Bug spray', delay: 5800 }
+                    ]
+                },
+                'Remember early dismissal is at 1pm on Wednesdays': {
+                    scenario: 'memory',
+                    steps: [
+                        { type: 'bot', text: "Saved! I'll remember that early dismissal is at 1pm on Wednesdays. \uD83C\uDFE0 \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
+                        { type: 'user', text: "When's early dismissal?", delay: 4200 },
+                        { type: 'bot', text: '\uD83C\uDFE0 Early dismissal is at 1pm on Wednesdays', delay: 5800 }
+                    ]
+                }
+            };
 
             function addBubble(type, text) {
                 var div = document.createElement('div');
@@ -1887,8 +1784,6 @@
                 messagesEl.scrollTop = messagesEl.scrollHeight;
                 return div;
             }
-
-            var DEMO_API = '/api/demo';
 
             function playSteps(steps, scenarioKey) {
                 var typingEl = null;
@@ -1920,9 +1815,6 @@
                     demoRunning = false;
                     ctaEl.style.display = 'block';
                     suggestionsEl.style.display = 'flex';
-                    inputEl.disabled = false;
-                    sendBtn.disabled = false;
-                    inputEl.placeholder = 'Try another message...';
                     if (typeof gtag === 'function') gtag('event', 'demo_completed', { scenario: scenarioKey, demo_number: demoCount, page: 'index-parents' });
                 }, lastDelay + 1200);
             }
@@ -1933,8 +1825,6 @@
                 demoCount++;
 
                 suggestionsEl.style.display = 'none';
-                inputEl.disabled = true;
-                sendBtn.disabled = true;
 
                 if (demoCount > 1) {
                     var divider = document.createElement('div');
@@ -1946,49 +1836,17 @@
 
                 if (typeof gtag === 'function') gtag('event', 'demo_started', { demo_number: demoCount, page: 'index-parents' });
 
-                // Try live API first, fall back to local simulation
-                var controller = new AbortController();
-                var timeout = setTimeout(function() { controller.abort(); }, 8000);
-
-                fetch(DEMO_API, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: userMsg.substring(0, 200) }),
-                    signal: controller.signal
-                })
-                .then(function(res) { clearTimeout(timeout); return res.json(); })
-                .then(function(data) {
-                    if (data.replies && data.replies.length > 0) {
-                        playSteps(data.replies, 'live');
-                    } else {
-                        throw new Error('Invalid response');
-                    }
-                })
-                .catch(function() {
-                    clearTimeout(timeout);
-                    var result = buildResponse(userMsg);
-                    playSteps(result.steps, result.scenario + '_fallback');
-                });
+                var canned = cannedResponses[userMsg];
+                if (canned) {
+                    playSteps(canned.steps, canned.scenario);
+                }
             }
 
             suggestionsEl.addEventListener('click', function(e) {
                 var chip = e.target.closest('.try-demo-chip');
                 if (!chip) return;
                 var msg = chip.getAttribute('data-msg');
-                inputEl.value = '';
                 runDemo(msg);
-            });
-
-            function handleSend() {
-                var msg = inputEl.value.trim();
-                if (!msg) return;
-                inputEl.value = '';
-                runDemo(msg);
-            }
-
-            sendBtn.addEventListener('click', handleSend);
-            inputEl.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') { e.preventDefault(); handleSend(); }
             });
         })();
 

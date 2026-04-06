@@ -452,6 +452,7 @@
 
         /* ─── PRICING ONE-LINER ─── */
         .pricing-strip {
+            scroll-margin-top: 80px;
             text-align: center;
             padding: 14px 20px;
             background: white;
@@ -709,6 +710,7 @@
 
         /* ─── HOW IT WORKS (collapsible) ─── */
         .how-it-works {
+            scroll-margin-top: 80px;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease, padding 0.5s ease;
@@ -1224,6 +1226,7 @@
 
 /* ─── INTERACTIVE DEMO ─── */
         .try-demo {
+            scroll-margin-top: 80px;
             padding: 32px 20px 28px;
             background: linear-gradient(180deg, #EEF3F6 0%, #f4f7f9 100%);
             border-top: 1px solid #e4e9ec;
@@ -1231,12 +1234,17 @@
         }
 
         .try-demo-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: #a0adb8;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            margin-bottom: 16px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: 0;
+            margin-bottom: 6px;
+        }
+
+        .try-demo-sublabel {
+            font-size: 14px;
+            color: #6b7c8a;
+            margin-bottom: 20px;
         }
 
         .try-demo-phone {
@@ -1315,8 +1323,8 @@
         }
 
         .try-demo-messages {
-            min-height: 200px;
-            max-height: 300px;
+            min-height: 320px;
+            max-height: 420px;
             overflow-y: auto;
             padding: 10px;
             display: flex;
@@ -1395,46 +1403,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .try-demo-inputbar {
-            display: flex;
-            gap: 6px;
-            padding: 8px 10px;
-            border-top: 1px solid #ddd;
-            background: #f5f5f5;
-        }
-
-        .try-demo-input {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1.5px solid #ddd;
-            border-radius: 18px;
-            font-size: 13px;
-            font-family: inherit;
-            outline: none;
-            transition: border-color 0.2s;
-            background: white;
-        }
-
-        .try-demo-input:focus { border-color: var(--primary-blue); }
-
-        .try-demo-send {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-            font-size: 14px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s, transform 0.15s;
-            flex-shrink: 0;
-        }
-
-        .try-demo-send:hover { background: #3D7A8C; transform: scale(1.05); }
-
         /* Home bar inside phone */
         .try-demo-homebar {
             width: 50px;
@@ -1490,7 +1458,7 @@
         @media (max-width: 768px) {
             .try-demo { padding: 24px 16px 20px; }
             .try-demo-phone { max-width: 280px; border-radius: 32px; }
-            .try-demo-messages { min-height: 180px; max-height: 260px; }
+            .try-demo-messages { min-height: 260px; max-height: 360px; }
             .try-demo-chip { font-size: 12px; padding: 9px 14px; }
             .try-demo-notch { width: 70px; height: 18px; border-radius: 0 0 12px 12px; }
             .try-demo-statusbar { height: 28px; font-size: 10px; padding: 4px 14px 0; }
@@ -1703,6 +1671,7 @@
             </div>
             <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
             <nav class="header-nav" id="main-nav">
+                <a href="#try-demo">Try Live Demo</a>
                 <a href="#how-it-works-section">How It Works</a>
                 <a href="commands.html">Commands</a>
                 <a href="#pricing-strip">Pricing</a>
@@ -1842,7 +1811,8 @@
 
     <!-- ═══ INTERACTIVE DEMO ═══ -->
     <section class="try-demo" id="try-demo">
-        <p class="try-demo-label">Try it yourself — no account needed</p>
+        <p class="try-demo-label">Try It Yourself — No Account Needed</p>
+        <p class="try-demo-sublabel">See how easy it is to text Remyndrs</p>
         <div class="try-demo-phone">
             <div class="try-demo-notch"></div>
             <div class="try-demo-statusbar">
@@ -1857,14 +1827,11 @@
                 <span class="try-demo-contact">Remyndrs</span>
             </div>
             <div class="try-demo-messages" id="tryDemoMessages">
-                <div class="try-demo-bubble bot">Hi! I'm Remyndrs. Tap a suggestion below or type your own message.</div>
-            </div>
-            <div class="try-demo-inputbar">
-                <input type="text" id="tryDemoInput" class="try-demo-input" placeholder="Type a message..." autocomplete="off">
-                <button id="tryDemoSend" class="try-demo-send" aria-label="Send">&#9650;</button>
+                <div class="try-demo-bubble bot">Hi! I'm Remyndrs. Tap a suggestion below to see how it works.</div>
             </div>
             <div class="try-demo-homebar"></div>
         </div>
+        <p class="try-demo-sublabel" style="margin-top:16px; margin-bottom:12px;">&#11015;&#65039; Tap a message below to see Remyndrs in action</p>
         <div class="try-demo-suggestions" id="tryDemoSuggestions">
             <button class="try-demo-chip" data-msg="Remind me to take my medicine at 8pm">⏰ Remind me at 8pm to take medicine</button>
             <button class="try-demo-chip" data-msg="Add eggs and milk to my grocery list">📝 Add eggs & milk to grocery list</button>
@@ -2352,150 +2319,67 @@
         (function() {
             var messagesEl = document.getElementById('tryDemoMessages');
             var suggestionsEl = document.getElementById('tryDemoSuggestions');
-            var inputEl = document.getElementById('tryDemoInput');
-            var sendBtn = document.getElementById('tryDemoSend');
             var ctaEl = document.getElementById('tryDemoCta');
-            if (!messagesEl || !inputEl) return;
+            if (!messagesEl) return;
 
             var demoRunning = false;
             var demoCount = 0;
 
-            // ── Smart response engine ──
-            // Instead of brittle regex parsing, we echo back the user's own words
-            // in a natural-sounding response. This handles ANY free-text input.
-
-            function extractTime(msg) {
-                // Match patterns like "8pm", "8:00 PM", "8 pm", "at 3", "at noon"
-                var m = msg.match(/\b(\d{1,2}(?::\d{2})?)\s*(am|pm|a\.m\.|p\.m\.)\b/i);
-                if (m) return m[1] + ' ' + m[2].replace(/\./g, '').toUpperCase();
-                m = msg.match(/\bat\s+(\d{1,2}(?::\d{2})?)\b/i);
-                if (m) return m[1] + (parseInt(m[1]) <= 7 ? ' PM' : (parseInt(m[1]) <= 12 ? ' PM' : ''));
-                if (/\bnoon\b/i.test(msg)) return '12:00 PM';
-                if (/\bmidnight\b/i.test(msg)) return '12:00 AM';
-                return null;
-            }
-
-            function extractWhen(msg) {
-                var m = msg.match(/\b(today|tonight|tomorrow|this evening|this morning|next\s+\w+|monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/i);
-                return m ? m[1].toLowerCase() : null;
-            }
-
-            function cleanTask(msg) {
-                // Strip common prefixes and time/date references to get the core task
-                var s = msg
-                    .replace(/^(hey|hi|hello|please|can you|could you|i need to|i need you to|i want to)\s+/i, '')
-                    .replace(/^(remind me|reminder|don'?t let me forget|don'?t forget)\s*(to|about|that i need to|that)?\s*/i, '')
-                    .replace(/^(set a reminder|set an alarm|set reminder)\s*(to|for|about)?\s*/i, '');
-                // Remove time references (at 8pm, by 3:00, etc.)
-                s = s.replace(/(^|\s)(at|by|before|around)\s+\d{1,2}(:\d{2})?\s*(am|pm|a\.m\.|p\.m\.)?/gi, '');
-                // Remove day/date words only as whole words
-                s = s.replace(/(^|\s)(today|tonight|tomorrow|this evening|this morning|next\s+\w+|monday|tuesday|wednesday|thursday|friday|saturday|sunday)(\s|$)/gi, ' ');
-                // Clean up leading prepositions left behind
-                s = s.replace(/^\s*(to|that|about)\s+/i, '');
-                return s.replace(/\s+/g, ' ').trim();
-            }
-
-            function detectScenario(msg) {
-                var lower = msg.toLowerCase();
-                // List detection — most specific first
-                if (/\badd\b.+\b(to|on)\b.+\blist\b/i.test(msg)) return 'list';
-                if (/\b(grocery|shopping|todo|to-do|to do)\s*(list)?\b/i.test(msg) && /\badd\b/i.test(msg)) return 'list';
-                if (/\blist\b/i.test(msg) && /\badd\b/i.test(msg)) return 'list';
-                // Memory detection
-                if (/\b(remember|save|store)\b.+\b(is|are|was)\b/i.test(msg)) return 'memory';
-                if (/\b(password|wifi|gate code|locker|combo|pin|address|birthday|anniversary)\b/i.test(msg) && /\b(remember|save|store|my)\b/i.test(msg)) return 'memory';
-                // Reminder detection — broad
-                if (/\b(remind|reminder|alarm|alert|wake|don'?t forget|notify|don'?t let me)\b/i.test(msg)) return 'reminder';
-                if (extractTime(msg)) return 'reminder';
-                // Fallback: if it sounds like an action/task, treat as reminder
-                if (/\b(pick up|call|take|go to|get|buy|send|pay|check|schedule|book|make|finish|submit|do)\b/i.test(msg)) return 'reminder';
-                // Last resort
-                return 'general';
-            }
-
-            function buildResponse(msg) {
-                var scenario = detectScenario(msg);
-                var time = extractTime(msg);
-                var when = extractWhen(msg);
-                var task = cleanTask(msg);
-
-                // Capitalize first letter of task
-                function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
-
-                if (scenario === 'list') {
-                    // Parse: "add X to Y list"
-                    var addMatch = msg.match(/\badd\s+(.+?)\s+(to|on)\s+(?:my\s+)?(.+?)(?:\s+list)?\s*$/i);
-                    var items, listName;
-                    if (addMatch) {
-                        items = addMatch[1].split(/\s*(?:,|&|\band\b)\s*/i).map(function(s) { return s.trim(); }).filter(Boolean);
-                        listName = addMatch[3].replace(/\s*list\s*/i, '').trim() || 'grocery';
-                    } else {
-                        items = ['item'];
-                        listName = 'grocery';
-                    }
-                    var itemStr = items.join(' and ');
-                    var allItems = items.map(cap);
-                    return {
-                        scenario: 'list',
-                        steps: [
-                            { type: 'bot', text: '\u2713 Added ' + itemStr + ' to your ' + listName + ' list! (' + allItems.length + ' items)', delay: 1500 },
-                            { type: 'time-skip', text: '\u23E9  Later, at the store...', delay: 3000 },
-                            { type: 'user', text: "What's on my " + listName + ' list?', delay: 4200 },
-                            { type: 'bot', text: 'Your ' + listName + ' list:\n\u2022 ' + allItems.join('\n\u2022 '), delay: 5800 }
-                        ]
-                    };
-                }
-
-                if (scenario === 'memory') {
-                    // Try to extract "X is Y"
-                    var cleaned = msg.replace(/^(hey |please )?(remember|save|store)\s*(that\s+)?(my\s+)?/i, '').trim();
-                    var isMatch = cleaned.match(/^(.+?)\s+(?:is|are|was)\s+(.+)$/i);
-                    var label, value;
-                    if (isMatch) {
-                        label = isMatch[1].trim();
-                        value = isMatch[2].trim();
-                    } else {
-                        label = 'that info';
-                        value = cleaned || msg;
-                    }
-                    var emoji = /password|wifi|pin/i.test(label) ? '\uD83D\uDD11' : /locker|combo|code|gate/i.test(label) ? '\uD83D\uDD12' : /birthday|anniversary/i.test(label) ? '\uD83C\uDF82' : /address/i.test(label) ? '\uD83C\uDFE0' : '\uD83D\uDCBE';
-                    return {
-                        scenario: 'memory',
-                        steps: [
-                            { type: 'bot', text: "Saved! I'll remember your " + label + '. ' + emoji + ' \u2713', delay: 1500 },
-                            { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
-                            { type: 'user', text: "What's my " + label + '?', delay: 4200 },
-                            { type: 'bot', text: emoji + ' Your ' + label + ' is ' + value, delay: 5800 }
-                        ]
-                    };
-                }
-
-                if (scenario === 'reminder') {
-                    if (!task || task.length < 2) task = msg.replace(/^(remind me|reminder)\s*/i, '').trim() || 'do that';
-                    var timeDisplay = time || '3:00 PM';
-                    var whenDisplay = when || 'today';
-                    return {
-                        scenario: 'reminder',
-                        steps: [
-                            { type: 'bot', text: "Got it! I'll remind you to " + task + ' at ' + timeDisplay + ' ' + whenDisplay + '. \u2713', delay: 1500 },
-                            { type: 'time-skip', text: '\u23E9  Fast forward to ' + timeDisplay + '...', delay: 3000 },
-                            { type: 'bot', text: '\u23F0 Hey! Reminder: ' + cap(task) + '!', delay: 4500 }
-                        ]
-                    };
-                }
-
-                // General fallback — echo the message back naturally
-                var fallbackTask = task || msg;
-                return {
-                    scenario: 'general',
+            // ── Precanned responses for each chip message ──
+            var cannedResponses = {
+                'Remind me to take my medicine at 8pm': {
+                    scenario: 'reminder',
                     steps: [
-                        { type: 'bot', text: "Got it! I've noted that down for you. \u2713", delay: 1500 },
-                        { type: 'time-skip', text: '\u23E9  Later, when you need it...', delay: 3000 },
-                        { type: 'user', text: 'What did I save earlier?', delay: 4200 },
-                        { type: 'bot', text: '\uD83D\uDCCB Here it is: "' + cap(fallbackTask) + '"', delay: 5800 }
+                        { type: 'bot', text: "Got it! I'll remind you to take your medicine at 8:00 PM today. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Fast forward to 8:00 PM...', delay: 3000 },
+                        { type: 'bot', text: '\u23F0 Hey! Reminder: Take your medicine!', delay: 4500 }
                     ]
-                };
-            }
+                },
+                'Add eggs and milk to my grocery list': {
+                    scenario: 'list',
+                    steps: [
+                        { type: 'bot', text: '\u2713 Added eggs and milk to your grocery list! (2 items)', delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Later, at the store...', delay: 3000 },
+                        { type: 'user', text: "What's on my grocery list?", delay: 4200 },
+                        { type: 'bot', text: 'Your grocery list:\n\u2022 Eggs\n\u2022 Milk', delay: 5800 }
+                    ]
+                },
+                'Remember my WiFi password is Sunny42': {
+                    scenario: 'memory',
+                    steps: [
+                        { type: 'bot', text: "Saved! I'll remember your WiFi password. \uD83D\uDD11 \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
+                        { type: 'user', text: "What's my WiFi password?", delay: 4200 },
+                        { type: 'bot', text: '\uD83D\uDD11 Your WiFi password is Sunny42', delay: 5800 }
+                    ]
+                },
+                'Remind me to call Mom tomorrow at 10am': {
+                    scenario: 'reminder',
+                    steps: [
+                        { type: 'bot', text: "Got it! I'll remind you to call Mom at 10:00 AM tomorrow. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Fast forward to 10:00 AM...', delay: 3000 },
+                        { type: 'bot', text: '\u23F0 Hey! Reminder: Call Mom!', delay: 4500 }
+                    ]
+                },
+                'Add dog food to my shopping list': {
+                    scenario: 'list',
+                    steps: [
+                        { type: 'bot', text: '\u2713 Added dog food to your shopping list! (1 item)', delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Later, at the store...', delay: 3000 },
+                        { type: 'user', text: "What's on my shopping list?", delay: 4200 },
+                        { type: 'bot', text: 'Your shopping list:\n\u2022 Dog food', delay: 5800 }
+                    ]
+                },
+                'Remember my locker combo is 24-8-16': {
+                    scenario: 'memory',
+                    steps: [
+                        { type: 'bot', text: "Saved! I'll remember your locker combo. \uD83D\uDD12 \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
+                        { type: 'user', text: "What's my locker combo?", delay: 4200 },
+                        { type: 'bot', text: '\uD83D\uDD12 Your locker combo is 24-8-16', delay: 5800 }
+                    ]
+                }
+            };
 
             function addBubble(type, text) {
                 var div = document.createElement('div');
@@ -2515,8 +2399,6 @@
                 return div;
             }
 
-            var DEMO_API = '/api/demo';
-
             function playSteps(steps, scenarioKey) {
                 var typingEl = null;
                 setTimeout(function() {
@@ -2528,7 +2410,6 @@
                         if (typingEl) { typingEl.remove(); typingEl = null; }
                         var bubbleType = step.type === 'time-skip' ? 'time-skip' : (step.type === 'user' ? 'user' : 'bot');
                         addBubble(bubbleType, step.text);
-                        // Only show typing if there's a LATER step that is a bot/default reply
                         var hasMoreBotSteps = false;
                         for (var j = idx + 1; j < steps.length; j++) {
                             var t = steps[j].type;
@@ -2544,14 +2425,10 @@
 
                 var lastDelay = steps[steps.length - 1].delay;
                 setTimeout(function() {
-                    // Clean up any stray typing indicator
                     if (typingEl) { typingEl.remove(); typingEl = null; }
                     demoRunning = false;
                     ctaEl.style.display = 'block';
                     suggestionsEl.style.display = 'flex';
-                    inputEl.disabled = false;
-                    sendBtn.disabled = false;
-                    inputEl.placeholder = 'Try another message...';
                     if (typeof gtag === 'function') gtag('event', 'demo_completed', { scenario: scenarioKey, demo_number: demoCount, page: 'index' });
                 }, lastDelay + 1200);
             }
@@ -2562,8 +2439,6 @@
                 demoCount++;
 
                 suggestionsEl.style.display = 'none';
-                inputEl.disabled = true;
-                sendBtn.disabled = true;
 
                 if (demoCount > 1) {
                     var divider = document.createElement('div');
@@ -2575,52 +2450,17 @@
 
                 if (typeof gtag === 'function') gtag('event', 'demo_started', { demo_number: demoCount, page: 'index' });
 
-                // Try live API first, fall back to local simulation
-                var controller = new AbortController();
-                var timeout = setTimeout(function() { controller.abort(); }, 8000);
-
-                fetch(DEMO_API, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: userMsg.substring(0, 200) }),
-                    signal: controller.signal
-                })
-                .then(function(res) { clearTimeout(timeout); return res.json(); })
-                .then(function(data) {
-                    if (data.replies && data.replies.length > 0) {
-                        playSteps(data.replies, 'live');
-                    } else {
-                        throw new Error('Invalid response');
-                    }
-                })
-                .catch(function() {
-                    clearTimeout(timeout);
-                    // Fallback to local simulation
-                    var result = buildResponse(userMsg);
-                    playSteps(result.steps, result.scenario + '_fallback');
-                });
+                var canned = cannedResponses[userMsg];
+                if (canned) {
+                    playSteps(canned.steps, canned.scenario);
+                }
             }
 
-            // Chip clicks
             suggestionsEl.addEventListener('click', function(e) {
                 var chip = e.target.closest('.try-demo-chip');
                 if (!chip) return;
                 var msg = chip.getAttribute('data-msg');
-                inputEl.value = '';
                 runDemo(msg);
-            });
-
-            // Send button / Enter key
-            function handleSend() {
-                var msg = inputEl.value.trim();
-                if (!msg) return;
-                inputEl.value = '';
-                runDemo(msg);
-            }
-
-            sendBtn.addEventListener('click', handleSend);
-            inputEl.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') { e.preventDefault(); handleSend(); }
             });
         })();
 
