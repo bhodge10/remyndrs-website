@@ -2448,9 +2448,11 @@
 
                 addBubble('user', userMsg);
 
-                if (typeof gtag === 'function') gtag('event', 'demo_started', { demo_number: demoCount, page: 'index' });
-
                 var canned = cannedResponses[userMsg];
+                var scenarioKey = canned ? canned.scenario : 'unknown';
+
+                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, chip_message: userMsg, demo_number: demoCount, page: 'index' });
+
                 if (canned) {
                     playSteps(canned.steps, canned.scenario);
                 }
