@@ -1,64 +1,73 @@
-# Remyndrs Website - Future Features & Enhancements
+# Remyndrs — Claude Project Reference
 
-## 🚀 Planned Features
+## ⚠️ Before Any Copy or Content Work
+Read `remyndrs-brand-reference.md` first. It contains approved copy, rejected phrases,
+voice rules, and the pre-publish checklist. Do not write or edit any website copy,
+ad copy, or user-facing text without consulting it.
 
-### Referral Tracking System (HIGH PRIORITY)
+---
 
-**Current Implementation:**
-- Simple share button with pre-filled message
-- SMS link: `sms:?&body=I'm loving Remyndrs! 📱 Never forget anything again. Text START to +1 (855) 552-1950 for a free trial`
-- No tracking of who referred whom
+## Analytics & Tracking
 
-**Future Enhancement:**
+- ✅ Google Analytics GA4 — Measurement ID: `G-T8ZBVMT9JE` — https://analytics.google.com
+- ✅ Meta Pixel — ID: `2321949688328139`
+- Key events tracked: `mobile_sms_click`, `cta_click`, `demo_started`, `demo_completed`, `persona_select`, `landing_page_view`
 
-#### Phase 1: Unique Referral Codes
-1. **Generate unique referral code per user**
-   - Format: `REF-ABC123` or similar
-   - Store in user database with user ID
+---
 
-2. **Update share message to include code**
-   ```
-   sms:?&body=Try Remyndrs free! Text "START REF-ABC123" to +1 (855) 552-1950
-   ```
+## Completed Features
 
-3. **Backend parsing**
-   - When user texts "START REF-ABC123"
-   - Extract referral code
-   - Link new user to referrer in database
-   - Track conversion
+- ✅ Share buttons
+- ✅ FAQ section (faq.html)
+- ✅ Google Analytics GA4
+- ✅ Meta Pixel
+- ✅ Desktop contact forms
+- ✅ Hardcoded "87 spots remaining" removed
+- ✅ Android platform detection (shows form instead of SMS link)
+- ✅ Interactive demo (try-demo section)
+- ✅ Persona selector (index.html)
 
-#### Phase 2: Referral Dashboard
-1. **User-facing dashboard** (web or SMS-based)
-   - View referral stats
-   - See who signed up via their code
-   - Track rewards earned
+---
 
-2. **Commands**
-   - `REFERRAL` - Get your unique referral link
-   - `REFERRALS` - See how many people you've referred
-   - `REWARDS` - Check rewards balance
+## Known Issues / Technical Debt
 
-#### Phase 3: Rewards Program
-1. **Incentive structure**
-   - Refer 1 friend → Get 1 week free Premium
-   - Refer 3 friends → Get 1 month free Premium
-   - Refer 5 friends → Get 3 months free Premium
-   - Refer 10 friends → Get 6 months free Premium
+**QR Code dependency**
+- Uses external API: `https://api.qrserver.com/v1/create-qr-code/`
+- Risk: If API goes down, QR section breaks
+- Fix: Generate static QR code and host locally
 
-2. **Both parties benefit**
-   - Referrer gets reward
-   - New user gets extended trial (e.g., 21 days instead of 14)
+**"See more examples → " link (index.html)**
+- Currently links to `#see-it-section` — loops back to itself
+- Fix: Point to a dedicated examples page or remove the link
 
-3. **Auto-apply rewards**
-   - Track in user account
-   - Auto-extend Premium subscription
-   - Send confirmation SMS when reward earned
+**Logo file size**
+- remyndrs-logo.png is ~226KB — compress or convert to SVG
 
-#### Technical Implementation Notes
+**Color contrast**
+- SMS disclaimer text, special commands section, footer text opacity may not meet WCAG AA
+- Needs accessibility audit
 
-**Database Schema:**
+---
+
+## High Priority: Referral Tracking System
+
+### Phase 1 — Unique Referral Codes
+- Generate unique code per user (format: `REF-ABC123`)
+- Update share message: `"Try Remyndrs free! Text START REF-ABC123 to +1 (855) 552-1950"`
+- Backend: parse "START [REFCODE]", validate, link new user to referrer
+
+### Phase 2 — Referral Dashboard
+- SMS commands: `REFERRAL` (get code), `REFERRALS` (see count), `REWARDS` (check balance)
+
+### Phase 3 — Rewards Program
+- Refer 1 → 1 week free Premium
+- Refer 3 → 1 month free Premium
+- Refer 5 → 3 months free Premium
+- Refer 10 → 6 months free Premium
+- New users get extended trial (21 days instead of 14)
+
+### Database Schema
 ```sql
--- Referral codes table
 CREATE TABLE referral_codes (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
@@ -67,7 +76,6 @@ CREATE TABLE referral_codes (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
--- Referrals table
 CREATE TABLE referrals (
     id INT PRIMARY KEY AUTO_INCREMENT,
     referrer_user_id INT NOT NULL,
@@ -79,12 +87,11 @@ CREATE TABLE referrals (
     FOREIGN KEY (referred_user_id) REFERENCES users(id)
 );
 
--- Rewards table
 CREATE TABLE rewards (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT NOT NULL,
-    reward_type VARCHAR(50) NOT NULL, -- 'week_free', 'month_free', etc.
-    reward_value INT NOT NULL, -- days of free Premium
+    reward_type VARCHAR(50) NOT NULL,
+    reward_value INT NOT NULL,
     earned_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     applied BOOLEAN DEFAULT FALSE,
     applied_date TIMESTAMP NULL,
@@ -92,225 +99,44 @@ CREATE TABLE rewards (
 );
 ```
 
-**Backend Logic:**
-1. Parse incoming SMS for "START [REFCODE]" pattern
-2. Validate referral code exists
-3. Create new user account
-4. Link referral in database
-5. Check if referrer qualifies for reward
-6. Auto-apply reward if threshold met
-7. Send confirmation SMS to both parties
+---
 
-**Website Updates:**
-1. Replace static share message with dynamic code
-2. Add JavaScript to fetch user's referral code via API
-3. Update share button href dynamically
-4. Add "My Referrals" section (optional web portal)
+## Medium Priority
+
+**Web Portal** — Login via SMS verification, view/manage reminders, lists, memories, data export
+
+**A/B Testing** — CTA copy, button colors, pricing display position, testimonial placement
+
+**Trust Signals** — Real testimonials with photos (target 5-10), "As seen on..." when applicable
+
+**Annual Billing** — Annual option (save 2 months), pause subscription option
 
 ---
 
-## 📊 Analytics & Tracking
+## Lower Priority / Long-term
 
-### Website Analytics (COMPLETED)
-- ✅ Google Analytics (GA4) added — Measurement ID: `G-T8ZBVMT9JE`
-- Dashboard: https://analytics.google.com
-- Track:
-  - Page views
-  - Button clicks (especially CTA buttons)
-  - Share button usage
-  - Conversion funnel
-
-### SMS Metrics to Track
-- Number of shares sent (if possible via API)
-- Conversion rate: shares → signups
-- Referral code usage rate
-- Most effective referrers (leaderboard potential)
-
----
-
-## 🔄 Other Future Enhancements
-
-### Mobile App (Long-term)
-- Lightweight companion app
-- Push notifications as backup to SMS
-- Visual reminder management
-- List management with checkboxes
-
-### Web Portal (Medium-term)
-- Login with phone number (SMS verification)
-- View all reminders
-- Manage lists
-- Edit saved memories
-- Download data export
-
-### FAQ Section (COMPLETED)
-- ✅ FAQ section added to index.html
-
-### A/B Testing
-- Test different CTA copy
-- Test button colors
-- Test pricing display
-- Test testimonial placement
-
-### Trust Signals
-- Add security badges
-- Add "As seen on..." if featured anywhere
-- Add more testimonials (aim for 5-10)
-- Add photos to testimonials
-
-### Performance Optimization
-- Compress logo SVG (currently 226KB)
-- Lazy load images below fold
-- Minify CSS/JS
-- Add service worker for offline capability
-
----
-
-## 📝 Content Improvements
-
-### Blog/Content Marketing (Optional)
-- "10 Things to Never Forget Again"
-- "How to Remember Everything Without Apps"
-- "SMS vs Apps: Why Text Messages Win"
-- "Real Stories: How Remyndrs Changed My Life"
-
-### Email Marketing
-- Collect emails on website
-- Welcome sequence for trial users
-- Tips & tricks emails
-- Upgrade reminders before trial ends
-
----
-
-## 🔐 Security Enhancements
-
-### Two-Factor Authentication
-- Optional 2FA for account access
-- Backup codes in case of phone loss
-
-### Account Recovery
-- Email backup for account recovery
-- Security questions option
-- Trusted contact for account access
-
----
-
-## 💳 Payment & Billing
-
-### Multiple Payment Options
-- Credit/debit cards (Stripe)
-- PayPal
-- Apple Pay / Google Pay
-- Venmo (for younger demographics)
-
-### Subscription Management
-- Easy upgrade/downgrade
-- Pause subscription option
-- Annual billing discount (save 2 months)
-
----
-
-## 📱 SMS Service Enhancements
-
-### Natural Language Processing
-- Better parsing of complex reminders
-- Understand relative dates ("next Friday")
-- Context awareness ("also remind me tomorrow")
-
-### Smart Suggestions
-- "You often set reminders for Mondays - want a recurring one?"
-- "You have 3 grocery lists - want to merge them?"
-
-### Integrations (Advanced)
-- Calendar sync (Google Calendar, Apple Calendar)
-- Task apps (Todoist, Things)
-- Voice assistants (Alexa, Google Home)
-
----
-
-## 🎯 Growth & Marketing
-
-### Viral Mechanics
-- **Referral program** (Phase 1 priority)
-- Social proof (user count, reminder count)
-- Contests ("Refer the most, win free year")
-
-### Partnerships
-- Senior care facilities
-- ADHD/memory support groups
-- Productivity influencers
-- App review sites
-
-### PR Opportunities
+- Mobile app (push notifications, visual list management)
+- SMS enhancements (relative dates, smart suggestions, calendar sync)
+- Content marketing blog
+- Email sequences for trial users
 - Product Hunt launch
-- Tech blogs (The Verge, TechCrunch)
-- Productivity newsletters
-- Podcast sponsorships
+- Partnerships: senior care, ADHD support groups, productivity influencers
 
 ---
 
-## 📅 Suggested Implementation Timeline
+## SMS / Legal Compliance
 
-**Month 1 (Immediate):**
-- ✅ Share buttons (COMPLETED)
-- ✅ FAQ section (COMPLETED)
-- ✅ Analytics - Google Analytics GA4 (COMPLETED)
-- ✅ Desktop contact forms for Get in Touch section (COMPLETED)
-- Optimize logo file size
-
-**Month 2:**
-- Implement referral tracking (Phase 1)
-- Add more testimonials
-- Create blog content
-
-**Month 3:**
-- Launch rewards program (Phase 2-3)
-- Add web portal for account management
-- Implement annual billing option
-
-**Month 4+:**
-- Mobile app development
-- Advanced integrations
-- International expansion
+- TCPA: https://www.fcc.gov/tcpa
+- A2P 10DLC registration required for US carriers
+- All SMS CTAs must include: "Msg & data rates may apply. Reply STOP to unsubscribe."
 
 ---
 
-## 🐛 Known Issues / Technical Debt
+## Payment Processing (Planned)
 
-### ~~Update Hardcoded Values~~ (FIXED)
-- ✅ Hardcoded "87 spots remaining" has been addressed
-
-### QR Code Dependency
-- External API: `https://api.qrserver.com/v1/create-qr-code/`
-- Risk: If API goes down, QR section breaks
-- Solution: Generate static QR code and host locally
-
-### Color Contrast
-- Some text may not meet WCAG AA standards
-- Need to test with accessibility tools
-- Specific areas to check:
-  - SMS disclaimer text
-  - Special commands section background
-  - Footer text opacity
+- Stripe primary — https://stripe.com/docs
+- PayPal, Apple Pay, Google Pay secondary
 
 ---
 
-## 📚 Resources & Documentation
-
-### SMS/A2P Compliance
-- TCPA regulations: https://www.fcc.gov/tcpa
-- A2P 10DLC registration (for US carriers)
-- International SMS regulations (if expanding)
-
-### Analytics
-- ✅ Using Google Analytics (GA4) — Measurement ID: `G-T8ZBVMT9JE`
-- Dashboard: https://analytics.google.com
-
-### Payment Processing
-- Stripe documentation: https://stripe.com/docs
-- Subscription billing best practices
-
----
-
-**Last Updated:** 2026-02-03
-**Maintained By:** Development Team
+*Last Updated: 2026-04-15*

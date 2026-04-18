@@ -5,7 +5,11 @@
       "Bash(git commit:*)",
       "Bash(git pull:*)",
       "Bash(git push:*)",
-      "Bash(\"C:/Users/BradHodge/AppData/Local/Microsoft/WindowsApps/PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0/python.exe\":*2)"
+      "Bash(\"C:/Users/BradHodge/AppData/Local/Microsoft/WindowsApps/PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0/python.exe\":*)",
+      "Bash(bash build.sh 2>&1 | head -20)",
+      "Bash(python3:*)",
+      "Bash(find:*)"
     ]
-  }
+  },
+  "hooks": {}
 }

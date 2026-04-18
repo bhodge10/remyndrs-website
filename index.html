@@ -1720,7 +1720,7 @@
             <!-- Center: hero content -->
             <div class="hero-center">
                 <img src="remyndrs-logo.png" alt="Remyndrs" class="hero-logo" width="90" height="90">
-                <h1>Never Forget Anything Again</h1>
+                <h1>You just forgot something. We both know it.</h1>
                 <p class="subtitle">Your personal memory assistant via text.<br>Just text it. We'll remember it.</p>
 
                 <!-- Mobile conversation preview -->
@@ -1730,10 +1730,10 @@
                         <span class="convo-contact">Remyndrs</span>
                     </div>
                     <div class="convo-bubbles">
-                        <div class="convo-bubble sent">Remind me at 3pm to pick up dry cleaning</div>
-                        <div class="convo-bubble received">✓ Got it! I'll remind you at 3:00 PM.</div>
-                        <div class="convo-bubble sent">What's my WiFi password?</div>
-                        <div class="convo-bubble received">Your WiFi password is BlueSky42</div>
+                        <div class="convo-bubble sent">Remind me Friday at 8am about soccer snacks</div>
+                        <div class="convo-bubble received">✓ I'll remind you Friday at 8:00 AM about soccer snacks!</div>
+                        <div class="convo-bubble sent">Add juice boxes and oranges to my grocery list</div>
+                        <div class="convo-bubble received">✓ Added 2 items to your grocery list!</div>
                     </div>
                 </div>
 
@@ -1748,7 +1748,8 @@
                     <a href="sms:+18555521950?body=Hello" class="cta-button" aria-label="Start free trial by texting hello" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index'})">
                         📱 Tap to Text Us — It's Free! →
                     </a>
-                    <p class="social-proof mobile-social-proof">✓ Trusted by 50+ people to remember what matters</p>
+                    <p style="font-size: 12px; color: #5a6d7a; text-align: center; margin-top: 6px;">✓ Your Messages app will open — just hit Send!</p>
+                    <p class="social-proof mobile-social-proof">✓ Join people who never miss what matters</p>
                     <p class="sms-disclaimer">By texting, you agree to receive automated SMS messages. Msg & data rates may apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
                 </div>
 
@@ -1774,7 +1775,7 @@
                     Or text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello" onclick="gtag('event','cta_click',{cta_type:'phone_hero_secondary',location:'hero',page:'index'})">+1 (855) 552-1950</a> from your phone
                 </p>
 
-                <p class="social-proof desktop-only-block">✓ Trusted by 50+ people to remember what matters</p>
+                <p class="social-proof desktop-only-block">✓ Join people who never miss what matters</p>
 
                 <div class="hero-trust">
                     <span>🔒 Bank-level encryption</span>
@@ -1852,6 +1853,42 @@
         <strong>Free to start</strong> · 14-day Premium trial · Then $8.99/mo or free forever
     </div>
 
+    <!-- ═══ EXPLORE ZONE ═══ -->
+    <div class="explore-zone">
+        <p class="quick-links-label">Want to learn more?</p>
+        <div class="quick-links">
+            <button class="quick-link-btn active" id="toggle-how" aria-expanded="true">
+                ✓ How it works
+            </button>
+            <button class="quick-link-btn" id="toggle-demo" aria-expanded="false">
+                📱 See it in action
+            </button>
+        </div>
+
+        <!-- ═══ HOW IT WORKS (collapsible) ═══ -->
+        <section class="how-it-works open" id="how-it-works-section">
+        <div class="how-it-works-inner">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Text Your Reminder</h3>
+                    <p>Send a message about anything you want to remember.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Process It</h3>
+                    <p>Our AI understands your message and schedules it automatically.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get Reminded</h3>
+                    <p>Receive a text at the perfect time. Never miss what matters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ PERSONAS ═══ -->
     <section class="personas">
         <h2>Who is Remyndrs for?</h2>
@@ -1887,42 +1924,6 @@
                     <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'persona_expand',page:'index'})">Get Started Now →</a>
                 </div>
                 <button class="persona-clear" id="persona-clear">Clear selection</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══ EXPLORE ZONE ═══ -->
-    <div class="explore-zone">
-        <p class="quick-links-label">Want to learn more?</p>
-        <div class="quick-links">
-            <button class="quick-link-btn" id="toggle-how" aria-expanded="false">
-                ⚡ How it works
-            </button>
-            <button class="quick-link-btn" id="toggle-demo" aria-expanded="false">
-                📱 See it in action
-            </button>
-        </div>
-
-        <!-- ═══ HOW IT WORKS (collapsible) ═══ -->
-        <section class="how-it-works" id="how-it-works-section">
-        <div class="how-it-works-inner">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Text Your Reminder</h3>
-                    <p>Send a message about anything you want to remember.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>We Process It</h3>
-                    <p>Our AI understands your message and schedules it automatically.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Get Reminded</h3>
-                    <p>Receive a text at the perfect time. Never miss what matters.</p>
-                </div>
             </div>
         </div>
     </section>
@@ -1995,7 +1996,7 @@
                 </div>
 
             </div>
-            <a href="#see-it-section" class="see-more-link" onclick="gtag('event','cta_click',{cta_type:'see_more_demos',location:'demos',page:'index'})">See more examples →</a>
+            <a href="faq.html" class="see-more-link" onclick="gtag('event','cta_click',{cta_type:'see_more_demos',location:'demos',page:'index'})">See more examples →</a>
         </div>
     </section>
     </div><!-- /.explore-zone -->
