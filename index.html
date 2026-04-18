@@ -1469,6 +1469,49 @@
             .try-demo-suggestions { max-width: 500px; }
         }
 
+        /* ─── TESTIMONIAL ─── */
+        .testimonial {
+            padding: 40px 20px;
+            background: linear-gradient(160deg, #E3F0F7 0%, #DFF2E8 50%, #EEF3E8 100%);
+            text-align: center;
+        }
+
+        .testimonial-card {
+            max-width: 560px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 14px;
+            padding: 28px 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary-blue);
+        }
+
+        .testimonial-quote {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .testimonial-disclaimer {
+            font-size: 11px;
+            color: #aaa;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial { padding: 28px 16px; }
+            .testimonial-card { padding: 22px 18px; }
+            .testimonial-quote { font-size: 14px; line-height: 1.6; }
+        }
+
         /* ─── FOOTER ─── */
         footer {
             background: var(--text-dark);
@@ -1845,6 +1888,15 @@
             <p class="try-demo-cta-text">That's it. No app. No account. Just text.</p>
             <a href="sms:+18555521950?body=Hello" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'interactive_demo',page:'index'})">📱 Try It For Real — Text Us Free!</a>
             <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'interactive_demo',page:'index'})">Try It For Real — Get Started Free!</a>
+        </div>
+    </section>
+
+    <!-- ═══ TESTIMONIAL ═══ -->
+    <section class="testimonial">
+        <div class="testimonial-card">
+            <p class="testimonial-quote">"I was scheduled for surgery and my doctor told me to stop taking ibuprofen 7 days before the procedure. Between work, kids, and everything else going on, I completely forgot about it. Then, exactly 7 days before my surgery, I got a text from Remyndrs with the reminder. I hadn't even thought about it once since my appointment. That text might have saved my surgery — or worse. I tell everyone I know about this service now."</p>
+            <p class="testimonial-author">— Heather, a Remyndrs User</p>
+            <p class="testimonial-disclaimer">Individual experience. Remyndrs is not a medical device.</p>
         </div>
     </section>
 
