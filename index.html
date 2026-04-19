@@ -1316,7 +1316,7 @@
         }
 
         .try-demo-phone {
-            max-width: 250px;
+            max-width: 220px;
             aspect-ratio: 9 / 19.5;
             margin: 0 auto;
             background: #f5f5f5;
@@ -1541,7 +1541,7 @@
         }
 
         @media (min-width: 769px) {
-            .try-demo-phone { max-width: 260px; }
+            .try-demo-phone { max-width: 220px; }
             .try-demo-suggestions { max-width: 500px; }
         }
 
@@ -1964,7 +1964,7 @@
         <div class="try-demo-suggestions" id="tryDemoSuggestions">
             <button class="try-demo-chip" data-msg="Remind me to take my medicine at 8pm">⏰ Remind me at 8pm to take medicine</button>
             <button class="try-demo-chip" data-msg="Add eggs and milk to my grocery list">📝 Add eggs & milk to grocery list</button>
-            <button class="try-demo-chip" data-msg="Remember my WiFi password is Sunny42">🔑 Remember my WiFi password</button>
+            <button class="try-demo-chip" data-msg="Remember pediatrician's after-hours line is (555) 987-6543">🩺 Remember pediatrician after-hours</button>
             <button class="try-demo-chip" data-msg="Remind me to call Mom tomorrow at 10am">📞 Remind me to call Mom tomorrow</button>
             <button class="try-demo-chip" data-msg="Add dog food to my shopping list">🐕 Add dog food to shopping list</button>
             <button class="try-demo-chip" data-msg="Remember my locker combo is 24-8-16">🔒 Remember my locker combo</button>
@@ -2482,13 +2482,13 @@
                         { type: 'bot', text: 'Your grocery list:\n\u2022 Eggs\n\u2022 Milk', delay: 5800 }
                     ]
                 },
-                'Remember my WiFi password is Sunny42': {
+                "Remember pediatrician's after-hours line is (555) 987-6543": {
                     scenario: 'memory',
                     steps: [
-                        { type: 'bot', text: "Saved! I'll remember your WiFi password. \uD83D\uDD11 \u2713", delay: 1500 },
-                        { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
-                        { type: 'user', text: "What's my WiFi password?", delay: 4200 },
-                        { type: 'bot', text: '\uD83D\uDD11 Your WiFi password is Sunny42', delay: 5800 }
+                        { type: 'bot', text: "Saved! I'll remember the pediatrician's after-hours number. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  A few weeks later, kid spikes a fever at 9pm...', delay: 3000 },
+                        { type: 'user', text: "What's the pediatrician's after-hours number?", delay: 4200 },
+                        { type: 'bot', text: "The pediatrician's after-hours line is (555) 987-6543", delay: 5800 }
                     ]
                 },
                 'Remind me to call Mom tomorrow at 10am': {
