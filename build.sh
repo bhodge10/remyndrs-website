@@ -22,7 +22,7 @@ cat > sitemap.xml <<EOF
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 EOF
 
-for file in $(find . -name "*.html" -not -path "./node_modules/*" | sed 's|^\./||' | sort); do
+for file in $(find . -name "*.html" -not -path "*/node_modules/*" -not -path "./.netlify/*" -not -path "./Artifacts/*" -not -path "./Claude Artifacts/*" | sed 's|^\./||' | sort); do
   # Check if file is in exclude list
   skip=false
   for ex in $EXCLUDE; do
