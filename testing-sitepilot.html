@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8ZBVMT9JE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T8ZBVMT9JE');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Remyndrs Risk-Free — See Why Simple Beats Complicated | Remyndrs</title>
+    <meta name="description" content="Wondering if a text-based memory assistant actually works? Skip the commitment and test Remyndrs right now. No downloads, no accounts, no credit cards — just...">
+    <link rel="icon" type="image/png" href="remyndrs-logo.png">
+    <link rel="alternate icon" type="image/svg+xml" href="remyndrs-logo.svg">
+    <link rel="canonical" href="https://remyndrs.com/testing-sitepilot">
+    <meta name="theme-color" content="#4A90A4">
+    <meta name="author" content="Remyndrs">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://remyndrs.com/commands.html">
+    <meta property="og:title" content="Remyndrs Commands — How to Use Your Text Message Memory Assistant">
+    <meta property="og:description" content="Full list of Remyndrs text commands. Learn how to set reminders, create lists, save info, and more — all by text message.">
+    <meta property="og:image" content="https://remyndrs.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://remyndrs.com/commands.html">
+    <meta name="twitter:title" content="Remyndrs Commands — How to Use Your Text Message Memory Assistant">
+    <meta name="twitter:description" content="Full list of Remyndrs text commands. Learn how to set reminders, create lists, save info, and more — all by text message.">
+    <meta name="twitter:image" content="https://remyndrs.com/og-image.png">
+
+    <style>
+        :root {
+            --primary-blue: #4A90A4;
+            --success-green: #50B688;
+            --text-dark: #3D4F5C;
+            --bg-light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: white;
+            padding: 14px 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+
+        .header-phone {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-phone:hover { text-decoration: underline; }
+
+        .header-phone-btn {
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            background: var(--primary-blue);
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .header-phone-btn:hover {
+            background: #3D7A8C;
+            transform: translateY(-1px);
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover { color: var(--primary-blue); }
+
+        .hamburger-btn {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--primary-blue);
+            font-size: 26px;
+            cursor: pointer;
+            padding: 8px;
+            min-width: 44px;
+            min-height: 44px;
+            line-height: 1;
+        }
+
+        /* Hero */
+        .page-hero {
+            background: linear-gradient(180deg, #f4f7f9 0%, #fff 100%);
+            padding: 50px 0 40px;
+            text-align: center;
+            border-bottom: 1px solid #e8ecef;
+        }
+
+        .page-hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .page-hero p {
+            font-size: 17px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 60px 0;
+        }
+        
+        .intro-text {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 50px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Command Category */
+        .command-category {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .command-category h2 {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .command-category .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .command-example {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--success-green);
+        }
+        
+        .command-example h3 {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+        
+        .command-text {
+            font-family: 'Courier New', monospace;
+            background: white;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+        
+        .command-note {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Special Commands */
+        .special-commands {
+            background: #FFF3CD;
+            border-left: 4px solid #FFA500;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .special-commands h3 {
+            color: #856404;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .special-commands ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .special-commands li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .special-commands li:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--success-green) 0%, #6BCFA0 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--success-green);
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer .footer-phone {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        footer .footer-phone a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer .footer-phone a:hover { text-decoration: underline; }
+
+        footer .footer-links {
+            margin-bottom: 12px;
+        }
+
+        footer .footer-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 13px;
+        }
+
+        footer .footer-links a:hover { color: white; }
+
+        footer .footer-copy {
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+        }
+
+        /* Mobile/Desktop visibility utilities */
+        .mobile-only {
+            /* visible by default */
+        }
+        .desktop-only-block,
+        .desktop-only-inline,
+        .desktop-only-inline-block,
+        .desktop-only-inline-flex,
+        .desktop-only-flex {
+            display: none !important;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none !important;
+            }
+            .desktop-only-block {
+                display: block !important;
+            }
+            .desktop-only-inline {
+                display: inline !important;
+            }
+            .desktop-only-inline-block {
+                display: inline-block !important;
+            }
+            .desktop-only-inline-flex {
+                display: inline-flex !important;
+            }
+            .desktop-only-flex {
+                display: flex !important;
+            }
+        }
+
+        /* Android mobile: hide SMS-based elements and show form-based alternatives */
+        html.platform-android .mobile-only { display: none !important; }
+        html.platform-android .desktop-only-block { display: block !important; }
+        html.platform-android .desktop-only-inline { display: inline !important; }
+        html.platform-android .desktop-only-inline-block { display: inline-block !important; }
+        html.platform-android .desktop-only-inline-flex { display: inline-flex !important; }
+        html.platform-android .desktop-only-flex { display: flex !important; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger-btn {
+                display: block;
+            }
+
+            .header-nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 0;
+                padding-top: 10px;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+                z-index: 99;
+            }
+
+            .header-nav.open {
+                display: flex;
+            }
+
+            .header-nav a {
+                padding: 12px 20px;
+                border-top: 1px solid rgba(0,0,0,0.06);
+                font-size: 16px;
+            }
+
+            .page-hero h1 {
+                font-size: 36px;
+            }
+
+            .command-category {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="remyndrs-logo.png" alt="Remyndrs" width="180" height="44">
+            </div>
+            <button class="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">&#9776;</button>
+            <nav class="header-nav" id="main-nav">
+                <a href="/#try-demo">Try Live Demo</a>
+                <a href="/#how-it-works-section">How It Works</a>
+                <a href="commands.html">Commands</a>
+                <a href="/#pricing-strip">Pricing</a>
+                <a href="faq.html">FAQ</a>
+                <a href="mailto:support@remyndrs.com">Contact</a>
+            </nav>
+            <a href="sms:+18555521950?body=Hello!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'commands'})">Text Hello &rarr; (855) 552-1950</a>
+            <a href="/#hero" class="header-phone-btn desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header',page:'commands'})">Get Started Free &rarr;</a>
+        </div>
+    </header>
+
+    <main>
+```html
+<section>
+    <h1>Test Remyndrs Risk-Free — See Why Simple Beats Complicated</h1>
+    
+    <p>Wondering if a text-based memory assistant actually works? Skip the commitment and test Remyndrs right now. No downloads, no accounts, no credit cards — just send a text and see how it handles your real reminders.</p>
+    
+    <h2>Why Test Before You Commit?</h2>
+    
+    <p>Because you've probably been burned by apps that promised to solve your forgetfulness but ended up creating more work. Remyndrs is different — it's designed for people who want their tools to work instantly, not after a learning curve.</p>
+    
+    <p>When you test Remyndrs, you're not just trying another reminder app. You're experiencing what it's like to have a personal assistant that understands natural language, works on any phone (yes, even flip phones), and never needs updating or charging.</p>
+    
+    <h2>What Makes Testing Remyndrs Different</h2>
+    
+    <ul>
+        <li><strong>Instant results:</strong> Text us right now and get a response in seconds — no setup required</li>
+        <li><strong>Real AI processing:</strong> Our system understands "remind me Friday at 8am about soccer snacks" without you having to learn special commands</li>
+        <li><strong>Works everywhere:</strong> Test from your smartphone, basic phone, or any device that sends SMS</li>
+        <li><strong>Bank-level security:</strong> Even during testing, your information is protected with enterprise-grade encryption</li>
+        <li><strong>No spam guarantee:</strong> We only text you back when you request it — reply STOP anytime</li>
+    </ul>
+    
+    <h2>Perfect Test Scenarios</h2>
+    
+    <p>Try Remyndrs with the stuff you actually forget about:</p>
+    
+    <p><strong>If you're a busy parent:</strong> "Add soccer cleats to my shopping list" or "Remind me Tuesday at 7am about picture day"</p>
+    
+    <p><strong>If you're scattered at work:</strong> "Remember client prefers morning meetings" or "Remind me Friday at 2pm to follow up with Sarah"</p>
+    
+    <p><strong>If you forget daily stuff:</strong> "Remind me at 8pm to take medicine" or "Remember I parked in lot C row 12"</p>
+    
+    <h2>What Happens During Your Test</h2>
+    
+    <p>Text anything to (855) 552-1950 and watch Remyndrs process your message in real-time. You'll see exactly how our AI interprets your request, when it schedules your reminder, and how the reminder comes back to you. It's like having a conversation with someone who never forgets.</p>
+    
+    <p>The best part? If you like what you experience, you get 14 days of premium features free. No credit card required upfront — because we're confident that once you test our service, you'll see why thousands of people have ditched complicated apps for something that just works.</p>
+    
+    <h2>Ready to Test the Simplest Memory Solution?</h2>
+    
+    <p>Stop wondering if there's a better way to remember things. Test Remyndrs right now and see why simple beats complicated every time.</p>
+    
+    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <p><strong>📱 Text "Hello" to (855) 552-1950</strong></p>
+        <p>Your Messages app will open — just hit Send and start testing!</p>
+        <p><em>Free forever basic plan. No spam. Reply STOP anytime.</em></p>
+    </div>
+</section>
+```
+</main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-phone">Text <strong>Hello</strong> to <a href="sms:+18555521950?body=Hello!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer',page:'commands'})">+1 (855) 552-1950</a></p>
+        <div class="footer-links">
+            <a href="/#pricing-strip">Pricing</a>
+            <a href="faq.html">FAQ</a>
+            <a href="commands.html">Commands</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="mailto:support@remyndrs.com">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Remyndrs. All rights reserved. Built with &#10084;&#65039; to help you remember what matters.</p>
+    </footer>
+
+    <script src="platform-detect.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hamburger menu toggle
+            var hamburgerBtn = document.querySelector('.hamburger-btn');
+            var navMenu = document.querySelector('.header-nav');
+            if (hamburgerBtn && navMenu) {
+                hamburgerBtn.addEventListener('click', function() {
+                    var isOpen = navMenu.classList.toggle('open');
+                    hamburgerBtn.setAttribute('aria-expanded', isOpen);
+                });
+                navMenu.querySelectorAll('a').forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('open');
+                        hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
