@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Social Media Manager Application — Remyndrs</title>
+    <meta name="description" content="Apply for the Social Media Manager role at Remyndrs.">
+    <link rel="icon" type="image/png" href="/remyndrs-logo.png">
+    <link rel="alternate icon" type="image/svg+xml" href="/remyndrs-logo.svg">
+    <meta name="theme-color" content="#4A90A4">
+
+    <style>
+        :root {
+            --primary-blue: #4A90A4;
+            --primary-blue-dark: #357A8C;
+            --success-green: #50B688;
+            --error-red: #d64545;
+            --text-dark: #3D4F5C;
+            --bg-light: #f8f9fa;
+            --border: #e1e6ea;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--bg-light);
+        }
+
+        /* Header with teal gradient */
+        .top-banner {
+            background: linear-gradient(135deg, #4A90A4 0%, #357A8C 100%);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .top-banner img {
+            height: 56px;
+            width: auto;
+            display: block;
+            margin: 0 auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .top-banner h1 {
+            color: white;
+            font-size: 28px;
+            margin-top: 16px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .top-banner .subtitle {
+            color: rgba(255,255,255,0.92);
+            font-size: 15px;
+            margin-top: 6px;
+        }
+
+        /* Page container */
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            background: white;
+            padding: 28px 32px;
+            margin: -20px 0 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            font-size: 16px;
+            color: #555;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Progress bar */
+        .progress-wrap {
+            position: sticky;
+            top: 0;
+            background: var(--bg-light);
+            padding: 16px 0 12px;
+            z-index: 50;
+            margin-bottom: 12px;
+        }
+
+        .progress-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-label .step-name {
+            color: var(--text-dark);
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: #e1e6ea;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4A90A4, #357A8C);
+            width: 0;
+            transition: width 0.4s ease;
+        }
+
+        /* Form sections */
+        form {
+            padding-bottom: 80px;
+        }
+
+        .section {
+            background: white;
+            padding: 30px 32px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 12px;
+            margin-bottom: 22px;
+        }
+
+        .section-header h2 {
+            font-size: 20px;
+            color: var(--primary-blue-dark);
+            font-weight: 600;
+        }
+
+        .section-header .section-num {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Question blocks */
+        .q {
+            margin-bottom: 26px;
+        }
+
+        .q:last-child { margin-bottom: 0; }
+
+        .q label.q-label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .q label.q-label .required {
+            color: var(--error-red);
+            margin-left: 2px;
+        }
+
+        .q .hint {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Inputs */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            color: var(--text-dark);
+            background: white;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="url"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(74, 144, 164, 0.15);
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+            line-height: 1.5;
+        }
+
+        textarea.large {
+            min-height: 140px;
+        }
+
+        /* Radio + checkbox groups */
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.15s, border-color 0.15s;
+            background: white;
+        }
+
+        .option:hover {
+            background: #f4f7f9;
+            border-color: #c8d4dc;
+        }
+
+        .option input[type="radio"],
+        .option input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 4px;
+            cursor: pointer;
+            accent-color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        .option span {
+            font-size: 15px;
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .option.checked {
+            background: rgba(74, 144, 164, 0.08);
+            border-color: var(--primary-blue);
+        }
+
+        .other-input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+        }
+
+        .other-input input[type="checkbox"],
+        .other-input input[type="radio"] {
+            accent-color: var(--primary-blue);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .other-input input[type="text"] {
+            border: none;
+            padding: 4px 8px;
+            background: transparent;
+            box-shadow: none !important;
+            border-bottom: 1px solid var(--border);
+            border-radius: 0;
+        }
+
+        .other-input input[type="text"]:focus {
+            border-bottom-color: var(--primary-blue);
+        }
+
+        /* Char counter */
+        .char-counter {
+            display: block;
+            text-align: right;
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .char-counter.ok {
+            color: var(--success-green);
+        }
+
+        /* Errors */
+        .field-error {
+            color: var(--error-red);
+            font-size: 13px;
+            margin-top: 6px;
+            display: none;
+        }
+
+        .field-error.show { display: block; }
+
+        .has-error input[type="text"],
+        .has-error input[type="email"],
+        .has-error input[type="tel"],
+        .has-error input[type="url"],
+        .has-error select,
+        .has-error textarea,
+        .has-error .options {
+            border-color: var(--error-red) !important;
+        }
+
+        .has-error .options {
+            padding: 6px;
+            border: 1px solid var(--error-red);
+            border-radius: 8px;
+        }
+
+        /* Submit area */
+        .submit-area {
+            text-align: center;
+            margin-top: 8px;
+            padding: 30px 20px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #4A90A4 0%, #357A8C 100%);
+            color: white;
+            border: none;
+            padding: 16px 48px;
+            font-size: 17px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(74, 144, 164, 0.3);
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(74, 144, 164, 0.35);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .submit-help {
+            font-size: 13px;
+            color: #888;
+            margin-top: 14px;
+        }
+
+        /* Confirmation */
+        .confirmation, .submit-error {
+            display: none;
+            background: white;
+            padding: 50px 32px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-top: 20px;
+        }
+
+        .confirmation.show, .submit-error.show { display: block; }
+
+        .confirmation .check {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4A90A4 0%, #357A8C 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .confirmation h2 {
+            color: var(--primary-blue-dark);
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .confirmation p {
+            color: #555;
+            font-size: 16px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .submit-error h2 {
+            color: var(--error-red);
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .submit-error p {
+            color: #555;
+            margin-bottom: 16px;
+        }
+
+        .submit-error a {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .retry-btn {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 24px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+        }
+
+        footer a:hover { color: white; }
+
+        footer .footer-sep {
+            color: rgba(255,255,255,0.4);
+            margin: 0 8px;
+        }
+
+        /* File upload styling */
+        input[type="file"] {
+            display: block;
+            font-size: 14px;
+            padding: 8px 0;
+        }
+
+        .upload-or {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
+            margin: 8px 0;
+            font-style: italic;
+        }
+
+        /* Mobile */
+        @media (max-width: 640px) {
+            .top-banner { padding: 24px 16px; }
+            .top-banner h1 { font-size: 22px; }
+            .top-banner img { height: 44px; }
+            .intro { padding: 22px 20px; font-size: 15px; }
+            .section { padding: 22px 20px; }
+            .section-header h2 { font-size: 17px; }
+            .q label.q-label { font-size: 14px; }
+            .submit-btn { padding: 14px 36px; font-size: 16px; width: 100%; }
+            .progress-wrap { padding: 12px 0 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hidden form for Netlify form detection at build time. Mirrors the live form's fields. -->
+    <form name="social-media-manager-application" netlify netlify-honeypot="bot-field" hidden enctype="multipart/form-data">
+        <input type="text" name="full_name">
+        <input type="email" name="email">
+        <input type="tel" name="whatsapp">
+        <input type="text" name="referral_source">
+        <input type="text" name="q1_experience">
+        <input type="text" name="q2_platforms">
+        <input type="text" name="q2_platforms_other">
+        <input type="text" name="q3_us_brand">
+        <input type="text" name="q4_industries">
+        <input type="text" name="q4_industries_other">
+        <input type="text" name="q5_tools">
+        <input type="text" name="q5_tools_other">
+        <input type="text" name="q6_video_comfort">
+        <textarea name="q7_samples"></textarea>
+        <textarea name="q8_process"></textarea>
+        <textarea name="q9_flop"></textarea>
+        <input type="text" name="q10_scheduling_tools">
+        <input type="text" name="q10_scheduling_tools_other">
+        <textarea name="q11_metrics"></textarea>
+        <input type="text" name="q12_paid_campaigns">
+        <textarea name="q13_top_performer"></textarea>
+        <input type="text" name="q14_hours">
+        <input type="text" name="q15_other_clients">
+        <input type="text" name="q16_rate">
+        <input type="text" name="q17_start">
+        <textarea name="q18_remyndrs_idea"></textarea>
+        <textarea name="q19_brand_voice"></textarea>
+        <textarea name="q20_platform_ideas"></textarea>
+        <textarea name="q21_why_remyndrs"></textarea>
+        <textarea name="q22_anything_else"></textarea>
+        <input type="text" name="q23_loom_link">
+        <input type="file" name="q23_voice_note">
+    </form>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <img src="/remyndrs-logo.png" alt="Remyndrs">
+        <h1>Social Media Manager Application</h1>
+        <p class="subtitle">We're excited to learn more about you</p>
+    </div>
+
+    <div class="page-wrap">
+
+        <!-- Intro -->
+        <div class="intro">
+            Thanks for your interest in joining Remyndrs! Please answer all questions as thoroughly as possible. There are no right or wrong answers — we just want to get to know you better.
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-wrap">
+            <div class="progress-label">
+                <span><span id="progress-pct">0</span>% complete</span>
+                <span class="step-name" id="progress-section">Getting started</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Confirmation panel (hidden by default) -->
+        <div class="confirmation" id="confirmation">
+            <div class="check">&#10003;</div>
+            <h2 id="confirm-heading">Thank you!</h2>
+            <p id="confirm-msg">We've received your application and will be in touch within 5–7 business days.</p>
+        </div>
+
+        <!-- Error panel (hidden by default) -->
+        <div class="submit-error" id="submit-error">
+            <h2>Something went wrong</h2>
+            <p>We couldn't submit your application. Please try again, or email us directly at <a href="mailto:jobs@remyndrs.com">jobs@remyndrs.com</a>.</p>
+            <button type="button" class="retry-btn" onclick="document.getElementById('submit-error').classList.remove('show'); document.getElementById('smm-form').style.display='block';">Try Again</button>
+        </div>
+
+        <!-- Live Application Form -->
+        <form id="smm-form" name="social-media-manager-application" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+            <input type="hidden" name="form-name" value="social-media-manager-application">
+            <p hidden><label>Don't fill this out: <input name="bot-field"></label></p>
+
+            <!-- Section: Applicant Info -->
+            <section class="section" data-section="Your Info">
+                <div class="section-header">
+                    <span class="section-num">About You</span>
+                    <h2>Applicant Info</h2>
+                </div>
+
+                <div class="q" data-required="true">
+                    <label class="q-label" for="full_name">Full Name<span class="required">*</span></label>
+                    <input type="text" id="full_name" name="full_name" autocomplete="name">
+                    <div class="field-error">Please enter your full name.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="email">
+                    <label class="q-label" for="email">Email Address<span class="required">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email">
+                    <div class="field-error">Please enter a valid email address.</div>
+                </div>
+
+                <div class="q">
+                    <label class="q-label" for="whatsapp">WhatsApp Number <span style="font-weight:400;color:#888;">(optional)</span></label>
+                    <input type="tel" id="whatsapp" name="whatsapp" autocomplete="tel">
+                </div>
+
+                <div class="q" data-required="true">
+                    <label class="q-label" for="referral_source">How did you hear about this role?<span class="required">*</span></label>
+                    <select id="referral_source" name="referral_source">
+                        <option value="">— Select one —</option>
+                        <option value="OnlineJobs.ph">OnlineJobs.ph</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Referral">Referral</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div class="field-error">Please select an option.</div>
+                </div>
+            </section>
+
+            <!-- Section 1 -->
+            <section class="section" data-section="Section 1: Experience">
+                <div class="section-header">
+                    <span class="section-num">Section 1</span>
+                    <h2>Experience &amp; Background</h2>
+                </div>
+
+                <div class="q" data-required="true" data-validate="radio">
+                    <label class="q-label">Q1. How many years of social media management experience do you have?<span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q1_experience" value="Less than 1 year"><span>Less than 1 year</span></label>
+                        <label class="option"><input type="radio" name="q1_experience" value="1-2 years"><span>1–2 years</span></label>
+                        <label class="option"><input type="radio" name="q1_experience" value="2-4 years"><span>2–4 years</span></label>
+                        <label class="option"><input type="radio" name="q1_experience" value="4+ years"><span>4+ years</span></label>
+                    </div>
+                    <div class="field-error">Please select an option.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="checkbox">
+                    <label class="q-label">Q2. Which platforms have you actively managed? <span class="hint" style="display:inline">(select all that apply)</span><span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="checkbox" name="q2_platforms" value="Facebook"><span>Facebook</span></label>
+                        <label class="option"><input type="checkbox" name="q2_platforms" value="Instagram"><span>Instagram</span></label>
+                        <label class="option"><input type="checkbox" name="q2_platforms" value="TikTok"><span>TikTok</span></label>
+                        <label class="option"><input type="checkbox" name="q2_platforms" value="X (Twitter)"><span>X (Twitter)</span></label>
+                        <label class="option"><input type="checkbox" name="q2_platforms" value="LinkedIn"><span>LinkedIn</span></label>
+                        <label class="option"><input type="checkbox" name="q2_platforms" value="YouTube"><span>YouTube</span></label>
+                        <div class="other-input">
+                            <input type="checkbox" name="q2_platforms" value="Other" id="q2_other_check">
+                            <label for="q2_other_check" style="font-size:15px;">Other:</label>
+                            <input type="text" name="q2_platforms_other" placeholder="Please specify">
+                        </div>
+                    </div>
+                    <div class="field-error">Please select at least one platform.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="radio">
+                    <label class="q-label">Q3. Have you managed social media for a U.S.-based brand or client?<span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q3_us_brand" value="Yes"><span>Yes</span></label>
+                        <label class="option"><input type="radio" name="q3_us_brand" value="No"><span>No</span></label>
+                    </div>
+                    <div class="field-error">Please select an option.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="checkbox">
+                    <label class="q-label">Q4. What industries have you created content for? <span class="hint" style="display:inline">(select all that apply)</span><span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="checkbox" name="q4_industries" value="Tech / SaaS / Apps"><span>Tech / SaaS / Apps</span></label>
+                        <label class="option"><input type="checkbox" name="q4_industries" value="Lifestyle / Wellness"><span>Lifestyle / Wellness</span></label>
+                        <label class="option"><input type="checkbox" name="q4_industries" value="E-commerce"><span>E-commerce</span></label>
+                        <label class="option"><input type="checkbox" name="q4_industries" value="Food & Beverage"><span>Food &amp; Beverage</span></label>
+                        <div class="other-input">
+                            <input type="checkbox" name="q4_industries" value="Other" id="q4_other_check">
+                            <label for="q4_other_check" style="font-size:15px;">Other:</label>
+                            <input type="text" name="q4_industries_other" placeholder="Please specify">
+                        </div>
+                    </div>
+                    <div class="field-error">Please select at least one industry.</div>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="section" data-section="Section 2: Content">
+                <div class="section-header">
+                    <span class="section-num">Section 2</span>
+                    <h2>Content Creation</h2>
+                </div>
+
+                <div class="q" data-required="true" data-validate="checkbox">
+                    <label class="q-label">Q5. What tools do you use for graphic design and video editing? <span class="hint" style="display:inline">(select all that apply)</span><span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="checkbox" name="q5_tools" value="Canva"><span>Canva</span></label>
+                        <label class="option"><input type="checkbox" name="q5_tools" value="Adobe Photoshop / Illustrator"><span>Adobe Photoshop / Illustrator</span></label>
+                        <label class="option"><input type="checkbox" name="q5_tools" value="CapCut"><span>CapCut</span></label>
+                        <label class="option"><input type="checkbox" name="q5_tools" value="Adobe Premiere"><span>Adobe Premiere</span></label>
+                        <label class="option"><input type="checkbox" name="q5_tools" value="DaVinci Resolve"><span>DaVinci Resolve</span></label>
+                        <div class="other-input">
+                            <input type="checkbox" name="q5_tools" value="Other" id="q5_other_check">
+                            <label for="q5_other_check" style="font-size:15px;">Other:</label>
+                            <input type="text" name="q5_tools_other" placeholder="Please specify">
+                        </div>
+                    </div>
+                    <div class="field-error">Please select at least one tool.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="radio">
+                    <label class="q-label">Q6. How comfortable are you creating short-form video content (Reels, TikTok, Stories)?<span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q6_video_comfort" value="Very comfortable"><span>Very comfortable — I do this regularly</span></label>
+                        <label class="option"><input type="radio" name="q6_video_comfort" value="Somewhat comfortable"><span>Somewhat comfortable — I've done it but not often</span></label>
+                        <label class="option"><input type="radio" name="q6_video_comfort" value="Willing to learn"><span>Not yet but I'm willing to learn</span></label>
+                    </div>
+                    <div class="field-error">Please select an option.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="textarea-30">
+                    <label class="q-label" for="q7_samples">Q7. Please provide 2–3 content samples or links to social accounts you've managed.<span class="required">*</span></label>
+                    <textarea id="q7_samples" name="q7_samples" class="large" placeholder="Paste links, account handles, or describe your work..."></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="textarea-30">
+                    <label class="q-label" for="q8_process">Q8. Describe your process for coming up with content ideas for a brand you're unfamiliar with. How would you approach learning the Remyndrs brand voice?<span class="required">*</span></label>
+                    <textarea id="q8_process" name="q8_process" class="large"></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="textarea-30">
+                    <label class="q-label" for="q9_flop">Q9. Describe a piece of content you created that flopped. What went wrong and what did you do differently next time?<span class="required">*</span></label>
+                    <textarea id="q9_flop" name="q9_flop" class="large"></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="section" data-section="Section 3: Strategy">
+                <div class="section-header">
+                    <span class="section-num">Section 3</span>
+                    <h2>Strategy &amp; Analytics</h2>
+                </div>
+
+                <div class="q" data-required="true" data-validate="checkbox">
+                    <label class="q-label">Q10. Which scheduling or social media management tools have you used? <span class="hint" style="display:inline">(select all that apply)</span><span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="checkbox" name="q10_scheduling_tools" value="Buffer"><span>Buffer</span></label>
+                        <label class="option"><input type="checkbox" name="q10_scheduling_tools" value="Hootsuite"><span>Hootsuite</span></label>
+                        <label class="option"><input type="checkbox" name="q10_scheduling_tools" value="Later"><span>Later</span></label>
+                        <label class="option"><input type="checkbox" name="q10_scheduling_tools" value="Meta Business Suite"><span>Meta Business Suite</span></label>
+                        <label class="option"><input type="checkbox" name="q10_scheduling_tools" value="Sprout Social"><span>Sprout Social</span></label>
+                        <div class="other-input">
+                            <input type="checkbox" name="q10_scheduling_tools" value="Other" id="q10_other_check">
+                            <label for="q10_other_check" style="font-size:15px;">Other:</label>
+                            <input type="text" name="q10_scheduling_tools_other" placeholder="Please specify">
+                        </div>
+                    </div>
+                    <div class="field-error">Please select at least one tool.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="textarea-30">
+                    <label class="q-label" for="q11_metrics">Q11. How do you measure success on social media? What metrics do you track and report?<span class="required">*</span></label>
+                    <textarea id="q11_metrics" name="q11_metrics" class="large"></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="radio">
+                    <label class="q-label">Q12. Have you ever run paid social media campaigns?<span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q12_paid_campaigns" value="Yes - independently"><span>Yes — I've managed campaigns independently</span></label>
+                        <label class="option"><input type="radio" name="q12_paid_campaigns" value="Yes - assisted"><span>Yes — I've assisted someone else</span></label>
+                        <label class="option"><input type="radio" name="q12_paid_campaigns" value="No, willing to learn"><span>No, but I'm willing to learn</span></label>
+                        <label class="option"><input type="radio" name="q12_paid_campaigns" value="No"><span>No</span></label>
+                    </div>
+                    <div class="field-error">Please select an option.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="textarea-30">
+                    <label class="q-label" for="q13_top_performer">Q13. Describe a piece of content you created that performed exceptionally well. What was it, why did it work, and what were the results?<span class="required">*</span></label>
+                    <textarea id="q13_top_performer" name="q13_top_performer" class="large"></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="section" data-section="Section 4: Fit">
+                <div class="section-header">
+                    <span class="section-num">Section 4</span>
+                    <h2>Fit &amp; Availability</h2>
+                </div>
+
+                <div class="q" data-required="true" data-validate="radio">
+                    <label class="q-label">Q14. How many hours per week are you available?<span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q14_hours" value="Less than 10"><span>Less than 10 hours</span></label>
+                        <label class="option"><input type="radio" name="q14_hours" value="10-20"><span>10–20 hours</span></label>
+                        <label class="option"><input type="radio" name="q14_hours" value="20-30"><span>20–30 hours</span></label>
+                        <label class="option"><input type="radio" name="q14_hours" value="30-40"><span>30–40 hours</span></label>
+                        <label class="option"><input type="radio" name="q14_hours" value="Full-time 40+"><span>Full-time 40+</span></label>
+                    </div>
+                    <div class="field-error">Please select an option.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="radio">
+                    <label class="q-label">Q15. Are you currently managing other clients or brands?<span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q15_other_clients" value="Yes - multiple"><span>Yes — I have multiple clients</span></label>
+                        <label class="option"><input type="radio" name="q15_other_clients" value="Yes - one"><span>Yes — just one other client</span></label>
+                        <label class="option"><input type="radio" name="q15_other_clients" value="No - exclusive"><span>No — I'm available exclusively</span></label>
+                    </div>
+                    <div class="field-error">Please select an option.</div>
+                </div>
+
+                <div class="q" data-required="true">
+                    <label class="q-label" for="q16_rate">Q16. What is your expected monthly rate in USD?<span class="required">*</span></label>
+                    <input type="text" id="q16_rate" name="q16_rate" placeholder="e.g. $1,500/month">
+                    <div class="field-error">Please enter your expected rate.</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="radio">
+                    <label class="q-label">Q17. How soon can you start?<span class="required">*</span></label>
+                    <div class="options">
+                        <label class="option"><input type="radio" name="q17_start" value="Immediately"><span>Immediately</span></label>
+                        <label class="option"><input type="radio" name="q17_start" value="1-2 weeks"><span>1–2 weeks</span></label>
+                        <label class="option"><input type="radio" name="q17_start" value="3-4 weeks"><span>3–4 weeks</span></label>
+                        <label class="option"><input type="radio" name="q17_start" value="More than a month"><span>More than a month</span></label>
+                    </div>
+                    <div class="field-error">Please select an option.</div>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section class="section" data-section="Section 5: Remyndrs">
+                <div class="section-header">
+                    <span class="section-num">Section 5</span>
+                    <h2>Remyndrs Specific</h2>
+                </div>
+
+                <div class="q" data-required="true" data-validate="textarea-30">
+                    <label class="q-label" for="q18_remyndrs_idea">Q18. Visit our X (Twitter) page <a href="https://x.com/Remyndrs" target="_blank" rel="noopener" style="color:var(--primary-blue);">@Remyndrs</a> right now and look at our current posts. Based on what you see, give us ONE specific content idea you would create for us and explain why you think it would perform well.<span class="required">*</span></label>
+                    <textarea id="q18_remyndrs_idea" name="q18_remyndrs_idea" class="large"></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="textarea-30">
+                    <label class="q-label" for="q19_brand_voice">Q19. In 2–3 sentences, how would you describe the Remyndrs brand voice and target audience?<span class="required">*</span></label>
+                    <textarea id="q19_brand_voice" name="q19_brand_voice" class="large"></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="pineapple">
+                    <label class="q-label" for="q20_platform_ideas">Q20. Come up with one content idea for each platform — Facebook, Instagram, TikTok, and X. Brief descriptions are fine. At the end of your answer, write the word PINEAPPLE in all caps.<span class="required">*</span></label>
+                    <textarea id="q20_platform_ideas" name="q20_platform_ideas" class="large"></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error" id="q20_error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+
+                <div class="q" data-required="true" data-validate="textarea-30">
+                    <label class="q-label" for="q21_why_remyndrs">Q21. Why do you want to work with a U.S.-based startup like Remyndrs vs. a larger, more established brand?<span class="required">*</span></label>
+                    <textarea id="q21_why_remyndrs" name="q21_why_remyndrs" class="large"></textarea>
+                    <span class="char-counter">0 characters</span>
+                    <div class="field-error">Please provide a more detailed answer (minimum 30 characters).</div>
+                </div>
+
+                <div class="q">
+                    <label class="q-label" for="q22_anything_else">Q22. Is there anything else you'd like us to know about you or your experience? <span style="font-weight:400;color:#888;">(optional)</span></label>
+                    <textarea id="q22_anything_else" name="q22_anything_else" class="large"></textarea>
+                </div>
+            </section>
+
+            <!-- Section 6 -->
+            <section class="section" data-section="Section 6: Intro">
+                <div class="section-header">
+                    <span class="section-num">Section 6</span>
+                    <h2>Quick Introduction</h2>
+                </div>
+
+                <div class="q" data-required="true" data-validate="loom-or-file">
+                    <label class="q-label">Q23. Record a quick 60-second Loom video or voice note — don't overthink it. Just say hi, tell us a little about yourself, and share why you're interested in this role. No editing, no production needed. We just want to hear from you.<span class="required">*</span></label>
+                    <span class="hint">Paste a Loom (or other video) link, OR upload a voice note below.</span>
+                    <input type="url" id="q23_loom_link" name="q23_loom_link" placeholder="https://www.loom.com/share/...">
+                    <div class="upload-or">— or —</div>
+                    <input type="file" id="q23_voice_note" name="q23_voice_note" accept="audio/*,video/*">
+                    <div class="field-error">Please provide either a Loom link or upload a voice note.</div>
+                </div>
+            </section>
+
+            <!-- Submit -->
+            <div class="submit-area">
+                <button type="submit" class="submit-btn" id="submit-btn">Submit Application</button>
+                <p class="submit-help">Please review your answers before submitting. You'll receive a confirmation on screen once we've got it.</p>
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <span><strong>Remyndrs</strong></span>
+        <span class="footer-sep">|</span>
+        <a href="https://remyndrs.com">remyndrs.com</a>
+        <span class="footer-sep">|</span>
+        <a href="mailto:jobs@remyndrs.com">jobs@remyndrs.com</a>
+    </footer>
+
+    <script>
+        (function() {
+            const form = document.getElementById('smm-form');
+            const submitBtn = document.getElementById('submit-btn');
+            const confirmation = document.getElementById('confirmation');
+            const submitError = document.getElementById('submit-error');
+            const progressFill = document.getElementById('progress-fill');
+            const progressPct = document.getElementById('progress-pct');
+            const progressSection = document.getElementById('progress-section');
+
+            // Char counters for textareas
+            document.querySelectorAll('textarea').forEach(function(ta) {
+                const counter = ta.parentElement.querySelector('.char-counter');
+                if (!counter) return;
+                ta.addEventListener('input', function() {
+                    const len = ta.value.length;
+                    counter.textContent = len + ' characters';
+                    if (len >= 30) {
+                        counter.classList.add('ok');
+                    } else {
+                        counter.classList.remove('ok');
+                    }
+                });
+            });
+
+            // Highlight selected radio/checkbox visually
+            document.querySelectorAll('.option input[type="radio"], .option input[type="checkbox"]').forEach(function(input) {
+                input.addEventListener('change', function() {
+                    const label = input.closest('.option');
+                    if (input.type === 'radio') {
+                        const groupName = input.name;
+                        document.querySelectorAll('input[name="' + groupName + '"]').forEach(function(other) {
+                            const otherLabel = other.closest('.option');
+                            if (otherLabel) otherLabel.classList.remove('checked');
+                        });
+                    }
+                    if (label) {
+                        if (input.checked) label.classList.add('checked');
+                        else label.classList.remove('checked');
+                    }
+                });
+            });
+
+            // Auto-check "Other" when typing in its text input
+            ['q2_other_check', 'q4_other_check', 'q5_other_check', 'q10_other_check'].forEach(function(id) {
+                const check = document.getElementById(id);
+                if (!check) return;
+                const wrap = check.closest('.other-input');
+                const txt = wrap.querySelector('input[type="text"]');
+                if (txt) {
+                    txt.addEventListener('input', function() {
+                        if (txt.value.trim().length > 0) check.checked = true;
+                    });
+                }
+            });
+
+            // Progress tracking
+            function updateProgress() {
+                const requiredQs = document.querySelectorAll('.q[data-required="true"]');
+                let total = requiredQs.length;
+                let done = 0;
+                let firstIncompleteSection = null;
+
+                requiredQs.forEach(function(q) {
+                    if (isQuestionComplete(q)) {
+                        done++;
+                    } else if (!firstIncompleteSection) {
+                        const section = q.closest('.section');
+                        if (section) firstIncompleteSection = section.dataset.section;
+                    }
+                });
+
+                const pct = total === 0 ? 0 : Math.round((done / total) * 100);
+                progressFill.style.width = pct + '%';
+                progressPct.textContent = pct;
+
+                if (pct === 100) {
+                    progressSection.textContent = 'Ready to submit';
+                } else if (firstIncompleteSection) {
+                    progressSection.textContent = firstIncompleteSection;
+                } else {
+                    progressSection.textContent = 'Getting started';
+                }
+            }
+
+            function isQuestionComplete(q) {
+                const validateType = q.dataset.validate;
+
+                // Radio
+                if (validateType === 'radio') {
+                    return q.querySelector('input[type="radio"]:checked') !== null;
+                }
+                // Checkbox
+                if (validateType === 'checkbox') {
+                    const checks = q.querySelectorAll('input[type="checkbox"]:checked');
+                    if (checks.length === 0) return false;
+                    // If "Other" checked, require text
+                    for (const c of checks) {
+                        if (c.value === 'Other') {
+                            const otherTxt = q.querySelector('input[type="text"]');
+                            if (!otherTxt || otherTxt.value.trim().length === 0) return false;
+                        }
+                    }
+                    return true;
+                }
+                // Email
+                if (validateType === 'email') {
+                    const inp = q.querySelector('input[type="email"]');
+                    return inp && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value.trim());
+                }
+                // Textarea with min 30 chars
+                if (validateType === 'textarea-30') {
+                    const ta = q.querySelector('textarea');
+                    return ta && ta.value.trim().length >= 30;
+                }
+                // Pineapple check (Q20)
+                if (validateType === 'pineapple') {
+                    const ta = q.querySelector('textarea');
+                    if (!ta || ta.value.trim().length < 30) return false;
+                    return ta.value.indexOf('PINEAPPLE') !== -1;
+                }
+                // Loom or file
+                if (validateType === 'loom-or-file') {
+                    const link = q.querySelector('input[type="url"]');
+                    const file = q.querySelector('input[type="file"]');
+                    const hasLink = link && link.value.trim().length > 0;
+                    const hasFile = file && file.files && file.files.length > 0;
+                    return hasLink || hasFile;
+                }
+                // Default: text/select must have a value
+                const inp = q.querySelector('input[type="text"], input[type="tel"], select');
+                return inp && inp.value.trim().length > 0;
+            }
+
+            // Validate question and show/hide error
+            function validateQuestion(q, showError) {
+                const validateType = q.dataset.validate;
+                const errorEl = q.querySelector('.field-error');
+                let valid = isQuestionComplete(q);
+                let errorMsg = null;
+
+                // Custom messages
+                if (!valid && validateType === 'pineapple') {
+                    const ta = q.querySelector('textarea');
+                    if (ta && ta.value.trim().length >= 30 && ta.value.indexOf('PINEAPPLE') === -1) {
+                        errorMsg = "Please make sure you've read and followed all instructions in Question 20";
+                    }
+                }
+
+                if (showError) {
+                    if (!valid) {
+                        q.classList.add('has-error');
+                        if (errorEl) {
+                            if (errorMsg) errorEl.textContent = errorMsg;
+                            errorEl.classList.add('show');
+                        }
+                    } else {
+                        q.classList.remove('has-error');
+                        if (errorEl) errorEl.classList.remove('show');
+                    }
+                } else if (valid) {
+                    q.classList.remove('has-error');
+                    if (errorEl) errorEl.classList.remove('show');
+                }
+                return valid;
+            }
+
+            // Listen for input changes
+            form.addEventListener('input', updateProgress);
+            form.addEventListener('change', updateProgress);
+            form.addEventListener('input', function(e) {
+                const q = e.target.closest('.q');
+                if (q && q.classList.contains('has-error')) {
+                    validateQuestion(q, false);
+                }
+            });
+
+            // Submit
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Validate all required questions
+                const requiredQs = document.querySelectorAll('.q[data-required="true"]');
+                let allValid = true;
+                let firstInvalid = null;
+                requiredQs.forEach(function(q) {
+                    const valid = validateQuestion(q, true);
+                    if (!valid) {
+                        allValid = false;
+                        if (!firstInvalid) firstInvalid = q;
+                    }
+                });
+
+                if (!allValid) {
+                    if (firstInvalid) {
+                        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    return;
+                }
+
+                // Disable button and submit via fetch (FormData supports file uploads)
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+
+                const formData = new FormData(form);
+                // Ensure form-name is in payload (Netlify requirement)
+                if (!formData.get('form-name')) {
+                    formData.append('form-name', 'social-media-manager-application');
+                }
+
+                fetch('/', {
+                    method: 'POST',
+                    body: formData
+                }).then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Submission failed');
+                    }
+                    // Personalize confirmation
+                    const fullName = (document.getElementById('full_name').value || '').trim();
+                    const firstName = fullName.split(/\s+/)[0] || 'there';
+                    document.getElementById('confirm-heading').textContent = 'Thank you, ' + firstName + '!';
+                    document.getElementById('confirm-msg').textContent = "We've received your application and will be in touch within 5–7 business days.";
+
+                    form.style.display = 'none';
+                    document.querySelector('.progress-wrap').style.display = 'none';
+                    confirmation.classList.add('show');
+                    confirmation.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }).catch(function(err) {
+                    console.error(err);
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Application';
+                    form.style.display = 'none';
+                    submitError.classList.add('show');
+                    submitError.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+
+            // Initial progress
+            updateProgress();
+        })();
+    </script>
+
+</body>
+</html>
