@@ -374,13 +374,7 @@
             }
         }
 
-        /* Android mobile: hide SMS-based elements and show form-based alternatives */
-        html.platform-android .mobile-only { display: none !important; }
-        html.platform-android .desktop-only-block { display: block !important; }
-        html.platform-android .desktop-only-inline { display: inline !important; }
-        html.platform-android .desktop-only-inline-block { display: inline-block !important; }
-        html.platform-android .desktop-only-inline-flex { display: inline-flex !important; }
-        html.platform-android .desktop-only-flex { display: flex !important; }
+        /* Android mobile uses the same tap-to-text SMS links as iOS — no overrides. */
 
         /* Responsive */
         @media (max-width: 768px) {

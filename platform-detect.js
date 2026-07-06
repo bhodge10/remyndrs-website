@@ -1,13 +1,19 @@
 /**
  * Platform detection and SMS link handling for Remyndrs.
  *
- * - Detects UTM parameters and sets the SMS keyword accordingly
- *   (TRY for Reddit, GO for Facebook/Instagram, FRIEND for referral, HI default)
- * - iOS: rewrites sms: links to use & separator (required by iOS)
- * - Android mobile: rewrites sms: links to sms:// format for tap-to-text
+ * - Facebook/Instagram visitors get the GO start keyword (matches the
+ *   parents landing page and Meta ads, so the backend can attribute
+ *   the channel). All other visitors keep the message body authored
+ *   in the HTML — "Hello" on the main pages, "GO" on the parents page.
+ * - iOS: rewrites sms: links to use the & separator (required by iOS)
+ * - Android: the authored sms:number?body= format is already correct,
+ *   so no rewrite. (An earlier version rewrote these links to
+ *   sms://number;?&body=, which opens a broken compose screen on many
+ *   devices — do not reintroduce it.)
+ * - Tracks actual taps on sms: links (sms_link_tap)
  * - Also handles data-mobile-text / data-desktop-text swaps on CTA buttons
  *
- * Loaded by index.html, commands.html, and faq.html.
+ * Loaded by index.html, index-parents.html, commands.html, and faq.html.
  */
 document.addEventListener('DOMContentLoaded', function () {
     var ua = navigator.userAgent;
@@ -15,27 +21,27 @@ document.addEventListener('DOMContentLoaded', function () {
     var isAndroid = /Android/.test(ua);
     var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
 
-    // --- Determine SMS keyword from UTM parameters ---
+    // --- Channel keyword from UTM parameters ---
+    // Only rewrite to start words the backend is confirmed to recognize
+    // ("Hello" and "GO"). Never substitute an unverified default: rewriting
+    // an organic visitor's "Hello" to an unrecognized word silently kills
+    // their signup at the very last step.
     var params = new URLSearchParams(window.location.search);
     var utmSource = (params.get('utm_source') || '').toLowerCase();
-    var utmMedium = (params.get('utm_medium') || '').toLowerCase();
-    var keyword = 'HI'; // default for organic/direct
+    var keyword = null; // null = leave the authored message body alone
 
-    if (utmSource === 'reddit') {
-        keyword = 'TRY';
-    } else if (utmSource === 'facebook' || utmSource === 'instagram' || utmSource === 'fb' || utmSource === 'ig') {
+    if (utmSource === 'facebook' || utmSource === 'instagram' || utmSource === 'fb' || utmSource === 'ig') {
         keyword = 'GO';
-    } else if (utmSource === 'referral' || utmMedium === 'referral') {
-        keyword = 'FRIEND';
     }
 
-    // --- Replace "Hello" body with UTM-based keyword in signup SMS links ---
-    document.querySelectorAll('a[href^="sms:"]').forEach(function (link) {
-        var href = link.getAttribute('href');
-        if (href.indexOf('body=Hello') !== -1) {
-            link.setAttribute('href', href.replace('body=Hello', 'body=' + keyword));
-        }
-    });
+    if (keyword) {
+        document.querySelectorAll('a[href^="sms:"]').forEach(function (link) {
+            var href = link.getAttribute('href');
+            if (href.indexOf('body=Hello') !== -1) {
+                link.setAttribute('href', href.replace('body=Hello', 'body=' + keyword));
+            }
+        });
+    }
 
     // --- iOS: fix sms: link separator ---
     if (isIOS) {
@@ -44,27 +50,30 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- Android mobile: rewrite sms: links to sms:// format for tap-to-text ---
     if (isAndroid && isMobile) {
         document.documentElement.classList.add('platform-android');
-
-        document.querySelectorAll('a[href^="sms:"]').forEach(function (link) {
-            var href = link.getAttribute('href');
-            // Match sms:+number?body=TEXT (with our phone number)
-            var match = href.match(/^sms:\+?(\d+)\?body=(.+)$/);
-            if (match) {
-                link.setAttribute('href', 'sms://+' + match[1] + ';?&body=' + match[2]);
-            }
-        });
-
-        // Track Android tap-to-text sessions in analytics
-        if (typeof gtag === 'function') {
-            gtag('event', 'android_tap_to_text', {
-                page: window.location.pathname.replace(/^\//, '').replace('.html', '') || 'index',
-                keyword: keyword
-            });
-        }
     }
+
+    // --- Track actual taps on sms: links ---
+    // Fires alongside any inline per-CTA handlers; beacon transport so the
+    // event survives the jump into the Messages app.
+    var platform = isAndroid ? 'android' : (isIOS ? 'ios' : 'other');
+    document.querySelectorAll('a[href^="sms:"]').forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (typeof gtag !== 'function') return;
+            var body = (link.getAttribute('href').split('body=')[1] || '');
+            var firstWord = '(none)';
+            try {
+                firstWord = decodeURIComponent(body).split(/[^A-Za-z]/)[0] || '(none)';
+            } catch (e) { /* malformed encoding — keep (none) */ }
+            gtag('event', 'sms_link_tap', {
+                page: window.location.pathname.replace(/^\//, '').replace('.html', '') || 'index',
+                keyword: firstWord,
+                platform: platform,
+                transport_type: 'beacon'
+            });
+        });
+    });
 
     // --- CTA button text swap (mobile vs desktop) ---
     var ctaButtons = document.querySelectorAll('.cta-sms-button, .cta-sms-text');

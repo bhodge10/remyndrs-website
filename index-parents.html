@@ -1423,9 +1423,8 @@
             .hero-trust { gap: 10px; margin-top: 4px; font-size: 11px; }
         }
 
-        /* Android: hide SMS links, show form */
-        html.platform-android .mobile-cta-area { display: none !important; }
-        html.platform-android .desktop-signup-form { display: block !important; }
+        /* Android mobile uses the same tap-to-text SMS links as iOS
+           (sms:number?body= is Android's native format) — no overrides. */
     </style>
 </head>
 <body>
@@ -1713,22 +1712,8 @@
     <script>
     document.addEventListener('DOMContentLoaded', function() {
 
-        // ── iOS vs Android SMS link fix ──
-        // iOS uses sms:+number&body=  Android uses sms:+number?body=
-        var isAndroid = /android/i.test(navigator.userAgent);
-        if (isAndroid) {
-            document.documentElement.classList.add('platform-android');
-        }
-        // Fix all SMS links for the current platform
-        document.querySelectorAll('a[href^="sms:"]').forEach(function(link) {
-            var href = link.getAttribute('href');
-            if (isAndroid) {
-                link.setAttribute('href', href.replace('?body=', '?body=').replace('&body=', '?body='));
-            } else {
-                // iOS uses & separator
-                link.setAttribute('href', href.replace('?body=', '&body='));
-            }
-        });
+        // Platform-specific sms: link handling lives in platform-detect.js
+        // (single source of truth — do not duplicate it inline).
 
         // ── Desktop signup form ──
         var signupForm = document.getElementById('desktopSignupForm');
