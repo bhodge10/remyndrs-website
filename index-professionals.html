@@ -14,8 +14,8 @@
       gtag('config', 'G-T8ZBVMT9JE');
       // Track landing page view with variant
       gtag('event', 'landing_page_view', {
-        variant: 'parents_facebook',
-        page: 'index-parents'
+        variant: 'professionals_linkedin',
+        page: 'index-professionals'
       });
     </script>
     <!-- Meta Pixel Code -->
@@ -34,17 +34,17 @@
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2321949688328139&ev=PageView&noscript=1"/></noscript>
     <!-- End Meta Pixel Code -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remyndrs — The Reminder Assistant Built for Busy Parents</title>
-    <meta name="description" content="The reminder assistant built for busy parents. Grocery lists, school events, medication refills — all by text. No app needed. Free forever.">
+    <title>Remyndrs — The Reminder Assistant for People Who Can't Drop the Ball</title>
+    <meta name="description" content="The reminder assistant for people who can't drop the ball. Follow-ups, deadlines, client callbacks — all by text. No app needed. Free to start.">
     <link rel="icon" type="image/png" href="remyndrs-logo.png">
-    <link rel="canonical" href="https://remyndrs.com/index-parents.html">
+    <link rel="canonical" href="https://remyndrs.com/index-professionals.html">
     <meta name="theme-color" content="#4A90A4">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://remyndrs.com/index-parents.html">
-    <meta property="og:title" content="Remyndrs — The Reminder App for Parents Who Can't Remember Everything">
-    <meta property="og:description" content="Grocery lists, school events, medication refills — all by text message. No app to download. Free forever.">
+    <meta property="og:url" content="https://remyndrs.com/index-professionals.html">
+    <meta property="og:title" content="Remyndrs — The Reminder Assistant for People Who Can't Drop the Ball">
+    <meta property="og:description" content="Follow-ups, deadlines, client callbacks — all by text message. No app to download. Free to start.">
     <meta property="og:image" content="https://remyndrs.com/og-image.png">
 
     <style>
@@ -1504,8 +1504,8 @@
             <div class="logo">
                 <img src="remyndrs-logo.png" alt="Remyndrs" width="180" height="44">
             </div>
-            <a href="sms:+18555521950?body=GO!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'index-parents'})">Text GO → (855) 552-1950</a>
-            <a href="#hero" class="header-phone-btn desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header',page:'index-parents'})">Get Started Free →</a>
+            <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'index-professionals'})">Text WORK → (855) 552-1950</a>
+            <a href="#hero" class="header-phone-btn desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header',page:'index-professionals'})">Get Started Free →</a>
         </div>
     </header>
 
@@ -1529,21 +1529,21 @@
                     </div>
                     <div class="demo-app-header">Remyndrs</div>
                     <div class="demo-messages" id="demo-school">
-                        <div class="demo-msg user visible">Remind me about picture day next Tuesday</div>
-                        <div class="demo-msg bot visible">✓ I'll remind you Tuesday about picture day!</div>
-                        <div class="demo-msg user visible">Also early dismissal Wednesday at 1pm</div>
-                        <div class="demo-msg bot visible">✓ I'll remind you Wednesday at 1:00 PM — early dismissal</div>
+                        <div class="demo-msg user visible">Remind me to follow up with the Johnson bid Monday at 8am</div>
+                        <div class="demo-msg bot visible">✓ I'll remind you Monday at 8:00 AM — follow up with the Johnson bid</div>
+                        <div class="demo-msg user visible">Also send the invoice Friday morning</div>
+                        <div class="demo-msg bot visible">✓ I'll remind you Friday at 9:00 AM — send the invoice</div>
                     </div>
                     <div class="demo-home-bar"></div>
                 </div>
-                <span class="demo-label">🎒 School Events</span>
+                <span class="demo-label">📞 Follow-Ups</span>
             </div>
 
             <!-- Center: hero content -->
             <div class="hero-center">
                 <img src="remyndrs-logo.png" alt="Remyndrs" class="hero-logo" width="90" height="90">
-                <h1 id="heroHeadline">Your kid's teacher just texted the class party list. Now what?</h1>
-                <p class="subtitle">The reminder assistant built for busy parents.</p>
+                <h1 id="heroHeadline">Three meetings ago you promised someone a call-back.</h1>
+                <p class="subtitle">The reminder assistant for people who can't drop the ball.</p>
                 <script>
                 /* Ad-to-page message match: the landing headline must mirror the ad
                    the visitor clicked (brand rule). Each ad links here with ?h=<key>;
@@ -1551,8 +1551,7 @@
                    per approved ad hook — copy must go through brand review first. */
                 (function () {
                     var HOOKS = {
-                        'party': null, /* hook A = the authored default above */
-                        'rsvp': 'I forgot to RSVP to another birthday party. So I built something.'
+                        'callback': null /* the authored default above */
                     };
                     var key = new URLSearchParams(window.location.search).get('h');
                     if (key && HOOKS[key]) {
@@ -1573,28 +1572,28 @@
                         <span class="phone-contact">Remyndrs</span>
                     </div>
                     <div class="phone-messages" id="heroPhoneMessages">
-                        <div class="phone-bubble user visible">Add 30 juice boxes and paper plates to my class party list</div>
-                        <div class="phone-bubble bot visible">✓ Created your class party list and added 2 items: 30 juice boxes, paper plates</div>
-                        <div class="phone-bubble user visible">Remind me Thursday at 7pm to go to Target for party supplies</div>
-                        <div class="phone-bubble bot visible">✓ Got it — I'll remind you Thursday at 7:00 PM</div>
+                        <div class="phone-bubble user visible">Remind me to call the Hendricks client back tomorrow at 9am</div>
+                        <div class="phone-bubble bot visible">✓ Got it — I'll remind you tomorrow at 9:00 AM</div>
+                        <div class="phone-bubble user visible">Remember Dave's extension is 4417</div>
+                        <div class="phone-bubble bot visible">✓ Saved! Ask me anytime and I'll tell you.</div>
                     </div>
                     <div class="phone-homebar"></div>
                 </div>
 
                 <!-- Mobile: keep Text GO + CTA as primary -->
                 <p class="phone-display mobile-only">
-                    Text <strong>GO</strong> to
-                    <a href="sms:+18555521950?body=GO!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_hero',location:'hero',page:'index-parents'})">+1 (855) 552-1950</a>
+                    Text <strong>WORK</strong> to
+                    <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_hero',location:'hero',page:'index-professionals'})">+1 (855) 552-1950</a>
                 </p>
 
                 <!-- Mobile CTA -->
                 <p style="font-size: 13px; color: #5a6d7a; text-align: center; margin-bottom: 8px;">See how it works ↓ (30 seconds)</p>
                 <div class="mobile-cta-area mobile-only">
-                    <a href="sms:+18555521950?body=GO!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button" id="mainCta" aria-label="Start free by texting GO" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index-parents'})">
+                    <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button" id="mainCta" aria-label="Start free by texting WORK" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index-professionals'})">
                         📱 Tap to Text Us — It's Free! →
                     </a>
                     <p style="font-size: 12px; color: #5a6d7a; text-align: center; margin-top: 6px;">✓ Your Messages app will open — just hit Send!</p>
-                    <p class="social-proof mobile-social-proof">✓ Join parents who never miss what matters</p>
+                    <p class="social-proof mobile-social-proof">✓ Join professionals who never miss a follow-up</p>
                     <p class="sms-disclaimer">By texting, you agree to receive automated SMS messages. Msg & data rates may apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
                 </div>
 
@@ -1617,12 +1616,12 @@
 
                 <!-- Desktop: Text GO as secondary fallback -->
                 <p class="phone-display-secondary desktop-only-block">
-                    Or text <strong>GO</strong> to <a href="sms:+18555521950?body=GO!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_hero_secondary',location:'hero',page:'index-parents'})">+1 (855) 552-1950</a> from your phone
+                    Or text <strong>WORK</strong> to <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_hero_secondary',location:'hero',page:'index-professionals'})">+1 (855) 552-1950</a> from your phone
                 </p>
 
                 <p class="free-line">Free forever. No credit card needed.</p>
 
-                <p class="social-proof desktop-only-block">✓ Join parents who never miss what matters</p>
+                <p class="social-proof desktop-only-block">✓ Join professionals who never miss a follow-up</p>
 
                 <div class="hero-trust">
                     <span>🔒 Bank-level encryption</span>
@@ -1630,7 +1629,7 @@
                     <span>📱 Works on any phone</span>
                 </div>
 
-                <a href="#try-demo" class="hero-scroll-cue mobile-only" onclick="gtag('event','cta_click',{cta_type:'scroll_hint',location:'hero',page:'index-parents'})">
+                <a href="#try-demo" class="hero-scroll-cue mobile-only" onclick="gtag('event','cta_click',{cta_type:'scroll_hint',location:'hero',page:'index-professionals'})">
                     <span class="hero-scroll-cue-label">See 30-second demo</span>
                     <span class="hero-scroll-cue-chevron" aria-hidden="true">↓</span>
                 </a>
@@ -1650,18 +1649,18 @@
                     </div>
                     <div class="demo-app-header">Remyndrs</div>
                     <div class="demo-messages" id="demo-grocery">
-                        <div class="demo-msg user visible">Add goldfish crackers to my grocery list</div>
-                        <div class="demo-msg bot visible">✓ Added goldfish crackers to your grocery list</div>
-                        <div class="demo-msg user visible">What's on my grocery list?</div>
-                        <div class="demo-msg bot visible">Your grocery list:
-• Goldfish crackers
-• Juice boxes
-• Diapers
-• Bananas</div>
+                        <div class="demo-msg user visible">Add printer toner to my office supplies list</div>
+                        <div class="demo-msg bot visible">✓ Added printer toner to your office supplies list</div>
+                        <div class="demo-msg user visible">What's on my office supplies list?</div>
+                        <div class="demo-msg bot visible">Your office supplies list:
+• Printer toner
+• Shipping labels
+• Coffee pods
+• AA batteries</div>
                     </div>
                     <div class="demo-home-bar"></div>
                 </div>
-                <span class="demo-label">🛒 Grocery Lists</span>
+                <span class="demo-label">🧾 Work Lists</span>
             </div>
 
         </div>
@@ -1691,35 +1690,35 @@
         </div>
         <p class="try-demo-sublabel" style="margin-top:16px; margin-bottom:12px;">&#11015;&#65039; Tap a message below to see Remyndrs in action</p>
         <div class="try-demo-suggestions" id="tryDemoSuggestions">
-            <button class="try-demo-chip" data-msg="Remind me about picture day next Tuesday">🎒 Remind me about picture day</button>
-            <button class="try-demo-chip" data-msg="Add goldfish crackers and juice boxes to my grocery list">🛒 Add snacks to grocery list</button>
-            <button class="try-demo-chip" data-msg="Remember that soccer practice is at 4pm on Thursdays">⚽ Remember soccer practice time</button>
-            <button class="try-demo-chip" data-msg="Remind me to refill Tyler's prescription Friday">💊 Remind me to refill prescription</button>
-            <button class="try-demo-chip" data-msg="Add sunscreen and bug spray to my camping list">🏕️ Add stuff to camping list</button>
-            <button class="try-demo-chip" data-msg="Remember early dismissal is at 1pm on Wednesdays">🏫 Remember early dismissal time</button>
+            <button class="try-demo-chip" data-msg="Remind me to follow up with the Johnson bid Monday at 8am">📞 Remind me to follow up on a bid</button>
+            <button class="try-demo-chip" data-msg="Remind me to send the Hendricks invoice Friday morning">🧾 Remind me to send an invoice</button>
+            <button class="try-demo-chip" data-msg="Remember Dave's extension is 4417">☎️ Remember a phone extension</button>
+            <button class="try-demo-chip" data-msg="Add printer toner and shipping labels to my office list">🖨️ Add to my office supplies list</button>
+            <button class="try-demo-chip" data-msg="Remember Crew B is at the Oak Street site this week">👷 Remember a crew assignment</button>
+            <button class="try-demo-chip" data-msg="Remind me to prep for the 9am standup tomorrow">⏰ Remind me to prep for a meeting</button>
         </div>
         <div class="try-demo-cta" id="tryDemoCta" style="display:none;">
             <p class="try-demo-cta-text">That's it. No app. No account. Just text.</p>
-            <a href="sms:+18555521950?body=GO!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'interactive_demo',page:'index-parents'})">📱 Try It For Real — Text Us Free!</a>
-            <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'interactive_demo',page:'index-parents'})">Try It For Real — Get Started Free!</a>
+            <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'interactive_demo',page:'index-professionals'})">📱 Try It For Real — Text Us Free!</a>
+            <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'interactive_demo',page:'index-professionals'})">Try It For Real — Get Started Free!</a>
         </div>
     </section>
 
     <!-- ═══ TESTIMONIALS (quotes verbatim from data/testimonials.json) ═══ -->
     <section class="testimonial">
-        <h2>What parents are saying</h2>
+        <h2>What professionals are saying</h2>
         <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-quote">"With a 3-year-old and a 1-year-old, my brain is mush by noon. I text Remyndrs while I'm nursing or waiting in the pickup line. It's the only tool that works because I don't have to open anything. Just text and done."</p>
-                <p class="testimonial-author">— Danielle K.<span class="testimonial-location">Portland, OR</span></p>
-            </div>
             <div class="testimonial-card">
                 <p class="testimonial-quote">"I was putting reminders in Outlook, creating lists in Notes, and reminders in my Calendar app. Remyndrs consolidates all 3 into 1. I often failed to check emails and calendar entries in time — I never miss a Remyndrs text."</p>
                 <p class="testimonial-author">— Heather<span class="testimonial-location">Chicago, IL</span></p>
             </div>
             <div class="testimonial-card">
-                <p class="testimonial-quote">"I figured I could just set an alarm — only to have the alarm go off and forget what I set it for. I absolutely love this texting service. A week later Remyndrs texts me exactly what the reminder is for."</p>
-                <p class="testimonial-author">— Joey<span class="testimonial-location">Shepherdsville, KY</span></p>
+                <p class="testimonial-quote">"I run a busy IT company and used to work way too late every night. Remyndrs actually gets me out the door on time now. Simple, reliable, and it just works."</p>
+                <p class="testimonial-author">— Brad S.<span class="testimonial-location">Detroit, MI</span></p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I work 12-hour shifts and my schedule rotates. Setting reminders in a calendar app never worked because my days off change every week. With Remyndrs I just text what I need and when, and it handles the rest. It's become essential."</p>
+                <p class="testimonial-author">— Marcus T.<span class="testimonial-location">Austin, TX</span></p>
             </div>
         </div>
     </section>
@@ -1731,7 +1730,7 @@
             <div class="step">
                 <div class="step-number">1</div>
                 <h3>Text What You Need</h3>
-                <p>"Remind me about soccer practice Thursday at 4"</p>
+                <p>"Remind me to call the Johnson client Monday at 8"</p>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
@@ -1757,31 +1756,31 @@
         <h2>Built for Your Kind of Busy</h2>
         <div class="cases-grid">
             <div class="case-card">
-                <span class="case-icon">🎒</span>
+                <span class="case-icon">📞</span>
                 <div>
-                    <h3>School Events</h3>
-                    <p>Picture day, field trips, early dismissals — never miss the note again.</p>
+                    <h3>Follow-Ups & Callbacks</h3>
+                    <p>Client calls, bids, quotes — chase them before they go cold.</p>
                 </div>
             </div>
             <div class="case-card">
-                <span class="case-icon">🛒</span>
+                <span class="case-icon">🧾</span>
                 <div>
-                    <h3>Grocery Lists</h3>
-                    <p>"Add goldfish crackers to my list" — done before you forget.</p>
+                    <h3>Invoices & Deadlines</h3>
+                    <p>"Remind me to send the invoice Friday" — out the door before it's overdue.</p>
                 </div>
             </div>
             <div class="case-card">
-                <span class="case-icon">💊</span>
+                <span class="case-icon">👷</span>
                 <div>
-                    <h3>Medication & Appointments</h3>
-                    <p>Refill reminders, pediatrician visits, allergy meds — all tracked.</p>
+                    <h3>Team & Job Details</h3>
+                    <p>Crew schedules, site assignments, extensions — saved and ready when you ask.</p>
                 </div>
             </div>
             <div class="case-card">
-                <span class="case-icon">🎂</span>
+                <span class="case-icon">🧠</span>
                 <div>
-                    <h3>Birthdays & Dates</h3>
-                    <p>Class party snacks, teacher appreciation, family birthdays — covered.</p>
+                    <h3>The Stuff Between Meetings</h3>
+                    <p>Ideas, promises, and to-dos — captured before the next meeting wipes them.</p>
                 </div>
             </div>
         </div>
@@ -1789,16 +1788,16 @@
 
     <!-- ═══ MID-PAGE CTA ═══ -->
     <section class="mid-cta">
-        <p>Ready to stop forgetting things?</p>
-        <a href="sms:+18555521950?body=GO!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'mid_cta',page:'index-parents'})">📱 Text GO — It's Free!</a>
-        <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'mid_cta',page:'index-parents'})">Get Started Now →</a>
+        <p>Ready to stop dropping follow-ups?</p>
+        <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'mid_cta',page:'index-professionals'})">📱 Text WORK — It's Free!</a>
+        <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'mid_cta',page:'index-professionals'})">Get Started Now →</a>
     </section>
 
     </main>
 
     <!-- ═══ FOOTER ═══ -->
     <footer>
-        <p class="footer-phone">Text <strong>GO</strong> to <a href="sms:+18555521950?body=GO!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer',page:'index-parents'})">+1 (855) 552-1950</a></p>
+        <p class="footer-phone">Text <strong>WORK</strong> to <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer',page:'index-professionals'})">+1 (855) 552-1950</a></p>
         <div class="footer-links">
             <a href="/">Full Site</a>
             <a href="/#pricing">Pricing</a>
@@ -1859,14 +1858,14 @@
                     submitBtn.textContent = 'Get Started \u2192';
 
                     if (response.ok && data.success) {
-                        gtag('event', 'signup_form_submit', { status: 'success', page: 'index-parents' });
-                        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'signup_form', content_category: 'index-parents' });
+                        gtag('event', 'signup_form_submit', { status: 'success', page: 'index-professionals' });
+                        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'signup_form', content_category: 'index-professionals' });
                         successDiv.style.display = 'block';
                         errorDiv.style.display = 'none';
                         phoneInput.value = '';
                         setTimeout(function() { successDiv.style.display = 'none'; }, 5000);
                     } else {
-                        gtag('event', 'signup_form_submit', { status: 'error', page: 'index-parents' });
+                        gtag('event', 'signup_form_submit', { status: 'error', page: 'index-professionals' });
                         errorDiv.textContent = data.error || 'Something went wrong. Please try again.';
                         errorDiv.style.display = 'block';
                         successDiv.style.display = 'none';
@@ -1874,8 +1873,8 @@
                 } catch (error) {
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Get Started \u2192';
-                    gtag('event', 'signup_form_submit', { status: 'error', page: 'index-parents' });
-                    errorDiv.textContent = 'Something went wrong. Please try texting GO to (855) 552-1950 instead.';
+                    gtag('event', 'signup_form_submit', { status: 'error', page: 'index-professionals' });
+                    errorDiv.textContent = 'Something went wrong. Please try texting WORK to (855) 552-1950 instead.';
                     errorDiv.style.display = 'block';
                     successDiv.style.display = 'none';
                 }
@@ -1917,56 +1916,55 @@
 
             // ── Precanned responses for each chip message ──
             var cannedResponses = {
-                'Remind me about picture day next Tuesday': {
+                'Remind me to follow up with the Johnson bid Monday at 8am': {
                     scenario: 'reminder',
                     steps: [
-                        { type: 'bot', text: "Got it! I'll remind you about picture day next Tuesday. \u2713", delay: 1500 },
-                        { type: 'time-skip', text: '\u23E9  Fast forward to Tuesday morning...', delay: 3000 },
-                        { type: 'bot', text: "\u23F0 Hey! Reminder: Picture day is today! Don't forget!", delay: 4500 }
+                        { type: 'bot', text: "Got it! I'll remind you Monday at 8:00 AM to follow up with the Johnson bid. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Fast forward to Monday, 8:00 AM...', delay: 3000 },
+                        { type: 'bot', text: '\u23F0 Reminder: Follow up with the Johnson bid!', delay: 4500 }
                     ]
                 },
-                'Add goldfish crackers and juice boxes to my grocery list': {
-                    scenario: 'list',
-                    steps: [
-                        { type: 'bot', text: '\u2713 Added goldfish crackers and juice boxes to your grocery list! (2 items)', delay: 1500 },
-                        { type: 'time-skip', text: '\u23E9  Later, at the store...', delay: 3000 },
-                        { type: 'user', text: "What's on my grocery list?", delay: 4200 },
-                        { type: 'bot', text: 'Your grocery list:\n\u2022 Goldfish crackers\n\u2022 Juice boxes', delay: 5800 }
-                    ]
-                },
-                'Remember that soccer practice is at 4pm on Thursdays': {
-                    scenario: 'memory',
-                    steps: [
-                        { type: 'bot', text: "Saved! I'll remember that soccer practice is at 4pm on Thursdays. \u26BD \u2713", delay: 1500 },
-                        { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
-                        { type: 'user', text: "When's soccer practice?", delay: 4200 },
-                        { type: 'bot', text: '\u26BD Soccer practice is at 4pm on Thursdays', delay: 5800 }
-                    ]
-                },
-                "Remind me to refill Tyler's prescription Friday": {
+                'Remind me to send the Hendricks invoice Friday morning': {
                     scenario: 'reminder',
                     steps: [
-                        { type: 'bot', text: "Got it! I'll remind you to refill Tyler's prescription on Friday. \u2713", delay: 1500 },
+                        { type: 'bot', text: "Got it! I'll remind you Friday morning to send the Hendricks invoice. \u2713", delay: 1500 },
                         { type: 'time-skip', text: '\u23E9  Fast forward to Friday...', delay: 3000 },
-                        { type: 'bot', text: "\u23F0 Hey! Reminder: Refill Tyler's prescription!", delay: 4500 }
+                        { type: 'bot', text: '\u23F0 Reminder: Send the Hendricks invoice!', delay: 4500 }
                     ]
                 },
-                'Add sunscreen and bug spray to my camping list': {
-                    scenario: 'list',
-                    steps: [
-                        { type: 'bot', text: '\u2713 Added sunscreen and bug spray to your camping list! (2 items)', delay: 1500 },
-                        { type: 'time-skip', text: '\u23E9  Later, packing for the trip...', delay: 3000 },
-                        { type: 'user', text: "What's on my camping list?", delay: 4200 },
-                        { type: 'bot', text: 'Your camping list:\n\u2022 Sunscreen\n\u2022 Bug spray', delay: 5800 }
-                    ]
-                },
-                'Remember early dismissal is at 1pm on Wednesdays': {
+                "Remember Dave's extension is 4417": {
                     scenario: 'memory',
                     steps: [
-                        { type: 'bot', text: "Saved! I'll remember that early dismissal is at 1pm on Wednesdays. \uD83C\uDFE0 \u2713", delay: 1500 },
-                        { type: 'time-skip', text: '\u23E9  2 weeks later...', delay: 3000 },
-                        { type: 'user', text: "When's early dismissal?", delay: 4200 },
-                        { type: 'bot', text: '\uD83C\uDFE0 Early dismissal is at 1pm on Wednesdays', delay: 5800 }
+                        { type: 'bot', text: "Saved! I'll remember Dave's extension is 4417. \u260E\uFE0F \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  3 weeks later...', delay: 3000 },
+                        { type: 'user', text: "What's Dave's extension?", delay: 4200 },
+                        { type: 'bot', text: "\u260E\uFE0F Dave's extension is 4417", delay: 5800 }
+                    ]
+                },
+                'Add printer toner and shipping labels to my office list': {
+                    scenario: 'list',
+                    steps: [
+                        { type: 'bot', text: '\u2713 Added printer toner and shipping labels to your office list! (2 items)', delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Later, placing the supply order...', delay: 3000 },
+                        { type: 'user', text: "What's on my office list?", delay: 4200 },
+                        { type: 'bot', text: 'Your office list:\n\u2022 Printer toner\n\u2022 Shipping labels', delay: 5800 }
+                    ]
+                },
+                'Remember Crew B is at the Oak Street site this week': {
+                    scenario: 'memory',
+                    steps: [
+                        { type: 'bot', text: "Saved! I'll remember Crew B is at the Oak Street site this week. \uD83D\uDC77 \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Wednesday, on the road...', delay: 3000 },
+                        { type: 'user', text: 'Where is Crew B this week?', delay: 4200 },
+                        { type: 'bot', text: '\uD83D\uDC77 Crew B is at the Oak Street site this week', delay: 5800 }
+                    ]
+                },
+                'Remind me to prep for the 9am standup tomorrow': {
+                    scenario: 'reminder',
+                    steps: [
+                        { type: 'bot', text: "Got it! I'll remind you tomorrow before your 9am standup. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  The next morning...', delay: 3000 },
+                        { type: 'bot', text: '\u23F0 Reminder: Prep for the 9am standup!', delay: 4500 }
                     ]
                 }
             };
@@ -2019,7 +2017,7 @@
                     demoRunning = false;
                     ctaEl.style.display = 'block';
                     suggestionsEl.style.display = 'flex';
-                    if (typeof gtag === 'function') gtag('event', 'demo_completed', { scenario: scenarioKey, demo_number: demoCount, page: 'index-parents' });
+                    if (typeof gtag === 'function') gtag('event', 'demo_completed', { scenario: scenarioKey, demo_number: demoCount, page: 'index-professionals' });
                 }, lastDelay + 1200);
             }
 
@@ -2041,7 +2039,7 @@
                 var canned = cannedResponses[userMsg];
                 var scenarioKey = canned ? canned.scenario : 'unknown';
 
-                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, chip_message: userMsg, demo_number: demoCount, trigger: trigger || 'tap', page: 'index-parents' });
+                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, chip_message: userMsg, demo_number: demoCount, trigger: trigger || 'tap', page: 'index-professionals' });
 
                 if (canned) {
                     playSteps(canned.steps, canned.scenario);
@@ -2157,7 +2155,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Remyndrs",
-      "description": "AI-powered personal memory assistant via text message for busy parents.",
+      "description": "AI-powered personal memory assistant via text message for busy professionals.",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Any (text message-based)",
       "offers": [
