@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Charset must precede everything else: browsers only honor it within
+         the first 1024 bytes, and GA has logged mojibake page titles from
+         real visitors when it sat below the analytics scripts. -->
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8ZBVMT9JE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-T8ZBVMT9JE');
+      // Track landing page view with variant
+      gtag('event', 'landing_page_view', {
+        variant: 'professionals_linkedin',
+        page: 'index-professionals'
+      });
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2321949688328139');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2321949688328139&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remyndrs — The Reminder Assistant for People Who Can't Drop the Ball</title>
+    <meta name="description" content="The reminder assistant for people who can't drop the ball. Follow-ups, deadlines, client callbacks — all by text. No app needed. Free to start.">
+    <link rel="icon" type="image/png" href="remyndrs-logo.png">
+    <link rel="canonical" href="https://remyndrs.com/index-professionals.html">
+    <meta name="theme-color" content="#4A90A4">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://remyndrs.com/index-professionals.html">
+    <meta property="og:title" content="Remyndrs — The Reminder Assistant for People Who Can't Drop the Ball">
+    <meta property="og:description" content="Follow-ups, deadlines, client callbacks — all by text message. No app to download. Free to start.">
+    <meta property="og:image" content="https://remyndrs.com/og-image.png">
+
+    <style>
+        :root {
+            --primary-blue: #4A90A4;
+            --success-green: #50B688;
+            --text-dark: #3D4F5C;
+            --bg-light: #f8f9fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* ─── HEADER ─── */
+        header {
+            background: white;
+            padding: 14px 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 960px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 44px;
+            width: auto;
+            display: block;
+        }
+
+        .header-phone {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .header-phone:hover { text-decoration: underline; }
+
+        /* ─── HERO ─── */
+        .hero {
+            background: linear-gradient(160deg, #E3F0F7 0%, #DFF2E8 50%, #EEF3E8 100%);
+            text-align: center;
+            padding: 20px 20px 24px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 200px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero > * { position: relative; z-index: 1; }
+
+        .hero-logo {
+            width: 90px;
+            height: auto;
+            margin: 0 auto 10px;
+            display: block;
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.12));
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 16px;
+            color: #5a6d7a;
+            margin-bottom: 16px;
+        }
+
+        .hero .phone-display {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero .phone-display a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        /* ─── PHONE MOCKUP (iPhone 16 Pro display ratio) ─── */
+        .phone-mockup {
+            width: 230px;
+            aspect-ratio: 9 / 19.5;
+            margin: 0 auto 12px;
+            background: #f5f5f5;
+            border-radius: 36px;
+            border: 5px solid #1a1a1a;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Status bar (time, signal, 5G, battery) */
+        .phone-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 14px 0;
+            font-size: 11px;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            position: relative;
+            z-index: 2;
+            height: 32px;
+        }
+
+        .phone-status-left {
+            min-width: 40px;
+            z-index: 3;
+        }
+
+        .phone-status-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 5px;
+        }
+
+        /* Dynamic Island */
+        .phone-notch {
+            width: 72px;
+            height: 22px;
+            background: #1a1a1a;
+            border-radius: 12px;
+        }
+
+        .phone-status-right {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            z-index: 3;
+            justify-content: flex-end;
+            font-size: 10px;
+        }
+
+        /* Signal bars */
+        .signal-bars {
+            display: flex;
+            align-items: flex-end;
+            gap: 1px;
+            height: 10px;
+        }
+
+        .signal-bars span {
+            display: block;
+            width: 3px;
+            background: #1a1a1a;
+            border-radius: 1px;
+        }
+
+        .signal-bars span:nth-child(1) { height: 4px; }
+        .signal-bars span:nth-child(2) { height: 6px; }
+        .signal-bars span:nth-child(3) { height: 8px; }
+        .signal-bars span:nth-child(4) { height: 10px; }
+
+        /* Battery icon */
+        .battery-icon {
+            width: 20px;
+            height: 9px;
+            border: 1.5px solid #1a1a1a;
+            border-radius: 2px;
+            position: relative;
+            margin-left: 2px;
+        }
+
+        .battery-icon::before {
+            content: '';
+            position: absolute;
+            inset: 1.5px;
+            background: #34C759;
+            border-radius: 1px;
+        }
+
+        .battery-icon::after {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 2px;
+            width: 2px;
+            height: 4px;
+            background: #1a1a1a;
+            border-radius: 0 1px 1px 0;
+        }
+
+        .phone-header {
+            text-align: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: #333;
+            padding: 8px 8px 8px;
+            border-bottom: 1px solid #ddd;
+            background: #f5f5f5;
+        }
+
+        .phone-messages {
+            padding: 12px 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .phone-messages::after {
+            content: '';
+            display: table;
+            clear: both;
+        }
+
+        /* Home indicator bar */
+        .phone-home-bar {
+            width: 100px;
+            height: 4px;
+            background: #333;
+            border-radius: 2px;
+            margin: 8px auto 6px;
+        }
+
+        .msg {
+            margin-bottom: 6px;
+            padding: 8px 12px;
+            border-radius: 16px;
+            max-width: 80%;
+            font-size: 13px;
+            line-height: 1.35;
+            clear: both;
+            animation: msgFade 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .msg.user {
+            background: #34C759;
+            color: white;
+            float: right;
+            margin-right: 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .msg.bot {
+            background: #e5e5ea;
+            color: #000;
+            float: left;
+            margin-left: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .msg:nth-child(1) { animation-delay: 0.3s; }
+        .msg:nth-child(2) { animation-delay: 1.2s; }
+        .msg:nth-child(3) { animation-delay: 2.1s; }
+        .msg:nth-child(4) { animation-delay: 3s; }
+
+        @keyframes msgFade {
+            to { opacity: 1; }
+        }
+
+        /* ─── MOBILE HERO PHONE (auto-animated, above-the-fold) ─── */
+        .hero-phone-mobile {
+            max-width: 210px;
+            aspect-ratio: 9 / 19.5;
+            margin: 0 auto 12px;
+            background: #f5f5f5;
+            border-radius: 32px;
+            border: 5px solid #1a1a1a;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-phone-mobile .phone-notch {
+            position: absolute;
+            top: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 15px;
+            background: #1a1a1a;
+            border-radius: 0 0 10px 10px;
+            z-index: 5;
+        }
+
+        .hero-phone-mobile .phone-statusbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 12px 0;
+            font-size: 9px;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            height: 22px;
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .hero-phone-mobile .status-battery {
+            display: inline-block;
+            width: 12px;
+            height: 7px;
+            border: 1.2px solid #1a1a1a;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .hero-phone-mobile .status-battery::after {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background: #34C759;
+            border-radius: 1px;
+        }
+
+        .hero-phone-mobile .phone-topbar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            flex-shrink: 0;
+        }
+
+        .hero-phone-mobile .phone-avatar {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .hero-phone-mobile .phone-contact {
+            font-size: 11px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hero-phone-mobile .phone-messages {
+            flex: 1;
+            overflow: hidden;
+            padding: 8px 8px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            background: #fff;
+        }
+
+        .hero-phone-mobile .phone-bubble {
+            padding: 6px 9px;
+            border-radius: 14px;
+            font-size: 12.5px;
+            line-height: 1.3;
+            max-width: 82%;
+            width: fit-content;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+        }
+
+        .hero-phone-mobile .phone-bubble.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-phone-mobile .phone-bubble.user {
+            background: #34C759;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .hero-phone-mobile .phone-bubble.bot {
+            background: #e9e9eb;
+            color: #000;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .hero-phone-mobile .phone-homebar {
+            width: 40px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            margin: 5px auto 6px;
+            flex-shrink: 0;
+        }
+
+        /* ─── SOCIAL PROOF ─── */
+        .social-proof {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .mobile-social-proof {
+            margin-top: 6px;
+            margin-bottom: 0;
+        }
+
+        /* ─── CTA PULSE ANIMATION ─── */
+        @keyframes ctaPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+
+        /* ─── CTA ─── */
+        .cta-button {
+            display: block;
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+            background: var(--success-green);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            text-align: center;
+            transition: transform 0.15s, box-shadow 0.15s;
+            box-shadow: 0 4px 14px rgba(80, 182, 136, 0.35);
+            animation: ctaPulse 0.8s ease 0.5s 1;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(80, 182, 136, 0.45);
+        }
+
+        .cta-button:active { transform: translateY(0); }
+
+        .sms-disclaimer {
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
+            max-width: 340px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .sms-disclaimer a { color: var(--primary-blue); }
+
+        .phone-fallback {
+            font-size: 14px;
+            color: #5a6d7a;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .phone-fallback a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .phone-fallback a:hover { text-decoration: underline; }
+
+        .free-line {
+            font-size: 13px;
+            color: #5a6d7a;
+            margin-top: 6px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .hero-trust {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            color: #5a6d7a;
+            font-weight: 500;
+        }
+
+        /* ─── HERO SCROLL CUE (mobile) ─── */
+        .hero-scroll-cue {
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary-blue);
+            margin-top: 14px;
+            padding: 4px 0;
+        }
+
+        .hero-scroll-cue-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .hero-scroll-cue-chevron {
+            display: block;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1;
+            animation: scrollCueBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollCueBounce {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(5px); opacity: 0.7; }
+        }
+
+        /* ─── DESKTOP SIGNUP FORM ─── */
+        .desktop-signup-form {
+            display: none;
+            margin: 16px auto 0;
+            padding: 18px;
+            background: white;
+            border-radius: 14px;
+            max-width: 460px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        .desktop-signup-form h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .desktop-signup-form .form-sub {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .signup-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .signup-row input {
+            flex: 1;
+            padding: 14px 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .signup-row input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .signup-row button {
+            padding: 14px 28px;
+            background: var(--success-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .signup-row button:hover { background: #45A077; }
+
+        .form-legal {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .form-legal a { color: var(--primary-blue); }
+
+        .form-feedback {
+            display: none;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .form-feedback.success { background: #E8F5F1; color: var(--success-green); }
+        .form-feedback.error { background: #FFE5E5; color: #D32F2F; }
+
+        /* ─── PRICING STRIP ─── */
+        .pricing-strip {
+            text-align: center;
+            padding: 14px 20px;
+            background: white;
+            border-bottom: 1px solid #eee;
+            font-size: 15px;
+            color: #5a6d7a;
+        }
+
+        .pricing-strip strong { color: var(--text-dark); }
+
+        .pricing-strip a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 6px;
+        }
+
+        .pricing-strip a:hover { text-decoration: underline; }
+
+        /* ─── HOW IT WORKS ─── */
+        .how-it-works {
+            padding: 50px 20px;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .steps {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 180px;
+            max-width: 200px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0 auto 12px;
+        }
+
+        .step h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .step p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* ─── USE CASES ─── */
+        .use-cases {
+            padding: 50px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .use-cases h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-dark);
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .case-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .case-icon { font-size: 28px; flex-shrink: 0; }
+
+        .case-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .case-card p {
+            font-size: 13px;
+            color: #888;
+            line-height: 1.5;
+        }
+
+        /* ─── MID-PAGE CTA ─── */
+        .mid-cta {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #6BA8BC 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .mid-cta p {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .mid-cta .cta-button {
+            background: white;
+            color: var(--primary-blue);
+            max-width: 300px;
+        }
+
+        .mid-cta .cta-button:hover {
+            box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+        }
+
+        /* ─── HEADER PILL BUTTON (desktop) ─── */
+        .header-phone-btn {
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            background: var(--primary-blue);
+            text-decoration: none;
+            white-space: nowrap;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .header-phone-btn:hover {
+            background: #3D7A8C;
+            transform: translateY(-1px);
+        }
+
+        /* ─── SECONDARY PHONE DISPLAY (desktop) ─── */
+        .phone-display-secondary {
+            font-size: 14px;
+            color: #8a9baa;
+            margin-top: 12px;
+        }
+
+        .phone-display-secondary a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .phone-display-secondary a:hover { text-decoration: underline; }
+
+        /* ─── HERO FLANKING PHONES (desktop 1024px+ only) ─── */
+        .hero-desktop-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-center {
+            flex: 0 1 auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .hero-phone-demo {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .demo-phone {
+            width: 135px;
+            aspect-ratio: 9 / 19.5;
+            background: #f5f5f5;
+            border-radius: 24px;
+            border: 3px solid #1a1a1a;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+            display: flex;
+            flex-direction: column;
+            opacity: 0.75;
+            transition: opacity 0.3s;
+        }
+
+        .demo-phone:hover { opacity: 0.92; }
+
+        .hero-phone-demo.left .demo-phone { transform: rotate(-8deg); }
+        .hero-phone-demo.right .demo-phone { transform: rotate(8deg); }
+
+        .demo-label {
+            font-size: 13px;
+            color: #7a8d99;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+
+        .demo-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 9px 0;
+            font-size: 7px;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            height: 20px;
+            position: relative;
+        }
+
+        .demo-status-bar .demo-left { z-index: 1; }
+
+        .demo-island {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 3px;
+            width: 42px;
+            height: 13px;
+            background: #1a1a1a;
+            border-radius: 7px;
+        }
+
+        .demo-status-bar .demo-right {
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 6px;
+        }
+
+        .demo-signal {
+            display: flex;
+            align-items: flex-end;
+            gap: 1px;
+        }
+
+        .demo-signal span {
+            display: block;
+            width: 1.5px;
+            background: #1a1a1a;
+            border-radius: 1px;
+        }
+
+        .demo-signal span:nth-child(1) { height: 2px; }
+        .demo-signal span:nth-child(2) { height: 4px; }
+        .demo-signal span:nth-child(3) { height: 5px; }
+        .demo-signal span:nth-child(4) { height: 6px; }
+
+        .demo-battery {
+            width: 12px;
+            height: 6px;
+            border: 1px solid #1a1a1a;
+            border-radius: 1.5px;
+            position: relative;
+            margin-left: 1px;
+        }
+
+        .demo-battery::before {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background: #34C759;
+            border-radius: 1px;
+        }
+
+        .demo-battery::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: 1.5px;
+            width: 1.5px;
+            height: 3px;
+            background: #1a1a1a;
+            border-radius: 0 1px 1px 0;
+        }
+
+        .demo-app-header {
+            text-align: center;
+            font-weight: 700;
+            font-size: 9px;
+            color: #333;
+            padding: 4px;
+            border-bottom: 1px solid #ddd;
+            background: #f5f5f5;
+        }
+
+        .demo-messages {
+            padding: 6px 6px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .demo-msg {
+            margin-bottom: 3px;
+            padding: 4px 7px;
+            border-radius: 10px;
+            max-width: 86%;
+            font-size: 9.5px;
+            line-height: 1.3;
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            white-space: pre-line;
+        }
+
+        .demo-msg.visible { opacity: 1; transform: translateY(0); }
+
+        .demo-msg.user {
+            background: #34C759;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .demo-msg.bot {
+            background: #e5e5ea;
+            color: #000;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            text-align: left;
+        }
+
+        .demo-home-bar {
+            width: 50px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            margin: 4px auto 4px;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-phone-demo { display: flex !important; }
+        }
+
+        @media (min-width: 1024px) and (max-width: 1279px) {
+            .demo-phone { width: 116px; border-radius: 20px; }
+            .hero-desktop-layout { gap: 20px; }
+            .demo-msg { font-size: 8.5px; padding: 3px 6px; }
+            .demo-island { width: 36px; height: 11px; border-radius: 6px; }
+            .demo-status-bar { height: 18px; padding: 3px 7px 0; font-size: 6px; }
+            .demo-app-header { font-size: 8px; padding: 3px; }
+            .demo-home-bar { width: 40px; }
+        }
+
+        /* ─── INTERACTIVE DEMO ─── */
+        .try-demo {
+            padding: 32px 20px 28px;
+            background: linear-gradient(180deg, #EEF3F6 0%, #f4f7f9 100%);
+            border-top: 1px solid #e4e9ec;
+            text-align: center;
+        }
+
+        .try-demo-label {
+            font-size: 22px;
+            font-weight: 700;
+            color: #2c3e50;
+            letter-spacing: 0;
+            margin-bottom: 6px;
+        }
+
+        .try-demo-sublabel {
+            font-size: 14px;
+            color: #6b7c8a;
+            margin-bottom: 20px;
+        }
+
+        .try-demo-phone {
+            max-width: 220px;
+            aspect-ratio: 9 / 19.5;
+            margin: 0 auto;
+            background: #f5f5f5;
+            border-radius: 36px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.20);
+            overflow: hidden;
+            border: 6px solid #1a1a1a;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .try-demo-notch {
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 22px;
+            background: #1a1a1a;
+            border-radius: 0 0 14px 14px;
+            z-index: 5;
+        }
+
+        .try-demo-statusbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 16px 0;
+            font-size: 11px;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #f5f5f5;
+            height: 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .try-demo-statusbar .demo-right {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 10px;
+        }
+
+        .try-demo-topbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .try-demo-avatar {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .try-demo-contact {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .try-demo-messages {
+            flex: 1;
+            min-height: 320px;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            scroll-behavior: smooth;
+            background: #fff;
+        }
+
+        .try-demo-bubble {
+            padding: 7px 11px;
+            border-radius: 16px;
+            font-size: 13px;
+            line-height: 1.35;
+            max-width: 82%;
+            width: fit-content;
+            animation: demoMsgIn 0.3s ease both;
+            white-space: pre-line;
+        }
+
+        .try-demo-bubble.user {
+            background: #34C759;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .try-demo-bubble.bot {
+            background: #e9e9eb;
+            color: #000;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            text-align: left;
+        }
+
+        .try-demo-bubble.time-skip {
+            background: transparent;
+            color: #999;
+            font-size: 12px;
+            font-weight: 600;
+            align-self: center;
+            text-align: center;
+            padding: 8px 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .try-demo-typing {
+            align-self: flex-start;
+            background: #e9e9eb;
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            padding: 10px 16px;
+            display: flex;
+            gap: 4px;
+            width: fit-content;
+        }
+
+        .try-demo-typing span {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #999;
+            animation: typingDot 1.2s infinite;
+        }
+
+        .try-demo-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .try-demo-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingDot {
+            0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+            30% { opacity: 1; transform: translateY(-3px); }
+        }
+
+        @keyframes demoMsgIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .try-demo-homebar {
+            width: 50px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            margin: 6px auto 8px;
+        }
+
+        .try-demo-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            max-width: 420px;
+            margin: 16px auto 0;
+        }
+
+        .try-demo-chip {
+            padding: 10px 16px;
+            border-radius: 22px;
+            border: 1.5px solid var(--primary-blue);
+            background: white;
+            color: var(--primary-blue);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            box-shadow: 0 2px 6px rgba(74, 144, 164, 0.10);
+        }
+
+        .try-demo-chip:hover {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: 0 3px 10px rgba(74, 144, 164, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .try-demo-cta {
+            margin-top: 20px;
+            animation: demoMsgIn 0.5s ease both;
+        }
+
+        .try-demo-cta-text {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .try-demo { padding: 24px 16px 20px; }
+            .try-demo-phone { max-width: 220px; border-radius: 30px; border-width: 5px; }
+            .try-demo-messages { min-height: 180px; padding: 8px; }
+            .try-demo-bubble { font-size: 12px; padding: 6px 9px; border-radius: 14px; }
+            .try-demo-chip { font-size: 12px; padding: 9px 14px; }
+            .try-demo-notch { width: 58px; height: 16px; border-radius: 0 0 12px 12px; top: 5px; }
+            .try-demo-statusbar { height: 24px; font-size: 9px; padding: 4px 12px 0; }
+            .try-demo-topbar { padding: 5px 10px; }
+            .try-demo-avatar { width: 22px; height: 22px; font-size: 10px; }
+            .try-demo-contact { font-size: 11px; }
+            .try-demo-homebar { width: 42px; margin: 5px auto 6px; }
+        }
+
+        @media (min-width: 769px) {
+            .try-demo-phone { max-width: 220px; }
+            .try-demo-suggestions { max-width: 500px; }
+        }
+
+        /* ─── TESTIMONIALS (markup and styles mirror index.html) ─── */
+        .testimonial {
+            padding: 40px 20px;
+            background: linear-gradient(160deg, #E3F0F7 0%, #DFF2E8 50%, #EEF3E8 100%);
+            text-align: center;
+        }
+
+        .testimonial h2 {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            flex: 1 1 300px;
+            max-width: 340px;
+            background: white;
+            border-radius: 14px;
+            padding: 26px 22px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary-blue);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-quote {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-top: auto;
+        }
+
+        .testimonial-location {
+            font-size: 12px;
+            font-weight: 400;
+            color: #6b7a85;
+            display: block;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial { padding: 32px 16px; }
+            .testimonial h2 { font-size: 22px; }
+            .testimonials-grid { gap: 14px; }
+            .testimonial-card { flex-basis: 100%; max-width: 480px; padding: 22px 18px; }
+            .testimonial-quote { font-size: 14px; line-height: 1.6; }
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        footer .footer-phone {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        footer .footer-phone a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        footer .footer-phone a:hover { text-decoration: underline; }
+
+        footer .footer-links { margin-bottom: 12px; }
+
+        footer .footer-links a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            margin: 0 8px;
+            font-size: 13px;
+        }
+
+        footer .footer-links a:hover { color: white; }
+
+        footer .footer-copy {
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+        }
+
+        /* ─── VISIBILITY HELPERS ─── */
+        .mobile-only { display: block; }
+        .desktop-only-block { display: none; }
+        .desktop-only-inline-block { display: none; }
+
+        /* ─── MOBILE HERO TIGHTENING ─── */
+        @media (max-width: 768px) {
+            header { padding: 10px 16px; }
+            .header-phone { display: none !important; }
+            .header-inner { gap: 0; }
+            .hero { padding: 18px 16px 16px; }
+            .hero-logo { width: 56px; margin-bottom: 6px; }
+            .hero h1 { font-size: 26px; margin-bottom: 2px; }
+            .hero .subtitle { font-size: 15px; margin-bottom: 6px; }
+            .hero .phone-display { font-size: 17px; margin-bottom: 8px; }
+            .hero-phone-mobile { margin-bottom: 6px; }
+            .cta-button { padding: 12px 20px; font-size: 17px; }
+            .sms-disclaimer { font-size: 10px; line-height: 1.3; margin-top: 4px; }
+            .social-proof { font-size: 13px; margin-top: 6px; }
+            .hero-trust { margin-top: 6px; font-size: 12px; gap: 14px; }
+            .free-line { font-size: 12px; margin-top: 3px; }
+        }
+
+        /* ─── DESKTOP ─── */
+        @media (min-width: 769px) {
+            .mobile-only { display: none !important; }
+            .hero-phone-mobile { display: none !important; }
+            .desktop-only-block { display: block !important; }
+            .desktop-only-inline-block { display: inline-block !important; }
+            .desktop-signup-form { display: block !important; }
+            .mobile-cta-area { display: none !important; }
+
+            .hero { padding: 40px 20px 36px; }
+            .hero h1 { font-size: 40px; letter-spacing: -0.5px; }
+            .hero .subtitle { font-size: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+            .hero .phone-display { font-size: 22px; }
+            .logo img { height: 50px; }
+
+            .phone-mockup { width: 250px; }
+
+            .cases-grid {
+                grid-template-columns: 1fr 1fr;
+                max-width: 600px;
+                gap: 20px;
+            }
+
+            .steps { flex-wrap: nowrap; gap: 40px; }
+        }
+
+        /* ─── MOBILE ─── */
+        @media (max-width: 768px) {
+            .header-inner { flex-wrap: wrap; gap: 0; }
+
+            .header-phone {
+                font-size: 12px;
+                order: 3;
+                width: 100%;
+                text-align: center;
+                padding-top: 8px;
+                border-top: 1px solid rgba(0,0,0,0.06);
+            }
+        }
+
+        /* ─── ABOVE THE FOLD SQUEEZE for iPhone 14 (390x844) ─── */
+        @media (max-width: 430px) {
+            .hero { padding: 14px 14px 14px; }
+            .hero-logo { width: 50px; margin-bottom: 4px; }
+            .hero h1 { font-size: 24px; margin-bottom: 2px; }
+            .hero .subtitle { font-size: 14px; margin-bottom: 4px; }
+            .hero .phone-display { font-size: 15px; margin-bottom: 6px; }
+            .hero-phone-mobile { max-width: 190px; margin-bottom: 4px; border-radius: 28px; border-width: 4px; }
+            .hero-phone-mobile .phone-notch { width: 52px; height: 13px; }
+            .hero-phone-mobile .phone-statusbar { height: 20px; font-size: 8px; padding: 3px 10px 0; }
+            .hero-phone-mobile .phone-topbar { padding: 4px 9px; }
+            .hero-phone-mobile .phone-avatar { width: 20px; height: 20px; font-size: 9px; }
+            .hero-phone-mobile .phone-contact { font-size: 10px; }
+            .hero-phone-mobile .phone-messages { padding: 6px 6px 0; gap: 3px; }
+            .hero-phone-mobile .phone-bubble { font-size: 11.5px; padding: 5px 8px; border-radius: 12px; }
+            .hero-phone-mobile .phone-homebar { width: 34px; margin: 4px auto 5px; }
+            .cta-button { padding: 11px 16px; font-size: 16px; }
+            .social-proof { font-size: 11px; margin-top: 4px; }
+            .sms-disclaimer { font-size: 9px; line-height: 1.25; margin-top: 3px; }
+            .free-line { font-size: 11px; margin-top: 2px; }
+            .hero-trust { gap: 10px; margin-top: 4px; font-size: 11px; }
+        }
+
+        /* Android mobile uses the same tap-to-text SMS links as iOS
+           (sms:number?body= is Android's native format) — no overrides. */
+    </style>
+</head>
+<body>
+
+    <!-- ═══ HEADER ═══ -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">
+                <img src="remyndrs-logo.png" alt="Remyndrs" width="180" height="44">
+            </div>
+            <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="header-phone mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'header',page:'index-professionals'})">Text WORK → (855) 552-1950</a>
+            <a href="#hero" class="header-phone-btn desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'phone_header',location:'header',page:'index-professionals'})">Get Started Free →</a>
+        </div>
+    </header>
+
+    <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="hero" id="hero">
+        <div class="hero-desktop-layout">
+
+            <!-- Left phone: School Events -->
+            <div class="hero-phone-demo left">
+                <div class="demo-phone">
+                    <div class="demo-status-bar">
+                        <span class="demo-left">9:41</span>
+                        <div class="demo-island"></div>
+                        <div class="demo-right">
+                            <div class="demo-signal"><span></span><span></span><span></span><span></span></div>
+                            <span>5G</span>
+                            <div class="demo-battery"></div>
+                        </div>
+                    </div>
+                    <div class="demo-app-header">Remyndrs</div>
+                    <div class="demo-messages" id="demo-school">
+                        <div class="demo-msg user visible">Remind me to follow up with the Johnson bid Monday at 8am</div>
+                        <div class="demo-msg bot visible">✓ I'll remind you Monday at 8:00 AM — follow up with the Johnson bid</div>
+                        <div class="demo-msg user visible">Also send the invoice Friday morning</div>
+                        <div class="demo-msg bot visible">✓ I'll remind you Friday at 9:00 AM — send the invoice</div>
+                    </div>
+                    <div class="demo-home-bar"></div>
+                </div>
+                <span class="demo-label">📞 Follow-Ups</span>
+            </div>
+
+            <!-- Center: hero content -->
+            <div class="hero-center">
+                <img src="remyndrs-logo.png" alt="Remyndrs" class="hero-logo" width="90" height="90">
+                <h1 id="heroHeadline">Three meetings ago you promised someone a call-back.</h1>
+                <p class="subtitle">The reminder assistant for people who can't drop the ball.</p>
+                <script>
+                /* Ad-to-page message match: the landing headline must mirror the ad
+                   the visitor clicked (brand rule). Each ad links here with ?h=<key>;
+                   unknown or missing keys keep the authored headline above. Add a key
+                   per approved ad hook — copy must go through brand review first. */
+                (function () {
+                    var HOOKS = {
+                        'callback': null /* the authored default above */
+                    };
+                    var key = new URLSearchParams(window.location.search).get('h');
+                    if (key && HOOKS[key]) {
+                        document.getElementById('heroHeadline').textContent = HOOKS[key];
+                    }
+                })();
+                </script>
+
+                <!-- Mobile auto-animated hero phone (matches FB ad conversation) -->
+                <div class="hero-phone-mobile" aria-hidden="true">
+                    <div class="phone-notch"></div>
+                    <div class="phone-statusbar">
+                        <span>9:41</span>
+                        <span class="status-battery"></span>
+                    </div>
+                    <div class="phone-topbar">
+                        <span class="phone-avatar">R</span>
+                        <span class="phone-contact">Remyndrs</span>
+                    </div>
+                    <div class="phone-messages" id="heroPhoneMessages">
+                        <div class="phone-bubble user visible">Remind me to call the Hendricks client back tomorrow at 9am</div>
+                        <div class="phone-bubble bot visible">✓ Got it — I'll remind you tomorrow at 9:00 AM</div>
+                        <div class="phone-bubble user visible">Remember Dave's extension is 4417</div>
+                        <div class="phone-bubble bot visible">✓ Saved! Ask me anytime and I'll tell you.</div>
+                    </div>
+                    <div class="phone-homebar"></div>
+                </div>
+
+                <!-- Mobile: keep Text GO + CTA as primary -->
+                <p class="phone-display mobile-only">
+                    Text <strong>WORK</strong> to
+                    <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_hero',location:'hero',page:'index-professionals'})">+1 (855) 552-1950</a>
+                </p>
+
+                <!-- Mobile CTA -->
+                <p style="font-size: 13px; color: #5a6d7a; text-align: center; margin-bottom: 8px;">See how it works ↓ (30 seconds)</p>
+                <div class="mobile-cta-area mobile-only">
+                    <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button" id="mainCta" aria-label="Start free by texting WORK" onclick="gtag('event','mobile_sms_click',{action:'start',location:'hero',page:'index-professionals'})">
+                        📱 Tap to Text Us — It's Free! →
+                    </a>
+                    <p style="font-size: 12px; color: #5a6d7a; text-align: center; margin-top: 6px;">✓ Your Messages app will open — just hit Send!</p>
+                    <p class="social-proof mobile-social-proof">✓ Join professionals who never miss a follow-up</p>
+                    <p class="sms-disclaimer">By texting, you agree to receive automated SMS messages. Msg & data rates may apply. Reply STOP to unsubscribe. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+                </div>
+
+                <!-- Desktop Signup Form (PRIMARY CTA) -->
+                <div class="desktop-signup-form">
+                    <h3>Get Started Now</h3>
+                    <p class="form-sub">We'll text you instantly to get started.</p>
+                    <form id="desktopSignupForm">
+                        <div class="signup-row">
+                            <input type="tel" id="phoneInput" placeholder="(555) 123-4567" required
+                                   pattern="[\+]?[0-9\s\-\(\)]+"
+                                   title="Enter a valid phone number">
+                            <button type="submit">Get Started →</button>
+                        </div>
+                        <p class="form-legal">No spam. Only texts you request. Reply STOP anytime. <a href="privacy.html">Privacy</a> | <a href="terms.html">Terms</a></p>
+                    </form>
+                    <div id="signupSuccess" class="form-feedback success">✓ Text message sent! Check your phone.</div>
+                    <div id="signupError" class="form-feedback error">Something went wrong. Please try again.</div>
+                </div>
+
+                <!-- Desktop: Text GO as secondary fallback -->
+                <p class="phone-display-secondary desktop-only-block">
+                    Or text <strong>WORK</strong> to <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_hero_secondary',location:'hero',page:'index-professionals'})">+1 (855) 552-1950</a> from your phone
+                </p>
+
+                <p class="free-line">Free forever. No credit card needed.</p>
+
+                <p class="social-proof desktop-only-block">✓ Join professionals who never miss a follow-up</p>
+
+                <div class="hero-trust">
+                    <span>🔒 Bank-level encryption</span>
+                    <span>⚡ Instant setup</span>
+                    <span>📱 Works on any phone</span>
+                </div>
+
+                <a href="#try-demo" class="hero-scroll-cue mobile-only" onclick="gtag('event','cta_click',{cta_type:'scroll_hint',location:'hero',page:'index-professionals'})">
+                    <span class="hero-scroll-cue-label">See 30-second demo</span>
+                    <span class="hero-scroll-cue-chevron" aria-hidden="true">↓</span>
+                </a>
+            </div>
+
+            <!-- Right phone: Grocery Lists -->
+            <div class="hero-phone-demo right">
+                <div class="demo-phone">
+                    <div class="demo-status-bar">
+                        <span class="demo-left">9:41</span>
+                        <div class="demo-island"></div>
+                        <div class="demo-right">
+                            <div class="demo-signal"><span></span><span></span><span></span><span></span></div>
+                            <span>5G</span>
+                            <div class="demo-battery"></div>
+                        </div>
+                    </div>
+                    <div class="demo-app-header">Remyndrs</div>
+                    <div class="demo-messages" id="demo-grocery">
+                        <div class="demo-msg user visible">Add printer toner to my office supplies list</div>
+                        <div class="demo-msg bot visible">✓ Added printer toner to your office supplies list</div>
+                        <div class="demo-msg user visible">What's on my office supplies list?</div>
+                        <div class="demo-msg bot visible">Your office supplies list:
+• Printer toner
+• Shipping labels
+• Coffee pods
+• AA batteries</div>
+                    </div>
+                    <div class="demo-home-bar"></div>
+                </div>
+                <span class="demo-label">🧾 Work Lists</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══ INTERACTIVE DEMO ═══ -->
+    <section class="try-demo" id="try-demo">
+        <p class="try-demo-label">Try It Yourself — No Account Needed</p>
+        <p class="try-demo-sublabel">See how easy it is to text Remyndrs</p>
+        <div class="try-demo-phone">
+            <div class="try-demo-notch"></div>
+            <div class="try-demo-statusbar">
+                <span>9:41</span>
+                <span class="demo-right">
+                    <span style="display:inline-flex;align-items:flex-end;gap:1px"><span style="display:block;width:1.5px;height:3px;background:#1a1a1a;border-radius:1px"></span><span style="display:block;width:1.5px;height:5px;background:#1a1a1a;border-radius:1px"></span><span style="display:block;width:1.5px;height:7px;background:#1a1a1a;border-radius:1px"></span><span style="display:block;width:1.5px;height:9px;background:#1a1a1a;border-radius:1px"></span></span>
+                    <span style="display:inline-block;width:16px;height:8px;border:1.5px solid #1a1a1a;border-radius:2px;position:relative;margin-left:2px"><span style="position:absolute;inset:1.5px;background:#34C759;border-radius:1px"></span></span>
+                </span>
+            </div>
+            <div class="try-demo-topbar">
+                <span class="try-demo-avatar">R</span>
+                <span class="try-demo-contact">Remyndrs</span>
+            </div>
+            <div class="try-demo-messages" id="tryDemoMessages">
+                <div class="try-demo-bubble bot">Hi! I'm Remyndrs. Tap a suggestion below to see how it works.</div>
+            </div>
+            <div class="try-demo-homebar"></div>
+        </div>
+        <p class="try-demo-sublabel" style="margin-top:16px; margin-bottom:12px;">&#11015;&#65039; Tap a message below to see Remyndrs in action</p>
+        <div class="try-demo-suggestions" id="tryDemoSuggestions">
+            <button class="try-demo-chip" data-msg="Remind me to follow up with the Johnson bid Monday at 8am">📞 Remind me to follow up on a bid</button>
+            <button class="try-demo-chip" data-msg="Remind me to send the Hendricks invoice Friday morning">🧾 Remind me to send an invoice</button>
+            <button class="try-demo-chip" data-msg="Remember Dave's extension is 4417">☎️ Remember a phone extension</button>
+            <button class="try-demo-chip" data-msg="Add printer toner and shipping labels to my office list">🖨️ Add to my office supplies list</button>
+            <button class="try-demo-chip" data-msg="Remember Crew B is at the Oak Street site this week">👷 Remember a crew assignment</button>
+            <button class="try-demo-chip" data-msg="Remind me to prep for the 9am standup tomorrow">⏰ Remind me to prep for a meeting</button>
+        </div>
+        <div class="try-demo-cta" id="tryDemoCta" style="display:none;">
+            <p class="try-demo-cta-text">That's it. No app. No account. Just text.</p>
+            <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'interactive_demo',page:'index-professionals'})">📱 Try It For Real — Text Us Free!</a>
+            <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'interactive_demo',page:'index-professionals'})">Try It For Real — Get Started Free!</a>
+        </div>
+    </section>
+
+    <!-- ═══ TESTIMONIALS (quotes verbatim from data/testimonials.json) ═══ -->
+    <section class="testimonial">
+        <h2>What professionals are saying</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I was putting reminders in Outlook, creating lists in Notes, and reminders in my Calendar app. Remyndrs consolidates all 3 into 1. I often failed to check emails and calendar entries in time — I never miss a Remyndrs text."</p>
+                <p class="testimonial-author">— Heather<span class="testimonial-location">Chicago, IL</span></p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I run a busy IT company and used to work way too late every night. Remyndrs actually gets me out the door on time now. Simple, reliable, and it just works."</p>
+                <p class="testimonial-author">— Brad S.<span class="testimonial-location">Detroit, MI</span></p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I work 12-hour shifts and my schedule rotates. Setting reminders in a calendar app never worked because my days off change every week. With Remyndrs I just text what I need and when, and it handles the rest. It's become essential."</p>
+                <p class="testimonial-author">— Marcus T.<span class="testimonial-location">Austin, TX</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ HOW IT WORKS ═══ -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Text What You Need</h3>
+                <p>"Remind me to call the Johnson client Monday at 8"</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>We Handle It</h3>
+                <p>Our AI understands your message and sets the reminder automatically.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Get Reminded</h3>
+                <p>You get a text at the right time. Never miss what matters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PRICING STRIP ─── -->
+    <div class="pricing-strip">
+        <strong>Free to start</strong> · 14-day Premium trial · Then $8.99/mo or free forever
+        <a href="/#pricing">See plans →</a>
+    </div>
+
+    <!-- ═══ USE CASES ═══ -->
+    <section class="use-cases">
+        <h2>Built for Your Kind of Busy</h2>
+        <div class="cases-grid">
+            <div class="case-card">
+                <span class="case-icon">📞</span>
+                <div>
+                    <h3>Follow-Ups & Callbacks</h3>
+                    <p>Client calls, bids, quotes — chase them before they go cold.</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <span class="case-icon">🧾</span>
+                <div>
+                    <h3>Invoices & Deadlines</h3>
+                    <p>"Remind me to send the invoice Friday" — out the door before it's overdue.</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <span class="case-icon">👷</span>
+                <div>
+                    <h3>Team & Job Details</h3>
+                    <p>Crew schedules, site assignments, extensions — saved and ready when you ask.</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <span class="case-icon">🧠</span>
+                <div>
+                    <h3>The Stuff Between Meetings</h3>
+                    <p>Ideas, promises, and to-dos — captured before the next meeting wipes them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ MID-PAGE CTA ═══ -->
+    <section class="mid-cta">
+        <p>Ready to stop dropping follow-ups?</p>
+        <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" class="cta-button mobile-only" onclick="gtag('event','mobile_sms_click',{action:'start',location:'mid_cta',page:'index-professionals'})">📱 Text WORK — It's Free!</a>
+        <a href="#hero" class="cta-button desktop-only-inline-block" onclick="gtag('event','cta_click',{cta_type:'get_started',location:'mid_cta',page:'index-professionals'})">Get Started Now →</a>
+    </section>
+
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <p class="footer-phone">Text <strong>WORK</strong> to <a href="sms:+18555521950?body=WORK!%20Start%20my%20Remyndrs%20trial%20%E2%86%92" onclick="gtag('event','cta_click',{cta_type:'phone_footer',location:'footer',page:'index-professionals'})">+1 (855) 552-1950</a></p>
+        <div class="footer-links">
+            <a href="/">Full Site</a>
+            <a href="/#pricing">Pricing</a>
+            <a href="faq.html">FAQ</a>
+            <a href="commands.html">Commands</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="/cdn-cgi/l/email-protection#86f5f3f6f6e9f4f2c6f4e3ebffe8e2f4f5a8e5e9eb">Contact</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Remyndrs. All rights reserved. Built with ❤️ to help you remember what matters.</p>
+    </footer>
+
+    <!-- ═══ SCRIPTS ═══ -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="platform-detect.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // Platform-specific sms: link handling lives in platform-detect.js
+        // (single source of truth — do not duplicate it inline).
+
+        // ── Desktop signup form ──
+        var signupForm = document.getElementById('desktopSignupForm');
+        if (signupForm) {
+            signupForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                var phoneInput = document.getElementById('phoneInput');
+                var successDiv = document.getElementById('signupSuccess');
+                var errorDiv = document.getElementById('signupError');
+                var submitBtn = signupForm.querySelector('button[type="submit"]');
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                var phoneNumber = phoneInput.value.replace(/\D/g, '');
+                if (phoneNumber.length === 10) phoneNumber = '1' + phoneNumber;
+
+                if (phoneNumber.length < 10 || phoneNumber.length > 15) {
+                    errorDiv.textContent = 'Please enter a valid phone number.';
+                    errorDiv.style.display = 'block';
+                    successDiv.style.display = 'none';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get Started \u2192';
+                    return;
+                }
+
+                var formattedNumber = '+' + phoneNumber;
+
+                try {
+                    var response = await fetch('https://sms-reminders-api-1gmm.onrender.com/api/signup', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ phone: formattedNumber })
+                    });
+
+                    var data = await response.json();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get Started \u2192';
+
+                    if (response.ok && data.success) {
+                        gtag('event', 'signup_form_submit', { status: 'success', page: 'index-professionals' });
+                        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'signup_form', content_category: 'index-professionals' });
+                        successDiv.style.display = 'block';
+                        errorDiv.style.display = 'none';
+                        phoneInput.value = '';
+                        setTimeout(function() { successDiv.style.display = 'none'; }, 5000);
+                    } else {
+                        gtag('event', 'signup_form_submit', { status: 'error', page: 'index-professionals' });
+                        errorDiv.textContent = data.error || 'Something went wrong. Please try again.';
+                        errorDiv.style.display = 'block';
+                        successDiv.style.display = 'none';
+                    }
+                } catch (error) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get Started \u2192';
+                    gtag('event', 'signup_form_submit', { status: 'error', page: 'index-professionals' });
+                    errorDiv.textContent = 'Something went wrong. Please try texting WORK to (855) 552-1950 instead.';
+                    errorDiv.style.display = 'block';
+                    successDiv.style.display = 'none';
+                }
+            });
+
+            // Phone formatting
+            document.getElementById('phoneInput').addEventListener('input', function(e) {
+                var value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value.length <= 3) {
+                        // keep
+                    } else if (value.length <= 6) {
+                        value = '(' + value.slice(0, 3) + ') ' + value.slice(3);
+                    } else {
+                        value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6, 10);
+                    }
+                }
+                e.target.value = value;
+            });
+        }
+
+        // ── Force cross-page hash links (/#section) to navigate properly ──
+        document.querySelectorAll('a[href^="/#"]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = this.getAttribute('href');
+            });
+        });
+
+        // ── Interactive Try-It Demo ──
+        (function() {
+            var messagesEl = document.getElementById('tryDemoMessages');
+            var suggestionsEl = document.getElementById('tryDemoSuggestions');
+            var ctaEl = document.getElementById('tryDemoCta');
+            if (!messagesEl) return;
+
+            var demoRunning = false;
+            var demoCount = 0;
+
+            // ── Precanned responses for each chip message ──
+            var cannedResponses = {
+                'Remind me to follow up with the Johnson bid Monday at 8am': {
+                    scenario: 'reminder',
+                    steps: [
+                        { type: 'bot', text: "Got it! I'll remind you Monday at 8:00 AM to follow up with the Johnson bid. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Fast forward to Monday, 8:00 AM...', delay: 3000 },
+                        { type: 'bot', text: '\u23F0 Reminder: Follow up with the Johnson bid!', delay: 4500 }
+                    ]
+                },
+                'Remind me to send the Hendricks invoice Friday morning': {
+                    scenario: 'reminder',
+                    steps: [
+                        { type: 'bot', text: "Got it! I'll remind you Friday morning to send the Hendricks invoice. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Fast forward to Friday...', delay: 3000 },
+                        { type: 'bot', text: '\u23F0 Reminder: Send the Hendricks invoice!', delay: 4500 }
+                    ]
+                },
+                "Remember Dave's extension is 4417": {
+                    scenario: 'memory',
+                    steps: [
+                        { type: 'bot', text: "Saved! I'll remember Dave's extension is 4417. \u260E\uFE0F \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  3 weeks later...', delay: 3000 },
+                        { type: 'user', text: "What's Dave's extension?", delay: 4200 },
+                        { type: 'bot', text: "\u260E\uFE0F Dave's extension is 4417", delay: 5800 }
+                    ]
+                },
+                'Add printer toner and shipping labels to my office list': {
+                    scenario: 'list',
+                    steps: [
+                        { type: 'bot', text: '\u2713 Added printer toner and shipping labels to your office list! (2 items)', delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Later, placing the supply order...', delay: 3000 },
+                        { type: 'user', text: "What's on my office list?", delay: 4200 },
+                        { type: 'bot', text: 'Your office list:\n\u2022 Printer toner\n\u2022 Shipping labels', delay: 5800 }
+                    ]
+                },
+                'Remember Crew B is at the Oak Street site this week': {
+                    scenario: 'memory',
+                    steps: [
+                        { type: 'bot', text: "Saved! I'll remember Crew B is at the Oak Street site this week. \uD83D\uDC77 \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  Wednesday, on the road...', delay: 3000 },
+                        { type: 'user', text: 'Where is Crew B this week?', delay: 4200 },
+                        { type: 'bot', text: '\uD83D\uDC77 Crew B is at the Oak Street site this week', delay: 5800 }
+                    ]
+                },
+                'Remind me to prep for the 9am standup tomorrow': {
+                    scenario: 'reminder',
+                    steps: [
+                        { type: 'bot', text: "Got it! I'll remind you tomorrow before your 9am standup. \u2713", delay: 1500 },
+                        { type: 'time-skip', text: '\u23E9  The next morning...', delay: 3000 },
+                        { type: 'bot', text: '\u23F0 Reminder: Prep for the 9am standup!', delay: 4500 }
+                    ]
+                }
+            };
+
+            function addBubble(type, text) {
+                var div = document.createElement('div');
+                div.className = 'try-demo-bubble ' + type;
+                div.textContent = text;
+                messagesEl.appendChild(div);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+                return div;
+            }
+
+            function addTyping() {
+                var div = document.createElement('div');
+                div.className = 'try-demo-typing';
+                div.innerHTML = '<span></span><span></span><span></span>';
+                messagesEl.appendChild(div);
+                messagesEl.scrollTop = messagesEl.scrollHeight;
+                return div;
+            }
+
+            function playSteps(steps, scenarioKey) {
+                var typingEl = null;
+                setTimeout(function() {
+                    typingEl = addTyping();
+                }, 500);
+
+                steps.forEach(function(step, idx) {
+                    setTimeout(function() {
+                        if (typingEl) { typingEl.remove(); typingEl = null; }
+                        var bubbleType = step.type === 'time-skip' ? 'time-skip' : (step.type === 'user' ? 'user' : 'bot');
+                        addBubble(bubbleType, step.text);
+                        var hasMoreBotSteps = false;
+                        for (var j = idx + 1; j < steps.length; j++) {
+                            var t = steps[j].type;
+                            if (!t || t === 'bot') { hasMoreBotSteps = true; break; }
+                        }
+                        if (hasMoreBotSteps) {
+                            setTimeout(function() {
+                                typingEl = addTyping();
+                            }, 300);
+                        }
+                    }, step.delay);
+                });
+
+                var lastDelay = steps[steps.length - 1].delay;
+                setTimeout(function() {
+                    if (typingEl) { typingEl.remove(); typingEl = null; }
+                    demoRunning = false;
+                    ctaEl.style.display = 'block';
+                    suggestionsEl.style.display = 'flex';
+                    if (typeof gtag === 'function') gtag('event', 'demo_completed', { scenario: scenarioKey, demo_number: demoCount, page: 'index-professionals' });
+                }, lastDelay + 1200);
+            }
+
+            function runDemo(userMsg, trigger) {
+                if (demoRunning) return;
+                demoRunning = true;
+                demoCount++;
+
+                suggestionsEl.style.display = 'none';
+
+                if (demoCount > 1) {
+                    var divider = document.createElement('div');
+                    divider.style.cssText = 'width:40px;height:2px;background:#d8dee3;border-radius:1px;margin:12px auto;';
+                    messagesEl.appendChild(divider);
+                }
+
+                addBubble('user', userMsg);
+
+                var canned = cannedResponses[userMsg];
+                var scenarioKey = canned ? canned.scenario : 'unknown';
+
+                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, chip_message: userMsg, demo_number: demoCount, trigger: trigger || 'tap', page: 'index-professionals' });
+
+                if (canned) {
+                    playSteps(canned.steps, canned.scenario);
+                }
+            }
+
+            // Auto-play the first scenario once when the demo scrolls into
+            // view: paid-traffic visitors rarely tap a chip unprompted, and
+            // an empty white phone is a wasted first impression. Tagged
+            // trigger:'auto' so demo_started stays honest about intent.
+            if ('IntersectionObserver' in window) {
+                var demoSection = document.getElementById('try-demo');
+                if (demoSection) {
+                    var autoObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting && demoCount === 0) {
+                                var firstChip = suggestionsEl.querySelector('.try-demo-chip');
+                                if (firstChip) runDemo(firstChip.getAttribute('data-msg'), 'auto');
+                            }
+                            if (entry.isIntersecting) autoObserver.disconnect();
+                        });
+                    }, { threshold: 0.35 });
+                    autoObserver.observe(demoSection);
+                }
+            }
+
+            suggestionsEl.addEventListener('click', function(e) {
+                var chip = e.target.closest('.try-demo-chip');
+                if (!chip) return;
+                var msg = chip.getAttribute('data-msg');
+                runDemo(msg);
+            });
+        })();
+
+        // ── Auto-playing demo phone animations (desktop only) ──
+        if (window.innerWidth >= 1024) {
+            var schoolContainer = document.getElementById('demo-school');
+            var groceryContainer = document.getElementById('demo-grocery');
+
+            if (schoolContainer && groceryContainer) {
+                var schoolMsgs = schoolContainer.querySelectorAll('.demo-msg');
+                var groceryMsgs = groceryContainer.querySelectorAll('.demo-msg');
+
+                var schoolDelays = [500, 2000, 4000, 5500];
+                var groceryDelays = [500, 2000, 4000, 5500];
+                var holdTime = 5000;
+
+                function playPhone(msgs, delays, onDone) {
+                    msgs.forEach(function(m) { m.classList.remove('visible'); });
+                    delays.forEach(function(delay, i) {
+                        setTimeout(function() {
+                            if (msgs[i]) msgs[i].classList.add('visible');
+                        }, delay);
+                    });
+                    setTimeout(onDone, delays[delays.length - 1] + holdTime);
+                }
+
+                function runCycle() {
+                    // Left (school) animates, right stays visible
+                    playPhone(schoolMsgs, schoolDelays, function() {
+                        // Left now visible, right clears & replays
+                        playPhone(groceryMsgs, groceryDelays, function() {
+                            runCycle();
+                        });
+                    });
+                }
+
+                // Both conversations are fully visible at first paint (LCP);
+                // hold them before starting the replay loop.
+                setTimeout(runCycle, 6000);
+            }
+        }
+    });
+    </script>
+
+    <!-- Structured Data: Organization (brand entity) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Remyndrs",
+      "alternateName": "Remyndrs SMS",
+      "url": "https://remyndrs.com",
+      "logo": "https://remyndrs.com/remyndrs-logo.png",
+      "description": "Remyndrs is an AI-powered personal memory assistant via text message. Set reminders, save info, and create lists — all by SMS.",
+      "sameAs": [
+        "https://www.facebook.com/remyndrs",
+        "https://www.instagram.com/remyndrs_sms"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-855-552-1950",
+        "contactType": "customer service",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+
+    <!-- Structured Data: WebSite (brand search recognition) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Remyndrs",
+      "alternateName": "Remyndrs SMS",
+      "url": "https://remyndrs.com"
+    }
+    </script>
+
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Remyndrs",
+      "description": "AI-powered personal memory assistant via text message for busy professionals.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any (text message-based)",
+      "offers": [
+        { "@type": "Offer", "name": "Always-Free Tier", "price": "0", "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Premium Monthly", "price": "8.99", "priceCurrency": "USD" }
+      ]
+    }
+    </script>
+
+</body>
+</html>
