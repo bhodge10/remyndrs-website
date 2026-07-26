@@ -60,18 +60,25 @@ document.addEventListener('DOMContentLoaded', function () {
     var platform = isAndroid ? 'android' : (isIOS ? 'ios' : 'other');
     document.querySelectorAll('a[href^="sms:"]').forEach(function (link) {
         link.addEventListener('click', function () {
-            if (typeof gtag !== 'function') return;
             var body = (link.getAttribute('href').split('body=')[1] || '');
             var firstWord = '(none)';
             try {
                 firstWord = decodeURIComponent(body).split(/[^A-Za-z]/)[0] || '(none)';
             } catch (e) { /* malformed encoding — keep (none) */ }
-            gtag('event', 'sms_link_tap', {
-                page: window.location.pathname.replace(/^\//, '').replace('.html', '') || 'index',
-                keyword: firstWord,
-                platform: platform,
-                transport_type: 'beacon'
-            });
+            var page = window.location.pathname.replace(/^\//, '').replace('.html', '') || 'index';
+            if (typeof gtag === 'function') {
+                gtag('event', 'sms_link_tap', {
+                    page: page,
+                    keyword: firstWord,
+                    platform: platform,
+                    transport_type: 'beacon'
+                });
+            }
+            // A tap on the SMS CTA is the mobile equivalent of the desktop
+            // form's Lead — Meta campaigns optimize toward this event.
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead', { content_name: 'sms_link_tap', content_category: page });
+            }
         });
     });
 

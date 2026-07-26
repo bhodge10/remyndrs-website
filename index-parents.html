@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Charset must precede everything else: browsers only honor it within
+         the first 1024 bytes, and GA has logged mojibake page titles from
+         real visitors when it sat below the analytics scripts. -->
+    <meta charset="UTF-8">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T8ZBVMT9JE"></script>
     <script>
@@ -29,9 +33,8 @@
     </script>
     <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2321949688328139&ev=PageView&noscript=1"/></noscript>
     <!-- End Meta Pixel Code -->
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remyndrs for Parents — Never Forget Picture Day Again</title>
+    <title>Remyndrs — The Reminder Assistant Built for Busy Parents</title>
     <meta name="description" content="The reminder assistant built for busy parents. Grocery lists, school events, medication refills — all by text. No app needed. Free forever.">
     <link rel="icon" type="image/png" href="remyndrs-logo.png">
     <link rel="canonical" href="https://remyndrs.com/index-parents.html">
@@ -1299,6 +1302,72 @@
             .try-demo-suggestions { max-width: 500px; }
         }
 
+        /* ─── TESTIMONIALS (markup and styles mirror index.html) ─── */
+        .testimonial {
+            padding: 40px 20px;
+            background: linear-gradient(160deg, #E3F0F7 0%, #DFF2E8 50%, #EEF3E8 100%);
+            text-align: center;
+        }
+
+        .testimonial h2 {
+            font-size: 28px;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+        }
+
+        .testimonials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            flex: 1 1 300px;
+            max-width: 340px;
+            background: white;
+            border-radius: 14px;
+            padding: 26px 22px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary-blue);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-quote {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--text-dark);
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-author {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-top: auto;
+        }
+
+        .testimonial-location {
+            font-size: 12px;
+            font-weight: 400;
+            color: #6b7a85;
+            display: block;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonial { padding: 32px 16px; }
+            .testimonial h2 { font-size: 22px; }
+            .testimonials-grid { gap: 14px; }
+            .testimonial-card { flex-basis: 100%; max-width: 480px; padding: 22px 18px; }
+            .testimonial-quote { font-size: 14px; line-height: 1.6; }
+        }
+
         /* ─── FOOTER ─── */
         footer {
             background: var(--text-dark);
@@ -1473,8 +1542,24 @@
             <!-- Center: hero content -->
             <div class="hero-center">
                 <img src="remyndrs-logo.png" alt="Remyndrs" class="hero-logo" width="90" height="90">
-                <h1>Your kid's teacher just texted the class party list. Now what?</h1>
+                <h1 id="heroHeadline">Your kid's teacher just texted the class party list. Now what?</h1>
                 <p class="subtitle">The reminder assistant built for busy parents.</p>
+                <script>
+                /* Ad-to-page message match: the landing headline must mirror the ad
+                   the visitor clicked (brand rule). Each ad links here with ?h=<key>;
+                   unknown or missing keys keep the authored headline above. Add a key
+                   per approved ad hook — copy must go through brand review first. */
+                (function () {
+                    var HOOKS = {
+                        'party': null, /* hook A = the authored default above */
+                        'rsvp': 'I forgot to RSVP to another birthday party. So I built something.'
+                    };
+                    var key = new URLSearchParams(window.location.search).get('h');
+                    if (key && HOOKS[key]) {
+                        document.getElementById('heroHeadline').textContent = HOOKS[key];
+                    }
+                })();
+                </script>
 
                 <!-- Mobile auto-animated hero phone (matches FB ad conversation) -->
                 <div class="hero-phone-mobile" aria-hidden="true">
@@ -1620,6 +1705,25 @@
         </div>
     </section>
 
+    <!-- ═══ TESTIMONIALS (quotes verbatim from data/testimonials.json) ═══ -->
+    <section class="testimonial">
+        <h2>What parents are saying</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"With a 3-year-old and a 1-year-old, my brain is mush by noon. I text Remyndrs while I'm nursing or waiting in the pickup line. It's the only tool that works because I don't have to open anything. Just text and done."</p>
+                <p class="testimonial-author">— Danielle K.<span class="testimonial-location">Portland, OR</span></p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I was putting reminders in Outlook, creating lists in Notes, and reminders in my Calendar app. Remyndrs consolidates all 3 into 1. I often failed to check emails and calendar entries in time — I never miss a Remyndrs text."</p>
+                <p class="testimonial-author">— Heather<span class="testimonial-location">Chicago, IL</span></p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I figured I could just set an alarm — only to have the alarm go off and forget what I set it for. I absolutely love this texting service. A week later Remyndrs texts me exactly what the reminder is for."</p>
+                <p class="testimonial-author">— Joey<span class="testimonial-location">Shepherdsville, KY</span></p>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ HOW IT WORKS ═══ -->
     <section class="how-it-works">
         <h2>How It Works</h2>
@@ -1756,7 +1860,7 @@
 
                     if (response.ok && data.success) {
                         gtag('event', 'signup_form_submit', { status: 'success', page: 'index-parents' });
-                        fbq('track', 'Lead');
+                        if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'signup_form', content_category: 'index-parents' });
                         successDiv.style.display = 'block';
                         errorDiv.style.display = 'none';
                         phoneInput.value = '';
@@ -1919,7 +2023,7 @@
                 }, lastDelay + 1200);
             }
 
-            function runDemo(userMsg) {
+            function runDemo(userMsg, trigger) {
                 if (demoRunning) return;
                 demoRunning = true;
                 demoCount++;
@@ -1937,10 +2041,30 @@
                 var canned = cannedResponses[userMsg];
                 var scenarioKey = canned ? canned.scenario : 'unknown';
 
-                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, chip_message: userMsg, demo_number: demoCount, page: 'index-parents' });
+                if (typeof gtag === 'function') gtag('event', 'demo_started', { scenario: scenarioKey, chip_message: userMsg, demo_number: demoCount, trigger: trigger || 'tap', page: 'index-parents' });
 
                 if (canned) {
                     playSteps(canned.steps, canned.scenario);
+                }
+            }
+
+            // Auto-play the first scenario once when the demo scrolls into
+            // view: paid-traffic visitors rarely tap a chip unprompted, and
+            // an empty white phone is a wasted first impression. Tagged
+            // trigger:'auto' so demo_started stays honest about intent.
+            if ('IntersectionObserver' in window) {
+                var demoSection = document.getElementById('try-demo');
+                if (demoSection) {
+                    var autoObserver = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting && demoCount === 0) {
+                                var firstChip = suggestionsEl.querySelector('.try-demo-chip');
+                                if (firstChip) runDemo(firstChip.getAttribute('data-msg'), 'auto');
+                            }
+                            if (entry.isIntersecting) autoObserver.disconnect();
+                        });
+                    }, { threshold: 0.35 });
+                    autoObserver.observe(demoSection);
                 }
             }
 
