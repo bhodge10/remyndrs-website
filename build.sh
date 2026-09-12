@@ -11,7 +11,7 @@ EXCLUDE="payment-success.html payment-cancelled.html admin/index.html"
 HIGH_PRIORITY="index.html"
 
 # Medium-priority pages (monthly crawl, priority 0.7)
-MEDIUM_PRIORITY="faq.html commands.html"
+MEDIUM_PRIORITY="faq.html commands.html blog.html"
 
 # Everything else gets low priority (yearly crawl, priority 0.3)
 
@@ -35,9 +35,16 @@ for file in $(find . -name "*.html" -not -path "*/node_modules/*" -not -path "./
     continue
   fi
 
-  # Build URL path
+  # Build URL path. Blog uses Netlify pretty URLs: /blog/ and
+  # /blog/slug/ 301 to the no-slash forms that the live site serves.
   if [ "$file" = "index.html" ]; then
     url="$DOMAIN/"
+  elif [ "$file" = "blog.html" ]; then
+    url="$DOMAIN/blog"
+  elif [[ "$file" == blog/*.html ]]; then
+    slug="${file#blog/}"
+    slug="${slug%.html}"
+    url="$DOMAIN/blog/$slug"
   else
     url="$DOMAIN/$file"
   fi
@@ -59,6 +66,13 @@ for file in $(find . -name "*.html" -not -path "*/node_modules/*" -not -path "./
       break
     fi
   done
+  if [ "$file" = "blog.html" ]; then
+    changefreq="weekly"
+    priority="0.7"
+  elif [[ "$file" == blog/*.html ]]; then
+    changefreq="monthly"
+    priority="0.6"
+  fi
 
   cat >> sitemap.xml <<EOF
   <url>
