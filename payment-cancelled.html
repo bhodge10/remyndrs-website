@@ -198,6 +198,14 @@
             }
         }
     </style>
+<!-- SitePilot Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6ZMDDWJW7S"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-6ZMDDWJW7S');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a)return;var h=a.getAttribute('href')||'';if(h.indexOf('tel:')===0){gtag('event','phone_tap');}else if(/calendly|booking|schedule|appointment/i.test(h)){gtag('event','booking_click');}});
+document.addEventListener('submit',function(){gtag('event','form_submit');},true);
+</script>
 </head>
 <body>
     <header>
