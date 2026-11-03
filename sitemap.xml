@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://remyndrs.com/blog</loc>
-    <lastmod>2026-09-12</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -47,5 +47,9 @@
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://remyndrs.com/blog/why-remyndrs-is-better-than-your-events-app-on-your-phone</loc>
+    <lastmod>2026-11-03</lastmod>
   </url>
 </urlset>
